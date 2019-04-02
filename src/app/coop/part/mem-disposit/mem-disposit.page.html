@@ -1,0 +1,47 @@
+<ion-header>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
+  <ion-toolbar color="secondary">
+      <ion-buttons slot="start" style="color:black;">
+          <ion-back-button
+              [text]="buttonText"
+              [icon]="buttonIcon">
+          </ion-back-button>
+        </ion-buttons>
+    <ion-title>
+      <div align="center"> 
+      เงินฝากของฉัน
+    </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding  *ngIf="mainshow">
+  <!-- *ngFor="let item of items" -->
+    <ion-card (click)="chkstatement(item.deposit_account_no)" *ngFor="let item of items">
+        <ion-card-header>
+          <!-- <ion-card-subtitle>Card Subtitle</ion-card-subtitle> -->
+          <!-- <ion-card-title>{{item.loan_card_id}}</ion-card-title> -->
+          <ion-card-title> 
+              <!-- <i class="fas fa-money-check-alt"></i>  -->
+              <div class="maintext">{{item.DEPOSIT_NAME}}</div>
+              <div class="maintext" style="font-size:2vmax;">บัญชี</div>
+          </ion-card-title>
+        
+        </ion-card-header>
+        <ion-card-content class="maintext">
+          <div align="right">
+          {{item.deposit_account_no}}
+        </div>
+         
+        </ion-card-content>
+  
+        
+      </ion-card>
+
+     
+</ion-content>
+<ion-content *ngIf="loadshow">
+    <ion-spinner name="dots" color="primary"></ion-spinner>
+    <!-- <ion-spinner paused></ion-spinner> -->
+</ion-content>

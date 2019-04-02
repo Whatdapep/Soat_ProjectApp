@@ -1,0 +1,40 @@
+<ion-header>
+    <ion-toolbar>
+        <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
+      <ion-buttons slot="start">
+          <ion-back-button
+              [text]="buttonText"
+              [icon]="buttonIcon">
+          </ion-back-button>
+        </ion-buttons>
+        <ion-title class="maintext">การค้ำประกันของฉัน</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content padding *ngIf="mainshow">
+  <!-- ----------------------------test  -->
+  <ion-card *ngFor="let item of items">
+      <ion-card-header>
+        <!-- <ion-card-subtitle>Card Subtitle</ion-card-subtitle> -->
+        <!-- <ion-card-title>{{item.loan_card_id}}</ion-card-title> -->
+        <ion-card-title class="maintext">   {{item.loan_name}}</ion-card-title>
+      
+      </ion-card-header>
+      <ion-card-content class="maintext">
+         <!-- {{item.loan_name}} -->
+         {{item.loan_contract_no}}
+      </ion-card-content>
+      <ion-card-content align = "right" class="maintext">
+        <!-- {{item.princical_balance}} -->
+        {{item.membership_no}}
+       </ion-card-content>
+      
+    </ion-card>
+    
+  <!-- ---------------------------- -->
+  </ion-content>
+  <ion-content *ngIf="loadshow">
+      <ion-spinner name="dots" color="primary"></ion-spinner>
+      <!-- <ion-spinner paused></ion-spinner> -->
+  </ion-content>
+  

@@ -1,0 +1,29 @@
+ion-spinner{
+    margin: auto;
+    margin-top: 50%;
+    width:100% !important;
+    height: 40px !important;
+    align-items: center;
+    // width:50/%;
+    
+}
+ion-card{
+    background-image:radial-gradient(circle,rgb(128, 189, 255),rgb(102, 176, 255), rgb(230, 242, 255));
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.maintext{
+    color: #222222;
+    // font-weight:bold;
+    font-size: 3vmax;
+    // border-bottom: #555555 solid 1px;
+    font-family: 'Kanit', sans-serif;
+
+}
+ion-title{
+    color: #222222;
+    // font-weight:bold;
+    font-size: 3vmax;
+    // border-bottom: #555555 solid 1px;
+    font-family: 'Kanit', sans-serif;
+}

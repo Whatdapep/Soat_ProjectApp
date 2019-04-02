@@ -1,0 +1,161 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+      <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+
+      <ion-buttons slot="start">
+          <ion-back-button
+              [text]="buttonText"
+              [icon]="buttonIcon">
+          </ion-back-button>
+        </ion-buttons>
+    <ion-title>
+      <ion-label class="maintext_price">
+      กระดานข่าว
+        <!-- <div align="right"> -->
+          <a class="maintext_cen turn" (click)="board_post()"> เพิ่มหัวข้อ
+        <i class="fab fa-rocketchat fa-lg turn"></i>
+      </a>
+      <!-- </div> -->
+    </ion-label>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <div *ngIf="items">
+        <ion-card  *ngFor="let item of items">
+            <div class ="maintext">
+                <i class="fas fa-question-circle"></i>
+                <label class="headertext">
+                {{item.Question}}
+              </label>
+                <div>
+                  <ion-label> <i class="fas fa-user"></i> {{item.Name}} </ion-label> 
+                </div>
+                <div align="right">
+                  <a (click)="board_detail(item.No)">รายละเอียด ></a>
+
+                </div>
+                  <div align="right">
+                      <i class="fas fa-clock"></i>
+                  <ion-label>
+                  
+                  <ion-datetime  readonly value={{item.Date}}><span></span></ion-datetime>
+               </ion-label>
+              </div>
+             
+  
+            </div>
+  
+          </ion-card>
+
+          
+       
+          
+
+    </div>
+
+    <div *ngIf="!items">
+        <ion-avatar slot="start">
+            <ion-skeleton-text animated></ion-skeleton-text>
+          </ion-avatar>
+          <ion-label>
+            <h3>
+              <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+            </h3>
+            <p>
+              <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+            </p>
+            <p>
+              <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+            </p>
+          </ion-label> <ion-avatar slot="start">
+              <ion-skeleton-text animated></ion-skeleton-text>
+            </ion-avatar>
+            <ion-label>
+              <h3>
+                <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+              </h3>
+              <p>
+                <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+              </p>
+              <p>
+                <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+              </p>
+            </ion-label> <ion-avatar slot="start">
+                <ion-skeleton-text animated></ion-skeleton-text>
+              </ion-avatar>
+              <ion-label>
+                <h3>
+                  <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+                </h3>
+                <p>
+                  <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+                </p>
+                <p>
+                  <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+                </p>
+              </ion-label> <ion-avatar slot="start">
+                  <ion-skeleton-text animated></ion-skeleton-text>
+                </ion-avatar>
+                <ion-label>
+                  <h3>
+                    <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+                  </h3>
+                  <p>
+                    <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+                  </p>
+                  <p>
+                    <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+                  </p>
+                </ion-label>
+                <ion-label>
+                    <h3>
+                      <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+                    </h3>
+                    <p>
+                      <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+                    </p>
+                    <p>
+                      <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+                    </p>
+                  </ion-label>
+                  <ion-label>
+                      <h3>
+                        <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+                      </h3>
+                      <p>
+                        <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+                      </p>
+                      <p>
+                        <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+                      </p>
+                    </ion-label>
+                    <ion-label>
+                        <h3>
+                          <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+                        </h3>
+                        <p>
+                          <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+                        </p>
+                        <p>
+                          <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+                        </p>
+                      </ion-label>
+                      <ion-label>
+                          <h3>
+                            <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+                          </h3>
+                          <p>
+                            <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+                          </p>
+                          <p>
+                            <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+                          </p>
+                        </ion-label>
+
+      </div>
+</ion-content>

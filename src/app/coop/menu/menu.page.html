@@ -1,0 +1,214 @@
+<ion-header>
+    <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
+    <link href="../../../theme/style.scss">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+</ion-header>
+<ion-content padding *ngIf="mainshow">
+
+<div align="center" class="center">
+  ทุนเรือนหุ้นของฉัน
+</div>
+
+  <!-- <div class="bg-circle" (click)="share()">
+   
+<p align = "center" style="font-size: 125%;font-weight: bold; margin-top: 50%;" >
+   {{sharestock | number:0}}
+</p>
+  </div> -->
+  <ion-card (click)="share()">
+    <ion-card-header  color ="warning">
+      <div class="maintext">
+      หุ้นทั้งหมด
+    </div>
+    </ion-card-header>
+  
+    <div class ="maintext_coop" align="right">
+        {{sharestock | number:0}}
+    <hr>
+    </div>  
+    
+    <ion-item>
+  </ion-item>
+  </ion-card>
+<ion-card *ngFor = "let item of memberdetail"> 
+<ion-card-header style="font-size:150%; color:black;">
+    สวัสดีคุณ {{item.member_name}} {{item.member_surname}}
+</ion-card-header>
+<ion-card-content>
+
+</ion-card-content>
+</ion-card>
+
+
+</ion-content>
+<ion-content *ngIf="loadshow">
+  <ion-spinner name="dots" color="primary"></ion-spinner>
+  <!-- <ion-spinner paused></ion-spinner> -->
+</ion-content>
+<!-- <div style = "background-color: cadetblue;"> -->
+        <!-- <ion-row style = "margin-bottom:4%;">
+            <ion-col>
+            </ion-col>
+            <ion-col >
+              <ion-button expand="block"(click)="dep()" color = "secondary">
+                  <div>
+                      <div>
+                      <i class="fas fa-university  fa-lg"></i>
+                    </div>
+                     
+          
+                      <p  class = "font">
+          
+                          เงินฝาก
+                      </p>
+          
+                    </div>
+              </ion-button>
+            </ion-col>
+            <ion-col>
+            </ion-col>
+            </ion-row>
+            <br>
+            <ion-row>
+              <ion-col>
+            <ion-button expand="block"  (click)="loan()" color = "secondary">
+                <div>
+                    <div>
+                    <i class="fas fa-cloud-download-alt  fa-lg"></i>
+                  </div>
+                  
+        
+                    <p  class = "font">
+        
+                        เงินกู้
+                    </p>
+        
+                  </div>
+            </ion-button>
+        </ion-col>
+        <ion-col>
+            <ion-button expand="block" (click)="kep()" color = "secondary">
+                <div>
+                    <div>
+                    <i class="fas fa-calendar-alt  fa-lg"></i>
+                  </div>
+                 
+        
+                    <p  class = "font">
+        
+                       เรียกเก็บรายเดือน
+                    </p>
+        
+                  </div>
+            </ion-button>
+        </ion-col>
+        <ion-col>
+           <ion-button expand="block" (click)="dividend()" color = "secondary">
+             
+          <div>
+            <div>
+            <i class="fas fa-database  fa-lg"></i>
+          </div>
+          
+
+            <p class = "font">
+
+                ปันผลเฉี่ลยคืน
+            </p>
+
+          </div>
+         
+
+         
+
+          </ion-button>
+           </ion-col>
+          </ion-row> -->
+
+      <ion-row style="margin-bottom:1%;">
+<ion-col>
+
+</ion-col>
+<ion-col>
+    <ion-button expand="block" (click)="dep()" color = "secondary">
+        <div>
+            <div align="center">
+                <i class="fas fa-database  fa-lg"></i>
+            </div>
+            <p align ="center">
+              เงินฝาก
+            </p>
+              </div>
+      </ion-button>
+  
+</ion-col>
+<ion-col>
+   
+    
+  </ion-col>
+      </ion-row>
+
+      <ion-row>
+          <ion-col align-self-start>
+          <ion-button expand="block" (click)="loan()" color = "secondary">
+              <div>
+                  <div align="center">
+                      <i class="fas fa-database  fa-lg"></i>
+                  </div>
+                  <p align ="center">
+                    เงินกู้
+                  </p>
+                    </div>
+          </ion-button>
+          </ion-col>
+          <ion-col align-self-center>
+              <ion-button expand="block" (click)="kep()" color="secondary">
+                  <div>
+                      <div align="center">
+                          <i class="fas fa-database  fa-lg"></i>
+                      </div>
+                      <p align ="center">
+                        เรียกเก็บรายเดือน
+                      </p>
+                        </div>
+                </ion-button>
+            
+          </ion-col>
+          <ion-col align-self-end>
+              <ion-button expand="block" (click)="dividend()" color = "secondary">
+                <div>
+                <div align="center">
+                    <i class="fas fa-database  fa-lg"></i>
+                </div>
+                <p align ="center">
+                  ปันผลเฉลี่ยคือ
+                </p>
+                  </div>
+                </ion-button>
+              
+            </ion-col>
+            </ion-row>
+          
+        
+<div style="margin-top: 9%;"> </div>
+<!-- </div> -->
+    <!-- </ion-title> -->
+  <!-- </ion-toolbar> -->
+<!-- </ion-footer> -->
+<!-- --------------------------------Loan------------------------------------------------------------------- -->
+
+<!-- <ion-content padding *ngIf = "loanshow">
+
+<ion-row>
+<ion-col>
+<ion-button expand="block" fill="clear" (click)="backmain()">
+<ion-icon name="arrow-round-back"></ion-icon>
+Back
+</ion-button>
+</ion-col>
+<ion-col></ion-col>
+<ion-col></ion-col>
+</ion-row>
+<app-loan-com></app-loan-com>
+
+</ion-content> -->

@@ -1,0 +1,52 @@
+<ion-header>
+    <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
+    <ion-toolbar color="secondary">
+        <ion-buttons slot="start" style="color:black;">
+            <ion-back-button 
+                [text]="buttonText"
+                [icon]="buttonIcon">
+            </ion-back-button>
+          </ion-buttons>
+      <ion-title class="maintext_cen">
+        <div align="center">
+        ปันผลเฉลี่ยคินของฉัน
+      </div>
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content padding  *ngIf="mainshow">
+  
+      <!-- <ion-item-group *ngFor="let item of items">
+          <ion-item-divider>
+            <ion-label>{{item.account_year}}</ion-label>
+          </ion-item-divider>
+        
+          <ion-item>
+            <ion-label>เงินปันผล</ion-label>
+            <ion-label align = "right">{{item.DIVIDEND_FP}}$</ion-label>
+          </ion-item>
+        </ion-item-group> -->
+        
+        <ion-card  *ngFor="let item of items">
+          <ion-card-header color="success">
+          <div class ="maintext_cen" align="center"> ประจำปี
+              {{item.account_year}}
+              </div>
+            </ion-card-header>
+              <div align="right" class="maintext">
+             <ion-label align = "right">{{item.DIVIDEND_FP}}$</ion-label>
+            </div>
+
+          
+
+        </ion-card>
+        
+  
+  </ion-content>
+  <ion-content *ngIf="loadshow">
+      <ion-spinner name="dots" color="primary"></ion-spinner>
+      <!-- <ion-spinner paused></ion-spinner> -->
+  </ion-content>
+  
+  

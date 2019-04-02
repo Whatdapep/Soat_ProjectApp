@@ -1,0 +1,61 @@
+<ion-header>
+        <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
+  <ion-toolbar color="secondary">
+      <ion-buttons slot="start" style="color:black">
+          <ion-back-button
+              [text]="buttonText"
+              [icon]="buttonIcon">
+          </ion-back-button>
+        </ion-buttons>
+    <ion-title class="maintext_price">
+        <div align="center">
+        เงินกู้ของฉัน
+    </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content padding *ngIf="mainshow">
+<ion-label class = "maintext"> รายการเงินกู้ของฉัน </ion-label>
+
+<div>
+       
+        <ion-card *ngFor="let item of loan" (click)="chkloan_statement(item.loan_contract_no)">
+                <!-- <ion-ripple-effect type="bounded" role="presentation" class="hydrated"> -->
+            <ion-card-header>
+              <!-- <ion-card-title> -->
+                  <div class = "maintext" style="font-size:3vmax;">
+                    <!-- {{loan_account_no}} -->
+                        <div align ="right">  
+                            {{item.loan_type_description}}
+                                <ion-icon name="checkmark-circle-outline"></ion-icon>
+                        </div>
+            
+            </div>
+              
+            </ion-card-header>
+          
+            <ion-card-content>
+                <div class ="margin"></div>
+                <div align ="right">
+                <ion-label class = "maintext" style="font-size: 5vm;">{{item.loan_contract_no}} </ion-label>
+                </div>
+                <div class ="margin"></div>
+            </ion-card-content>
+
+        <!-- </ion-ripple-effect> -->
+        
+          </ion-card>
+          <div class ="margin"></div>
+    
+        <!-- </ion-button> -->
+    
+    </div>
+
+</ion-content>
+<ion-content *ngIf="loadshow">
+    <ion-spinner name="dots" color="primary"></ion-spinner>
+    <!-- <ion-spinner paused></ion-spinner> -->
+</ion-content>

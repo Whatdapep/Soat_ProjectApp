@@ -1,0 +1,136 @@
+<ion-header>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <ion-toolbar color="secondary">
+      <ion-buttons slot="start">
+          <ion-back-button
+              [text]="buttonText"
+              [icon]="buttonIcon">
+          </ion-back-button>
+        </ion-buttons>  
+    <ion-title>
+      
+    <div align="center">  
+      รายการเดินบัญชีของฉัน
+    </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding *ngIf="mainshow">
+
+    <ion-card *ngFor="let item of disposit_statement_head">
+        <ion-card-header color="secondary">
+          <ion-card-subtitle class="maintext_price"> 
+              <i class="fas fa-money-check-alt"></i> {{item.deposit_name}}
+          </ion-card-subtitle>
+        
+        </ion-card-header>
+        <ion-card-content>
+          <div class="maintext">
+          {{item.depaccno_fp}}
+        </div>
+          <!-- <ion-item> -->
+            <div align ="right">
+              <h3 align = "right" class="maintext_price">{{item.deposit_balance}}$</h3>
+              </div>
+            <!-- </ion-item> -->
+            <!-- <h6 align = "right">เปิด ณ วันที่ 16 มีนาคม 2562</h6> -->
+            
+        </ion-card-content>
+        
+      </ion-card>
+      <h3 class="maintext_cen">รายการ</h3>
+      <div *ngIf="disposit_statement">
+
+      
+      <ion-card class="card_content" *ngFor="let item of disposit_statement">
+        <ion-item-divider>
+            <ion-label class="maintext">
+                <!-- {{item.item_type_description}} -->
+                <i class="fas fa-calendar-alt"></i>
+             </ion-label>
+             <ion-label class="maintext">
+                
+                <ion-datetime  readonly value={{item.OPERATE_DATE}}></ion-datetime>
+                
+             </ion-label>
+            
+        </ion-item-divider>
+        <!-- <div *ngIf="userObservable | async as user; else loading">
+            Hello {{user.last}}, {{user.first}}!
+          </div>
+          <ng-template #loading let-user>Waiting... (user is {{user|json}})</ng-template> -->
+        <!-- <ion-item *ngIf="{{item.SIGN_FLAG > 0 | color=`success`; else color=`warning`}}"> -->
+          <ion-item>
+            <ion-label class="maintext_cen"> 
+              {{item.DEPOSIT_ITEM_DESCRIPTION}}
+                </ion-label>
+                <ion-label align = "right" class="maintext_price">
+                  {{item.DEPOSIT_BALANCE}}$
+                  </ion-label>
+        </ion-item>
+      </ion-card>
+</div>
+      <!--  -->
+
+      <div *ngIf="!disposit_statement">
+          <ion-avatar slot="start">
+              <ion-skeleton-text animated></ion-skeleton-text>
+            </ion-avatar>
+            <ion-label>
+              <h3>
+                <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+              </h3>
+              <p>
+                <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+              </p>
+              <p>
+                <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+              </p>
+            </ion-label> <ion-avatar slot="start">
+                <ion-skeleton-text animated></ion-skeleton-text>
+              </ion-avatar>
+              <ion-label>
+                <h3>
+                  <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+                </h3>
+                <p>
+                  <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+                </p>
+                <p>
+                  <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+                </p>
+              </ion-label> <ion-avatar slot="start">
+                  <ion-skeleton-text animated></ion-skeleton-text>
+                </ion-avatar>
+                <ion-label>
+                  <h3>
+                    <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+                  </h3>
+                  <p>
+                    <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+                  </p>
+                  <p>
+                    <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+                  </p>
+                </ion-label> <ion-avatar slot="start">
+                    <ion-skeleton-text animated></ion-skeleton-text>
+                  </ion-avatar>
+                  <ion-label>
+                    <h3>
+                      <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+                    </h3>
+                    <p>
+                      <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+                    </p>
+                    <p>
+                      <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+                    </p>
+                  </ion-label>
+        </div>
+
+</ion-content>
+<ion-content *ngIf="loadshow">
+    <ion-spinner name="dots" color="primary"></ion-spinner>
+    <!-- <ion-spinner paused></ion-spinner> -->
+</ion-content>

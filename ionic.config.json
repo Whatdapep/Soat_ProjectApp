@@ -1,0 +1,7 @@
+{
+  "name": "Soat_App",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

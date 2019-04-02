@@ -1,0 +1,40 @@
+.maintext{
+    color: #3d3d3d;
+    // font-weight:bold;
+    font-size: 2vmax;
+    // border-bottom: #555555 solid 1px;
+    font-family: 'Kanit', sans-serif;
+    margin:5%;
+
+}
+.headertext{
+  color: #222222;
+  // font-weight:bold;
+  font-size: 2vmax;
+  font-weight: bold;
+  // border-bottom: #555555 solid 1px;
+  font-family: 'Kanit', sans-serif;
+  margin:2%;
+  // margin-left: 0%;
+
+}
+.custom-skeleton ion-skeleton-text {
+    line-height: 13px;
+  }
+  
+  .custom-skeleton ion-skeleton-text:last-child {
+    margin-bottom: 5px;
+  }
+  ion-spinner{
+    margin: auto;
+    margin-top: 50%;
+    width:100% !important;
+    height: 40px !important;
+    align-items: center;
+    // width:50/%;
+    
+}
+.comment{
+  margin-left:10%;
+  background-color:rgb(255, 197, 216);
+}

@@ -1,0 +1,77 @@
+<ion-header>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="scss" href="../../../../theme/style.scss">
+    <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
+  <ion-toolbar color="secondary">
+      <ion-buttons slot="start" style="color:black;">
+          <ion-back-button
+              [text]="buttonText"
+              [icon]="buttonIcon">
+          </ion-back-button>
+        </ion-buttons>
+    <ion-title class="maintext_price">
+    <div align="center">  
+      keep-det
+    </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding *ngIf="mainshow">
+
+  <ion-card *ngFor = "let item of items" (click)="keep_det_statement(item.kep_method_ref)">
+
+
+    <ion-item-group>
+        <ion-item-divider color={{colorrandom}}>
+          <ion-label class = "maintext_price">{{item.receive_month_fp}}
+          </ion-label>
+        
+        </ion-item-divider>
+      <div align="right">
+        <a class="maintext" >รายละเอียด ></a>
+        
+      </div>
+        <ion-item>
+            <ion-label  class = "maintext_cen">{{item.count_seqno}} รายการ
+                <!-- <ion-button (click)="keep_det_statement(item.kep_method_ref)"> -->
+                  <!-- <i class='fa fa-print' ></i> -->
+                <!-- </ion-button> -->
+              </ion-label>
+          <ion-label align = "right" class="maintext_price">{{item.money_amount | number:0}}$</ion-label>
+        </ion-item>
+      </ion-item-group>
+      <!--  -->
+    </ion-card>
+    <!-- <ion-card>
+      <ion-item-group>
+          <ion-item-divider>
+            <ion-label>กุมภาพันธ์</ion-label>
+            <ion-label  align = "right">6 รายการ</ion-label>
+          </ion-item-divider>
+        
+          <ion-item>
+            <ion-label>62-03-308263</ion-label>
+            <ion-label align = "right">5,150$</ion-label>
+          </ion-item>
+        </ion-item-group>
+      </ion-card>
+    <ion-card>
+        <ion-item-group>
+            <ion-item-divider>
+              <ion-label>มกราคม</ion-label>
+              <ion-label  align = "right">6 รายการ</ion-label>
+            </ion-item-divider>
+          
+            <ion-item>
+              <ion-label>62-03-308263</ion-label>
+              <ion-label align = "right">5,150$</ion-label>
+            </ion-item>
+          </ion-item-group>
+        </ion-card> -->
+</ion-content>
+<ion-content *ngIf="loadshow">
+    <ion-spinner name="dots" color="primary"></ion-spinner>
+    <!-- <ion-spinner paused></ion-spinner> -->
+</ion-content>
+

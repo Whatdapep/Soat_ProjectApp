@@ -1,0 +1,59 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>logon</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+</ion-content> -->
+
+<ion-header>
+    <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
+  <!-- <ion-toolbar>
+    <ion-title>
+      Ionic Blank
+    </ion-title>
+  </ion-toolbar> -->
+
+  <!-- url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAIBAMAAAACWGKkAAAAFVBMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAASAQCkAAAAB3RSTlMFTEIzJBcOYhQUIwAAAB9JREFUCNdjEIQCBiUoYDCGAgYXKGAIhQKGNChgwAAAorMLKSCkL40AAAAASUVORK5CYII=") -->
+</ion-header>
+
+<ion-content padding  class="myview">
+
+<!-- <ion-card> -->
+  <div align = "center">
+  <img    src="../../assets/icon/logo_new.png" width="35%" >
+  
+</div>
+<!-- </ion-card> -->
+  <ion-item>
+ <ion-label position="floating" align ="center">Username</ion-label>
+
+ <ion-input align ="center" required  [(ngModel)]="username"> <span><ion-icon name="person" placeholder = "Username " required></ion-icon></span></ion-input>
+</ion-item>
+<ion-item>
+ <ion-label position="floating" align = "center">Passwords</ion-label>
+
+ <ion-input align = "center" required type = "password" [(ngModel)]="password" required> <span><ion-icon name="lock"></ion-icon></span></ion-input>
+ 
+</ion-item>
+<br>
+
+<ion-button expand="block" color="success" style = " font-weight: bold; font-size: 15" (click)="login()">Sign in</ion-button>
+  
+<!-- <IonVuePage :title="'Loading'"> -->
+    <!-- <ion-button (click)="presentLoading()">Show Loading</ion-button>
+    <br />
+    <ion-button (click)="presentLoadingWithOptions()">Show Loading</ion-button>
+  </IonVuePage> -->
+
+<!-- <ion-item *ngFor="let item of items">
+     
+      {{item.membership_no}}
+      {{item.member_name}}
+      {{item.member_surname}}
+   
+  </ion-item> -->
+
+</ion-content>
