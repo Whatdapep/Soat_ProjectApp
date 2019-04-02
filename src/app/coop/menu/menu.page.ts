@@ -56,6 +56,7 @@ this.data = service.gethttp(this.part,this.membership_no,this.service.apikey);
 this.data.subscribe(result =>{
 this.items = result;
 this.sharestatement = result;
+
 this.mainshow = true;
 this.loadshow = false;
 
