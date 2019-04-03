@@ -6,6 +6,12 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, from } from 'rxjs';
 import { LoadingController } from '@ionic/angular';
 import {ServicesService} from '../../coop/system/services.service'
+import { InAppBrowser,InAppBrowserOptions } from '@ionic-native/in-app-browser/ngx';
+import { WebView } from '@ionic-native/ionic-webview/ngx';
+import { ThemeableBrowser, ThemeableBrowserOptions, ThemeableBrowserObject } from '@ionic-native/themeable-browser/ngx';
+
+
+// import { ThemeableBrowser } from '@ionic-native/themeable-browser/ngx';
 
 @Component({
   selector: 'app-show',
@@ -33,7 +39,11 @@ export class ShowPage implements OnInit {
     private storage: Storage,
     private Http:HttpClient,
     public loadingController: LoadingController,
-    private service:ServicesService
+    private service:ServicesService,
+    private Webview:WebView,
+    private InAppBrowser:InAppBrowser,
+    private themeableBrowser: ThemeableBrowser
+    // private Option:InAppBrowserOptions
   ) {
     this.storage.get('membership_no').then((val) => {
       this.membership_no = val.toString();
@@ -66,6 +76,120 @@ this.Note = this.items.map(this.service.callfunction.getNote);
    }
 
   ngOnInit() {
+  }
+
+  webclick(){
+    // const Options:InAppBrowserOptions ={
+    //   Zoom:'no'
+    // }
+
+
+    const browser = this.InAppBrowser.create('https://www.google.com/','_self',{location:'no'});
+    // browser.executeScript(...);
+
+    // browser.insertCSS(...);
+    browser.on('loadstop').subscribe(event => {
+      browser.insertCSS({ code: "body{color: red;" });
+    });
+
+    browser.close();
+  }
+
+  webnew(){
+
+    // https://ionicframework.com/docs/native/themeable-browser/
+    // const options: ThemeableBrowserOptions = {
+    //   toolbar: {
+    //     height: 44,
+    //     color: '#3573bbff'
+    //   },
+    //   title: {
+    //     color: '#ffffffff',
+    //     showPageTitle: true,
+    //     staticText: 'Academy Browser'
+    //   },
+    //   backButton: {
+    //     wwwImage: 'assets/img/back.png',
+    //     align: 'left',
+    //     event: 'backPressed'
+    //   },
+    //   forwardButton: {
+    //     wwwImage: 'assets/img/forward.png',
+    //     align: 'left',
+    //     event: 'forwardPressed'
+    //   },
+    //   closeButton: {
+    //     wwwImage: 'assets/img/close.png',
+    //     align: 'left',
+    //     event: 'closePressed'
+    //   },
+    // };
+    const options: ThemeableBrowserOptions = {
+    statusbar: {
+      color: '#ffffffff'
+  },
+  toolbar: {
+      height: 44,
+      color: '#f0f0f0ff'
+  },
+  title: {
+      color: '#003264ff',
+      showPageTitle: true
+  },
+  backButton: {
+      image: 'back',
+      imagePressed: 'back_pressed',
+      align: 'left',
+      event: 'backPressed'
+  },
+  forwardButton: {
+      image: 'forward',
+      imagePressed: 'forward_pressed',
+      align: 'left',
+      event: 'forwardPressed'
+  },
+  closeButton: {
+      image: 'close',
+      imagePressed: 'close_pressed',
+      align: 'left',
+      event: 'closePressed'
+  },
+  customButtons: [
+      {
+          image: 'share',
+          imagePressed: 'share_pressed',
+          align: 'right',
+          event: 'sharePressed'
+      }
+  ],
+  menu: {
+      image: 'menu',
+      imagePressed: 'menu_pressed',
+      title: 'Test',
+      cancel: 'Cancel',
+      align: 'right',
+      items: [
+          {
+              event: 'helloPressed',
+              label: 'Hello World!'
+          },
+          {
+              event: 'testPressed',
+              label: 'Test!'
+          }
+      ]
+  },
+  backButtonCanClose: true
+}
+
+    const browser: ThemeableBrowserObject = this.themeableBrowser.create('https://ionicacademy.com', '_blank', options);
+
+    browser.on('closePressed').subscribe(data => {
+      browser.close();
+    })
+
+ 
+
   }
 
 }

@@ -11,6 +11,9 @@ import { AppRoutingModule } from './app-routing.module';
 import {HttpClientModule}from'@angular/common/http';
 import {HttpModule} from '@angular/http';
 import { IonicStorageModule } from '@ionic/storage';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+import { WebView } from '@ionic-native/ionic-webview/ngx';
+import { ThemeableBrowser } from '@ionic-native/themeable-browser/ngx';
 // import {jwt-decode} from 'jwt-decode';
 // import { File } from '@ionic-native/file';
 // import { FileOpener } from '@ionic-native/file-opener';
@@ -30,6 +33,9 @@ import { IonicStorageModule } from '@ionic/storage';
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    WebView,
+    InAppBrowser,
+    ThemeableBrowser
    
   ],
   bootstrap: [AppComponent]

@@ -74,6 +74,48 @@ export class FunctionService {
     });
     return await loading.present();
   }
+  async board_post() {
+    const alert = await this.alertController.create({
+      header: 'กระดานสนทนาใหม่',
+      inputs: [
+        {
+          name: 'Question',
+          type: 'text',
+          id:'Question',
+          placeholder: 'หัวข้อ.. .'
+        },
+        {
+          name: 'Note',
+          type: 'text',
+          id: 'Note',
+          placeholder: 'รายละเอียด'
+        }
+      ],
+      // message:[
+      //   {
+      //     name:'test',
+      //     placeholder:'iายละเอียด'
+      //   }
+      // ],
+      buttons: [
+        {
+          text: 'ยกเลิก',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: () => {
+            console.log('Confirm Cancel');
+          }
+        }, {
+          text: 'ตกลง',
+          handler: () => {
+            console.log('Confirm Ok');
+          }
+        }
+      ]
+    });
+
+    await alert.present();
+  }
 
 
   getmembership_no(item,index) {

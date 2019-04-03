@@ -33,6 +33,8 @@ export class BoardListPage implements OnInit {
     public loadingController: LoadingController,
     private service:ServicesService
   ) {
+
+    
      
     this.storage.get('membership_no').then((val) => {
       this.membership_no = val.toString();
@@ -66,6 +68,7 @@ console.log(this.items);
 
   }
   board_post(){
-    this.router.navigate(['/board-post']);
+  this.service.callfunction.board_post();
+    // this.router.navigate(['/board-post']);
   }
 }

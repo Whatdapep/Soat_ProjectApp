@@ -16,6 +16,11 @@
 
 
 <ion-content>
+  <div>
+<ion-button (click)="webclick()">Open Web</ion-button>
+<ion-button (click)="webnew()">Open New Web</ion-button>
+<ion-button  href="https://stackoverflow.com">StackOverFlow</ion-button>
+  </div>
         <div *ngIf="items">
                 <ion-card  *ngFor="let item of items">
                     <div class ="maintext">
@@ -27,9 +32,11 @@
                           <ion-label> <i class="fas fa-user"></i> {{item.Name}} </ion-label> 
                         </div>
                         <br>
-                        <label class="maintext_main">
+                        <label class="maintext_main" >
                           <div>
-                         {{Note}}
+                            <!-- {{browser}} -->
+                         {{item.Note}}
+                        
                         </div>
                             <!-- <div [innerHTML]="{{item.Note}}"></div> -->
                             <!-- <div [innerHTML]=[{{item.Note}}]></div> -->
