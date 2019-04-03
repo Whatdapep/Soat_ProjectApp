@@ -12,8 +12,10 @@ export class ServicesService {
   membership_no:any;
 tests:any;
 // url:string=``;
-url:string = `http://192.168.100.103:4000/`;
+// url:string = `http://192.168.100.103:4000/`;
 // url:string = `http://192.168.43.50:4000/`;
+url:string = `http://192.168.100.144:4000/`;
+
 
  apikey:any='c52c90744ab65d13cd6732390a72c0bb';
 
