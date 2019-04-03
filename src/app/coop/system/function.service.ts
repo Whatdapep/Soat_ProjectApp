@@ -167,7 +167,15 @@ getnphoto(item,index) {
   var fullname = [item.nphoto];
   return fullname;
 }
-
+// ---------------------
+getreceive_month_fp(item,index) {
+  var fullname = [item.receive_month_fp];
+  return fullname;
+}
+getmoney_amount(item,index) {
+  var fullname = [item.money_amount];
+  return fullname;
+}
 
 
     // ----------------------------

@@ -1,5 +1,6 @@
 <ion-header>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
   <ion-toolbar color="secondary">
       <ion-buttons slot="start">
           <ion-back-button
@@ -16,34 +17,59 @@
 </ion-header>
 
 <ion-content>
+<ion-card color="warning">
+    <ion-card-header color ="secondary">
+  <div class="maintext_cen">
+รายการชำละประจำเดือน <ion-label class="maintext_price">{{receive_month_fp}}</ion-label>
 
 
+<ion-label  style="float: right"> 
+<ion-button (click)="print_keep_det()" color="primary" > 
+  <!-- <ion-card>   -->
+  <i class="fas fa-print fa-2x"></i>
 
-<div>
-    <ion-card class="card_content"  *ngFor="let item of loan_statement">
+<!-- </ion-card> -->
+</ion-button>
+</ion-label>
+</div>
+</ion-card-header>
+
+  <div align="center" class="maintext_price">
+    ${{money_amount | number:0}}
+
+  </div>
+
+
+</ion-card>
+
+
+<div *ngIf="items">
+    <ion-card class="card_content"  *ngFor="let item of keep">
           
         
         <ion-item color="warning">
-            <ion-label class="maintext"> งวด {{item.period}}
-                </ion-label>
+            <!-- <ion-label class="maintext"> งวด {{item.period}}
+                </ion-label> -->
                 <ion-label align = "right" class="maintext_price">
-                  {{item.payment_amount | number:0}}$
+                  {{item.money_amount | number:0}}$
                   </ion-label>
         </ion-item>
         <ion-item-divider>
             <ion-label class="maintext">
-                {{item.item_type_description}}(ยอด ณ วันสิ้นเดือน)
+                {{item.keeping_type_name}}
           
              </ion-label>
-             <ion-label  class="maintext" align="right">
+             <ion-label  class="maintext_cen" align="right">
                 <!-- <ion-datetime  readonly value={{date_of_birth}}></ion-datetime> -->
-                {{item.loan_payment_date}}
+                {{item.keeping_type_code}}
              </ion-label>
             
         </ion-item-divider>
       </ion-card>
 </div>
-  <div *ngIf="!disposit_statement">
+
+
+  <div *ngIf="!items">
     <ion-avatar slot="start">
         <ion-skeleton-text animated></ion-skeleton-text>
       </ion-avatar>

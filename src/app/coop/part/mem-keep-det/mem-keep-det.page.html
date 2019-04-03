@@ -19,7 +19,7 @@
 
 <ion-content padding *ngIf="mainshow">
 
-  <ion-card *ngFor = "let item of items" (click)="keep_det_statement(item.kep_method_ref)">
+  <ion-card *ngFor = "let item of items" (click)="keep_det_statement(item.kep_method_ref,item.receive_year,item.receive_month,item.seq_no)">
 
 
     <ion-item-group>

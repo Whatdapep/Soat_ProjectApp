@@ -12,9 +12,9 @@ export class ServicesService {
   membership_no:any;
 tests:any;
 // url:string=``;
-// url:string = `http://192.168.100.103:4000/`;
+url:string = `http://192.168.100.103:4000/`;
 // url:string = `http://192.168.43.50:4000/`;
-url:string = `http://192.168.100.144:4000/`;
+// url:string = `http://192.168.100.144:4000/`;
 
 
  apikey:any='c52c90744ab65d13cd6732390a72c0bb';
@@ -43,6 +43,8 @@ www_board_ans='www_board_ans';
 www_data_limit='www_data_limit';
 www_data='www_data';
 www_data_detail='www_data_detail';
+ws_mem_keep_det_distinct='ws_mem_keep_det_distinct';
+ws_mem_keep_det_statement='ws_mem_keep_det_statement';
 
   constructor(
     
@@ -75,6 +77,10 @@ return this.membership_no;
   }
   gethttpall(part,apikey) {
     return this.http.get(`${this.url}${part}/${apikey}`);
+  }
+  posthttps(part,body,apikey){
+    return this.http.post(`${this.url}${part}/${apikey}`,body);
+
   }
   posthttp(part,body){
     return this.http.post(`${this.url}${part}`,body);

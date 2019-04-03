@@ -60,9 +60,15 @@ export class MemKeepDetPage implements OnInit {
    
   ngOnInit() {
   }
-  keep_det_statement(item:string){
-    this.storage.set('kep_method_ref',item);
-    console.log('set Storage is '+item)
+  keep_det_statement(itemref:string,year:string,month:string,seq_no:string){
+    this.storage.set('kep_method_ref',itemref);
+    console.log('set Storage is '+itemref)
+    this.storage.set('receive_year',year);
+    console.log('set Storage is '+year);
+    this.storage.set('receive_month',month);
+    console.log('set Storage is '+month);
+    this.storage.set('seq_no',seq_no);
+    console.log('set seq_no is '+seq_no);
 
     this.router.navigate(['/mem-keep-det-statement']);
     
