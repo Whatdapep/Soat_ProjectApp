@@ -12,6 +12,35 @@
     margin: auto;
 
 }
+.maintext_price{
+    color: #222222;
+    // font-weight:bold;
+    font-size: 3vmax;
+    // border-bottom: #555555 solid 1px;
+    font-family: 'Kanit', sans-serif;
+    margin:2%;
+  
+  }
 p{
     color:black;
 }
+.dot {
+    height: 1.5vmax;
+    width: 1.5vmax;
+    margin:2%;
+    // background-color: #bbb;
+    border-radius: 50%;
+    border:solid 1px #bbb;
+
+    display: inline-block;
+  }
+  .dotcom {
+    height: 1.5vmax;
+    width: 1.5vmax;
+    margin:2%;
+    background-color: rgb(64, 196, 248);
+    border-radius: 50%;
+    // border:solid 1px #bbb;
+
+    display: inline-block;
+  }

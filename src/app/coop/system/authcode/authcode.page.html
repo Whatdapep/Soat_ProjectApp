@@ -1,25 +1,75 @@
-<ion-header>
+<!-- <ion-header> -->
     <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
-
+<!-- 
   <ion-toolbar>
     <ion-title>authcode</ion-title>
-  </ion-toolbar>
-</ion-header>
+  </ion-toolbar> -->
+<!-- </ion-header> -->
 
 <ion-content>
 
 
-    <div align = "left">
-        <img    src="../../assets/icon/logo_new.png" width="35%" >
+    <div align = "center" style="margin-top:10%">
+        <img    src="../../assets/icon/logo_new.png" width="20%" >
+        
+      </div>
+      <div class="maintext_price" align="center">
+      <p>
+        กรุณาใส่รหัสผ่าน
+      </p>
         
       </div>
 
-      <ion-input [(ngModel)]="passcode" maxlength="6">
+      <!-- <ion-input [(ngModel)]="passcode" maxlength="6"> -->
 <!-- {{passcode}} -->
+          <div class="screen" align="center" style="margin:5%;">
+              <span *ngIf="!passcode[0]">
+                  <span class="dot"></span>
+                </span>
+            <span *ngIf="passcode[0]">
+              <span class="dotcom"></span>
+            </span>
+            <span *ngIf="!passcode[1]">
+                <span class="dot"></span>
+              </span>
+          <span *ngIf="passcode[1]">
+            <span class="dotcom"></span>
+          </span>
+            <span *ngIf="!passcode[2]">
+                <span class="dot"></span>
+              </span>
+          <span *ngIf="passcode[2]">
+            <span class="dotcom"></span>
+          </span>
+          <span *ngIf="!passcode[3]">
+              <span class="dot"></span>
+            </span>
+        <span *ngIf="passcode[3]">
+          <span class="dotcom"></span>
+        </span>
+        <span *ngIf="!passcode[4]">
+            <span class="dot"></span>
+          </span>
+      <span *ngIf="passcode[4]">
+        <span class="dotcom"></span>
+      </span>
+      <span *ngIf="!passcode[5]">
+          <span class="dot"></span>
+        </span>
+    <span *ngIf="passcode[5]">
+      <span class="dotcom"></span>
+    </span>
+    
 
-      </ion-input>
+
+            
+          </div>
+
+          {{push}}
+
+      <!-- </ion-input> -->
     
 <ion-row class="screen" align="center">
 <ion-col>
@@ -128,10 +178,10 @@
     <ion-col>
       <div align="center">
         <!-- <ion-button class="numpad" fill ="outline" expand="block" color="secondary" > -->
-            <p>
+            <!-- <p> -->
                 
                 <i class="fas fa-fingerprint fa-2x" (click)="finger()" style="color:red;"></i>
-              </p>
+              <!-- </p> -->
     
           <!-- </ion-button> -->
         </div>

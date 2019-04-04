@@ -23,6 +23,7 @@ import { NetworkInterface } from '@ionic-native/network-interface/ngx';
 import { BrowserTab } from '@ionic-native/browser-tab/ngx';
 import { Device } from '@ionic-native/device/ngx';
 import { Platform } from '@ionic/angular';
+import { PinDialog } from '@ionic-native/pin-dialog/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -45,7 +46,8 @@ import { Platform } from '@ionic/angular';
     NetworkInterface,
     BrowserTab,
     Device,
-    Platform
+    Platform,
+    PinDialog
    
   ],
   bootstrap: [AppComponent]
