@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { NavController,LoadingController } from '@ionic/angular';
 import { Router,RouterModule } from '@angular/router';
 import { AlertController } from '@ionic/angular';
-import {ServicesService} from './services.service';
+// import {ServicesService} from './services.service';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +15,7 @@ export class FunctionService {
     public router:Router, 
     public alertController : AlertController,
     public loadingController: LoadingController,
-    private services:ServicesService
+    // private services:ServicesService
   ) { }
 
 

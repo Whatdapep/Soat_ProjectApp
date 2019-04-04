@@ -97,20 +97,20 @@ console.log(this.items);
           text: 'ตกลง',
           handler: () => {
             console.log('Confirm Ok');
-            var body = {
-              Category:"this"
-             ,Question:this.No
-             ,Msg:this.ans
-             ,Name:this.member_name
-             ,IP:''
-             ,Date:''
-            };
-            this.part3= this.service.www_board_ans
-            this.data3 = this.service.posthttps(this.part3,this.service.apikey,body);
-            this.data3.subscribe(result =>{
-            console.log(result)
+            // var body = {
+            //   Category:"this"
+            //  ,Question:this.No
+            //  ,Msg:this.ans
+            //  ,Name:this.member_name
+            //  ,IP:''
+            //  ,Date:''
+            // };
+            // this.part3= this.service.www_board_ans
+            // this.data3 = this.service.posthttps(this.part3,this.service.apikey,body);
+            // this.data3.subscribe(result =>{
+            // console.log(result)
 
-            });
+            // });
 
 
 

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'logon', pathMatch: 'full'},
+  { path: '', redirectTo: 'authcode', pathMatch: 'full'},
   // { path: 'home', loadChildren: './home/home.module#HomePageModule' },
   { path: 'footer', loadChildren: './content/footer/footer.module#FooterPageModule' },
   // { path: 'mem-status', loadChildren: './coop/part/mem-status/mem-status.module#MemStatusPageModule' },
@@ -25,6 +25,7 @@ const routes: Routes = [
   { path: 'list', loadChildren: './content/list/list.module#ListPageModule' },
   { path: 'show', loadChildren: './content/show/show.module#ShowPageModule' },
   { path: 'board-post', loadChildren: './coop/board-post/board-post.module#BoardPostPageModule' },
+  { path: 'authcode', loadChildren: './coop/system/authcode/authcode.module#AuthcodePageModule' },
   
 ];
 

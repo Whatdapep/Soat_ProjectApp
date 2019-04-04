@@ -1,0 +1,164 @@
+<ion-header>
+    <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+
+  <ion-toolbar>
+    <ion-title>authcode</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+    <div align = "left">
+        <img    src="../../assets/icon/logo_new.png" width="35%" >
+        
+      </div>
+
+      <ion-input [(ngModel)]="passcode" maxlength="6">
+<!-- {{passcode}} -->
+
+      </ion-input>
+    
+<ion-row class="screen" align="center">
+<ion-col>
+  <div align="center">
+    <ion-button class="numpad" fill ="outline" expand="block" color="secondary" (click)="one()">
+        <p>
+            1
+          </p>
+
+      </ion-button>
+    </div>
+</ion-col>
+<ion-col>
+  <div align="center" >
+    <ion-button class="numpad" fill ="outline" expand="block" color="secondary" (click)="two()">
+      <p>
+        2
+      </p>
+      </ion-button>
+    </div>
+</ion-col>
+
+<ion-col>
+<div align="center" >
+    <ion-button class="numpad" fill ="outline" expand="block" color="secondary" (click)="three()">
+        <p>
+            3
+          </p>
+
+      </ion-button>
+    </div>
+    </ion-col>
+
+
+</ion-row>
+<ion-row class="screen" align="center">
+    <ion-col>
+      <div align="center">
+        <ion-button class="numpad" fill ="outline" expand="block" color="secondary" (click)="four()">
+            <p>
+                4
+              </p>
+    
+          </ion-button>
+        </div>
+    </ion-col>
+    <ion-col>
+      <div align="center" >
+        <ion-button class="numpad" fill ="outline" expand="block" color="secondary" (click)="five()">
+          <p>
+            5
+          </p>
+          </ion-button>
+        </div>
+    </ion-col>
+    
+    <ion-col>
+    <div align="center" >
+        <ion-button class="numpad" fill ="outline" expand="block" color="secondary" (click)="six()">
+            <p>
+                6
+              </p>
+    
+          </ion-button>
+        </div>
+        </ion-col>
+    
+    
+    </ion-row>
+    <ion-row class="screen" align="center">
+        <ion-col>
+          <div align="center">
+            <ion-button class="numpad" fill ="outline" expand="block" color="secondary" (click)="seven()">
+                <p>
+                    7
+                  </p>
+        
+              </ion-button>
+            </div>
+        </ion-col>
+        <ion-col>
+          <div align="center" >
+            <ion-button class="numpad" fill ="outline" expand="block" color="secondary" (click)="eight()">
+              <p>
+                8
+              </p>
+              </ion-button>
+            </div>
+        </ion-col>
+        
+        <ion-col>
+        <div align="center" >
+            <ion-button class="numpad" fill ="outline" expand="block" color="secondary" (click)="ninth()">
+                <p>
+                  9
+                  </p>
+        
+              </ion-button>
+            </div>
+            </ion-col>
+        
+        
+        </ion-row>
+
+<ion-row class="screen" align="center">
+    <ion-col>
+      <div align="center">
+        <!-- <ion-button class="numpad" fill ="outline" expand="block" color="secondary" > -->
+            <p>
+                
+                <i class="fas fa-fingerprint fa-2x" (click)="finger()" style="color:red;"></i>
+              </p>
+    
+          <!-- </ion-button> -->
+        </div>
+    </ion-col>
+    <ion-col>
+      <div align="center" >
+        <ion-button class="numpad" fill ="outline" expand="block" color="secondary" (click)="zero()">
+          <p>
+            0
+          </p>
+          </ion-button>
+        </div>
+    </ion-col>
+    
+    <ion-col>
+    <div align="center" >
+        <!-- <ion-button class="numpad" fill ="outline" expand="block" color="secondary" > -->
+            <p>
+                <i class="fas fa-backspace fa-2x" (click)="del()"></i>
+              </p>
+    
+          <!-- </ion-button> -->
+        </div>
+        </ion-col>
+    
+    
+    </ion-row>
+     
+
+</ion-content>

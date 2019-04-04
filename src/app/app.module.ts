@@ -17,6 +17,12 @@ import { ThemeableBrowser } from '@ionic-native/themeable-browser/ngx';
 // import {jwt-decode} from 'jwt-decode';
 // import { File } from '@ionic-native/file';
 // import { FileOpener } from '@ionic-native/file-opener';
+//import { Platform } from 'ionic-angular'; 
+
+import { NetworkInterface } from '@ionic-native/network-interface/ngx';
+import { BrowserTab } from '@ionic-native/browser-tab/ngx';
+import { Device } from '@ionic-native/device/ngx';
+import { Platform } from '@ionic/angular';
 
 @NgModule({
   declarations: [AppComponent],
@@ -35,7 +41,11 @@ import { ThemeableBrowser } from '@ionic-native/themeable-browser/ngx';
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     WebView,
     InAppBrowser,
-    ThemeableBrowser
+    ThemeableBrowser,
+    NetworkInterface,
+    BrowserTab,
+    Device,
+    Platform
    
   ],
   bootstrap: [AppComponent]

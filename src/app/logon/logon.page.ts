@@ -10,6 +10,10 @@ import { RequestOptions } from '@angular/http';
 import { Storage } from '@ionic/storage';
 import { LoadingController } from '@ionic/angular';
 import {ServicesService} from '../coop/system/services.service'
+import { NetworkInterface } from '@ionic-native/network-interface/ngx';
+// import { Platform } from 'ionic-angular';
+import { Device } from '@ionic-native/device/ngx';
+import { Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-logon',
@@ -30,6 +34,8 @@ export class LogonPage implements OnInit {
    part:any;
    member_surname:any='';
    member_key:any='';
+   ip:any='';
+   plat:boolean;
     constructor(
     public navCtrl: NavController ,  
     public alertController : AlertController,
@@ -37,9 +43,68 @@ export class LogonPage implements OnInit {
     private Http:HttpClient,
     private storage: Storage,
     public loadingController: LoadingController,
-    private service:ServicesService
+    private service:ServicesService,
+    private NetworkInterface:NetworkInterface,
+    private Device:Device,
+    private platform:Platform
 
-  ) { }
+  ) {
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+    if(this.platform.is('android') || this.platform.is('ios') || this.platform.is('desktop'))
+    {
+      this.plat = true;
+      console.log("this is Platform test" + this.plat);
+    }
+    else{
+      console.log("this is Platform test False");
+    }
+
+    // is(desktop:platforms) => this.plat = true
+    console.log('Device UUID is: ' + this.Device.uuid);
+    this.NetworkInterface.getWiFiIPAddress()
+    .then(address => console.info(`IP: ${address.ip.toString()}, Subnet: ${address.subnet.toString()}`))
+    .catch(error => console.error(`Unable to get IP: ${error}`));
+
+    this.NetworkInterface.getCarrierIPAddress()
+    .then(address => console.info(`IP: ${address.ip}, Subnet: ${address.subnet}`))
+    .catch(error => console.error(`Unable to get IP: ${error}`));
+
+  const url = 'www.github.com';
+  this.NetworkInterface.getHttpProxyInformation(url)
+    .then(proxy => console.info(`Type: ${proxy.type}, Host: ${proxy.host}, Port: ${proxy.port}`))
+    .catch(error => console.error(`Unable to get proxy info: ${error}`));
+
+
+
+   }
+
+   
 async presentAlert() {
   const alert = await this.alertController.create({
     header: 'Error',
@@ -125,8 +190,8 @@ login(){
       this.service.callfunction.Loginfalse();
   }
     
-   var members = this.membership_no_new;
-  //  var members = '0000123';
+  //  var members = this.membership_no_new;
+   var members = '0000123';
   // this.storage.set('membership_no',this.membership_no_new.toString());
 
   this.service.Set_Storage_membership_no(members);
