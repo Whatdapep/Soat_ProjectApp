@@ -110,6 +110,7 @@ login(){
     
     this.member_name = result.map(this.service.callfunction.getname)
     this.member_surname = result.map(this.service.callfunction.getsurname)
+
     this.member_name = this.member_name+this.member_surname
     if(this.membership_no_new != ''){
       // this.presentLoadingWithOptions() = false;
@@ -130,6 +131,8 @@ login(){
 
   this.service.Set_Storage_membership_no(members);
   this.service.Set_Storage_member_key(this.password);
+  this.storage.set('member_name',this.member_name);
+  console.log('set member_name is '+this.member_name)
   // this.storage.set('membership_no',members.toString());
 
 

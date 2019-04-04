@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { NavController,LoadingController } from '@ionic/angular';
 import { Router,RouterModule } from '@angular/router';
 import { AlertController } from '@ionic/angular';
-// import {ServicesService} from './services.service';
+import {ServicesService} from './services.service';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +15,7 @@ export class FunctionService {
     public router:Router, 
     public alertController : AlertController,
     public loadingController: LoadingController,
-    // private services:ServicesService
+    private services:ServicesService
   ) { }
 
 
@@ -74,48 +74,9 @@ export class FunctionService {
     });
     return await loading.present();
   }
-  async board_post() {
-    const alert = await this.alertController.create({
-      header: 'กระดานสนทนาใหม่',
-      inputs: [
-        {
-          name: 'Question',
-          type: 'text',
-          id:'Question',
-          placeholder: 'หัวข้อ.. .'
-        },
-        {
-          name: 'Note',
-          type: 'text',
-          id: 'Note',
-          placeholder: 'รายละเอียด'
-        }
-      ],
-      // message:[
-      //   {
-      //     name:'test',
-      //     placeholder:'iายละเอียด'
-      //   }
-      // ],
-      buttons: [
-        {
-          text: 'ยกเลิก',
-          role: 'cancel',
-          cssClass: 'secondary',
-          handler: () => {
-            console.log('Confirm Cancel');
-          }
-        }, {
-          text: 'ตกลง',
-          handler: () => {
-            console.log('Confirm Ok');
-          }
-        }
-      ]
-    });
+  
 
-    await alert.present();
-  }
+  
 
 
   getmembership_no(item,index) {

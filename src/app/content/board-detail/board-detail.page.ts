@@ -26,6 +26,13 @@ export class BoardDetailPage implements OnInit {
   data2:any;
   memberdetail:any;
   No:any='';
+  member_name:any='';
+  ans:any='';
+
+  part3:any='';
+  data3:any='';
+  
+
 
   constructor(
     private router:Router,
@@ -33,7 +40,8 @@ export class BoardDetailPage implements OnInit {
     private storage: Storage,
     private Http:HttpClient,
     public loadingController: LoadingController,
-    private service:ServicesService
+    private service:ServicesService,
+    public alertController : AlertController,
   ) {
 
     this.storage.get('membership_no').then((val) => {
@@ -41,9 +49,11 @@ export class BoardDetailPage implements OnInit {
     console.log("this is get Storage"+this.membership_no);
     this.storage.get('No').then((val) => {
       this.No = val.toString();
-    console.log("this is get Storage"+this.No);
+    console.log("this is get No"+this.No);
 
-
+    this.storage.get('member_name').then((val) => {
+      this.member_name = val.toString();
+      console.log("this is get member_name"+this.member_name);
       
   // *----------------------HTTP ------------------------------------------------
   this.part = service.www_board
@@ -72,9 +82,58 @@ console.log(this.items2);
 });
 });
 });
+    });
    }
 
+   async Confirm_board_ans() {
+    const alert = await this.alertController.create({
+      header: 'กรุณาตรวจสอบความถูกต้องให้เรียบร้อย!',
+      message: 'คุณแน่ใจหรือไม่ ? ',
+      buttons: [
+        {
+          text: 'ยกเลิก',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            console.log('Confirm Cancel: blah');
+            this.ans = '';
+          }
+        }, {
+          text: 'ตกลง',
+          handler: () => {
+            console.log('Confirm Okay');
+            var body = {
+              Category:"this"
+             ,QuestionNo:this.No
+             ,Msg:this.ans
+             ,Name:this.member_name
+             ,IP:''
+             ,Date:''
+            };
+            this.part3= this.service.www_board_ans
+            this.data3 = this.service.posthttps(this.part3,this.service.apikey,body);
+            this.data3.subscribe(result =>{
+            console.log(result)
+
+            });
+
+
+
+
+
+            
+          }
+        }
+      ]
+    });
+
+    await alert.present();
+  }
+
   ngOnInit() {
+  }
+  confirm_ans(){
+    this.Confirm_board_ans();
   }
 
 }

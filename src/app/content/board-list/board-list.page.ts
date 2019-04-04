@@ -31,7 +31,8 @@ export class BoardListPage implements OnInit {
     private storage: Storage,
     private Http:HttpClient,
     public loadingController: LoadingController,
-    private service:ServicesService
+    private service:ServicesService,
+    public alertController : AlertController,
   ) {
 
     
@@ -60,6 +61,72 @@ console.log(this.items);
 
   ngOnInit() {
   }
+
+  async board_post_alert() {
+    const alert = await this.alertController.create({
+      header: 'กระดานสนทนาใหม่',
+      inputs: [
+        {
+          name: 'Question',
+          type: 'text',
+          id:'Question',
+          placeholder: 'หัวข้อ.. .'
+        },
+        {
+          name: 'Note',
+          type: 'text',
+          id: 'Note',
+          placeholder: 'รายละเอียด'
+        }
+      ],
+      // message:[
+      //   {
+      //     name:'test',
+      //     placeholder:'iายละเอียด'
+      //   }
+      // ],
+      buttons: [
+        {
+          text: 'ยกเลิก',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: () => {
+            console.log('Confirm Cancel');
+          }
+        }, {
+          text: 'ตกลง',
+          handler: () => {
+            console.log('Confirm Ok');
+            var body = {
+              Category:"this"
+             ,Question:this.No
+             ,Msg:this.ans
+             ,Name:this.member_name
+             ,IP:''
+             ,Date:''
+            };
+            this.part3= this.service.www_board_ans
+            this.data3 = this.service.posthttps(this.part3,this.service.apikey,body);
+            this.data3.subscribe(result =>{
+            console.log(result)
+
+            });
+
+
+
+          //   Category:req.body.Category,
+					// Question:req.body.Question,
+					// QNote:req.body.QNote,
+					// QName:req.body.QName,
+					// IP:req.body.IP,
+					// Date:req.body.Date,
+          }
+        }
+      ]
+    });
+
+    await alert.present();
+  }
   board_detail(item:string){
     this.storage.set('No',item);
     console.log('set No is '+item);
@@ -68,7 +135,7 @@ console.log(this.items);
 
   }
   board_post(){
-  this.service.callfunction.board_post();
+  this.board_post();
     // this.router.navigate(['/board-post']);
   }
 }

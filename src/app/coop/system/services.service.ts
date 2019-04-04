@@ -12,8 +12,8 @@ export class ServicesService {
   membership_no:any;
 tests:any;
 // url:string=``;
-url:string = `http://192.168.100.103:4000/`;
-// url:string = `http://192.168.43.50:4000/`;
+// url:string = `http://192.168.100.103:4000/`;
+url:string = `http://192.168.43.50:4000/`;
 // url:string = `http://192.168.100.144:4000/`;
 
 
@@ -45,7 +45,8 @@ www_data='www_data';
 www_data_detail='www_data_detail';
 ws_mem_keep_det_distinct='ws_mem_keep_det_distinct';
 ws_mem_keep_det_statement='ws_mem_keep_det_statement';
-
+post_board_ans='post_board_ans';
+post_board='post_board';
   constructor(
     
     private storage:Storage,

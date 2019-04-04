@@ -190,9 +190,9 @@
 
 <div *ngIf="items">
 <ion-card>
-    <ion-textarea placeholder="แสดงความคิดเห็น... .."></ion-textarea>
+    <ion-textarea placeholder="แสดงความคิดเห็น... .." [(ngModel)]="ans"></ion-textarea>
     <div align="right">
-    <ion-button color="tertiary">
+    <ion-button color="tertiary" (click)="confirm_ans()">
       ตกลง
     </ion-button>
   </div>
