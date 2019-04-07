@@ -64,6 +64,19 @@ export class FunctionService {
     console.log('Loading dismissed!');
   }
 
+  async passcodeComplete() {
+    const alert = await this.alertController.create({
+      header: 'สำเร็จ!',
+      // subHeader: 'Subtitle',
+      message: 'รหัสผ่านถูกต้อง',
+      buttons: ['OK']
+    });
+    setTimeout(()=>{  
+      this.router.navigate(['/footer/footer/menu']);
+   },700);
+    await alert.present();
+  }
+
   async presentLoadingWithOptions() {
     const loading = await this.loadingController.create({
       spinner: 'dots',

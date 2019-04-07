@@ -35,6 +35,7 @@ export class LogonPage implements OnInit {
    member_surname:any='';
    member_key:any='';
    ip:any='';
+   membership_no:any='';
    plat:boolean;
     constructor(
     public navCtrl: NavController ,  
@@ -50,12 +51,22 @@ export class LogonPage implements OnInit {
 
   ) {
 
+    this.storage.get('membership_no').then((val) => {
+      this.membership_no = val;
+      if(this.membership_no == null){
+      }else{
+        this.router.navigate(['/footer']);
+     
+      console.log("the membership_no is"+this.membership_no);
+
   
+      // this.service.Set_Storage_membership_no(members);
+      // this.service.Set_Storage_member_key(this.password);
+      // this.storage.set('member_name',this.member_name);
 
+ }
 
-
-
-
+    });
 
 
 

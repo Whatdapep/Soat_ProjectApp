@@ -3,6 +3,7 @@ import { AlertController } from '@ionic/angular';
 import { ToastController } from '@ionic/angular';
 import { Router,RouterModule } from '@angular/router';
 import { Storage } from '@ionic/storage';
+import {ServicesService} from '../services.service';
 
 
 
@@ -24,6 +25,7 @@ export class AuthcodePage implements OnInit {
     public alertController : AlertController,
     public toastController: ToastController,
     public router:Router,
+    private service:ServicesService,
 
     private storage: Storage,
   )
@@ -47,8 +49,8 @@ export class AuthcodePage implements OnInit {
           this.storage.set('passcode',result);
           console.log('set passcode is '+result)
 
-          this.LoginComplete();
-          this.router.navigate(['/footer/menu']);
+          this.service.callfunction.passcodeComplete();
+          // this.router.navigate(['/footer/footer/menu']);
 
 
 
@@ -86,18 +88,7 @@ export class AuthcodePage implements OnInit {
     await alert.present();
   }
 
-  async LoginComplete() {
-    const alert = await this.alertController.create({
-      header: 'สำเร็จ!',
-      // subHeader: 'Subtitle',
-      message: 'รหัสผ่านถูกต้อง',
-      buttons: ['OK']
-    });
-    setTimeout(()=>{  
-      this.router.navigate(['/footer/menu']);
-   },2000);
-    await alert.present();
-  }
+
 
   async falsepasscode() {
     const toast = await this.toastController.create({

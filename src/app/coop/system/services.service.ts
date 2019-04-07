@@ -12,7 +12,8 @@ export class ServicesService {
   membership_no:any;
 tests:any;
 // url:string=``;
-url:string = `http://192.168.100.103:4000/`;
+url:string = `http://192.168.1.107:4000/`;
+// url:string = `http://192.168.100.103:4000/`;
 // url:string = `http://192.168.43.50:4000/`;
 // url:string = `http://192.168.100.144:4000/`;
 

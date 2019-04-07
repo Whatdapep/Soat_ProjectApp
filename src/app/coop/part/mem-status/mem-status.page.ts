@@ -128,7 +128,10 @@ this.address_present = this.address_present.toString();
   }
   logout(){
     console.log("i click logout()");
-    // this.router.navigate(['/share-statement']);
+    
+    this.storage.clear();
+     this.router.navigate(['/logon']);
+    // clear()
   }
 
   ngOnInit() {

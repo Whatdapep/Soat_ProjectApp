@@ -30,7 +30,13 @@ margin-left: 0%;
 .custom-skeleton ion-skeleton-text {
   line-height: 13px;
 }
-
+ion-title{
+  color: #222222;
+  // font-weight:bold;
+  font-size: 3vmax;
+  // border-bottom: #555555 solid 1px;
+  font-family: 'Kanit', sans-serif;
+}
 .custom-skeleton ion-skeleton-text:last-child {
   margin-bottom: 5px;
 }
