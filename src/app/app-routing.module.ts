@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'authcode', pathMatch: 'full'},
+  { path: '', redirectTo: 'logon', pathMatch: 'full'},
   // { path: 'home', loadChildren: './home/home.module#HomePageModule' },
   { path: 'footer', loadChildren: './content/footer/footer.module#FooterPageModule' },
   // { path: 'mem-status', loadChildren: './coop/part/mem-status/mem-status.module#MemStatusPageModule' },

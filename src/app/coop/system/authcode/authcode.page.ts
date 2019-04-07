@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
+import { ToastController } from '@ionic/angular';
+import { Router,RouterModule } from '@angular/router';
+import { Storage } from '@ionic/storage';
 
 
 
@@ -12,12 +15,17 @@ export class AuthcodePage implements OnInit {
   // push=new Array;
   passcode:any=new Array;
   passcodestorage='654321';
-
-  
+  shake:boolean=false;
+  main:boolean=true;
+  falsecount:number=0;  
 
   constructor(
 
     public alertController : AlertController,
+    public toastController: ToastController,
+    public router:Router,
+
+    private storage: Storage,
   )
   {
 
@@ -26,6 +34,8 @@ export class AuthcodePage implements OnInit {
    }
 
    keep(){
+    this.main=true;
+    this.shake=false;
     if(this.passcode.length < 6){
       console.log(this.passcode.length);
     }else{
@@ -33,10 +43,28 @@ export class AuthcodePage implements OnInit {
       var result = this.passcode.toString();
 
         if(result == this.passcodestorage){
+           
+          this.storage.set('passcode',result);
+          console.log('set passcode is '+result)
+
           this.LoginComplete();
-        }else{
-          this.Loginfalse();
+          this.router.navigate(['/footer/menu']);
+
+
+
+        }else{ 
+          this.falsecount++;
+          // this.Loginfalse();
           this.passcode = '';
+          this.falsepasscode();
+          // setTimeout(()=>{ 
+            this.shake=true;
+            this.main=false;
+           
+
+        // },500);
+
+        
         }
         console.log(result)
         console.log("you are push6")
@@ -62,15 +90,25 @@ export class AuthcodePage implements OnInit {
     const alert = await this.alertController.create({
       header: 'สำเร็จ!',
       // subHeader: 'Subtitle',
-      message: 'สวัสดียินดีต้อนรับคุณ ',
+      message: 'รหัสผ่านถูกต้อง',
       buttons: ['OK']
     });
     setTimeout(()=>{  
-      // this.router.navigate(['/footer']);
+      this.router.navigate(['/footer/menu']);
    },2000);
     await alert.present();
   }
 
+  async falsepasscode() {
+    const toast = await this.toastController.create({
+      message: 'กรุณากรอกรหัสให้ถูกต้อง ครั้งทึ่ '+this.falsecount,
+      duration: 2000
+    });
+    toast.present();
+  }
+
+
+//02-8888888
   ngOnInit() {
   }
   one(){

@@ -24,6 +24,7 @@
 
       <!-- <ion-input [(ngModel)]="passcode" maxlength="6"> -->
 <!-- {{passcode}} -->
+<div *ngIf="main" class="screen">
           <div class="screen" align="center" style="margin:5%;">
               <span *ngIf="!passcode[0]">
                   <span class="dot"></span>
@@ -61,13 +62,51 @@
     <span *ngIf="passcode[5]">
       <span class="dotcom"></span>
     </span>
-    
-
-
-            
+  </div>
           </div>
 
-          {{push}}
+          <div *ngIf="shake" class="shake screen">
+              <div class="screen" align="center" style="margin:5%;">
+                  <span *ngIf="!passcode[0]">
+                      <span class="dot"></span>
+                    </span>
+                <span *ngIf="passcode[0]">
+                  <span class="dotcom"></span>
+                </span>
+                <span *ngIf="!passcode[1]">
+                    <span class="dot"></span>
+                  </span>
+              <span *ngIf="passcode[1]">
+                <span class="dotcom"></span>
+              </span>
+                <span *ngIf="!passcode[2]">
+                    <span class="dot"></span>
+                  </span>
+              <span *ngIf="passcode[2]">
+                <span class="dotcom"></span>
+              </span>
+              <span *ngIf="!passcode[3]">
+                  <span class="dot"></span>
+                </span>
+            <span *ngIf="passcode[3]">
+              <span class="dotcom"></span>
+            </span>
+            <span *ngIf="!passcode[4]">
+                <span class="dot"></span>
+              </span>
+          <span *ngIf="passcode[4]">
+            <span class="dotcom"></span>
+          </span>
+          <span *ngIf="!passcode[5]">
+              <span class="dot"></span>
+            </span>
+        <span *ngIf="passcode[5]">
+          <span class="dotcom"></span>
+        </span>
+      </div>
+              </div>
+
+          
 
       <!-- </ion-input> -->
     

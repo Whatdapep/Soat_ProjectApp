@@ -27,6 +27,7 @@ export class MenuPage implements OnInit {
   part2:any;
   data2:any;
   memberdetail:any;
+  passcode:any='';
 
   mainshow:boolean = false;
   loadshow:boolean = true;
@@ -40,6 +41,17 @@ export class MenuPage implements OnInit {
     private service:ServicesService
     
     ) { 
+      this.storage.get('passcode').then((val) => {
+        this.passcode = val;
+        if(this.passcode != null){
+        }else{
+          this.router.navigate(['/authcode']);
+        }
+        console.log("the passcode is"+this.passcode);
+
+    
+
+
 
       function getsharestock(item,index) {
         var fullname = [item.index];
@@ -82,6 +94,7 @@ console.log("this is sharestock"+this.sharestock)
 
 });
 });
+});
     }
 
   ngOnInit() {
@@ -100,6 +113,8 @@ console.log("this is sharestock"+this.sharestock)
     console.log("i just Click it");
     // this.test = "pomming Heelo ";
     this.router.navigate(['/mem-disposit']);
+    // this.router.navigate(['/authcode']);
+    
   }
   loan(){
     console.log("i just Click Good");
