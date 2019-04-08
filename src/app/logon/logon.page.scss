@@ -1,4 +1,4 @@
-img{
+.logo{
     // margin-left:50%;
     width:35%;
     margin-left: auto;
@@ -15,6 +15,19 @@ ion-label{
     font-size:155vw;
     
 }
+.screen{
+    max-width: 400px;
+    min-width: 325px;
+    margin: auto;
+
+}
 ion-input{
 min-width:700px;
+}
+.images{
+    // background-color: rgba(0,0, 0,0.5);
+    opacity: 40%;
+}
+.margin{
+    margin:5%;
 }

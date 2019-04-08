@@ -26,16 +26,18 @@
 
 <!-- <ion-card> -->
   <div align = "center">
-  <img    src="../../assets/icon/logo_new.png" width="35%" >
+  <img  class="logo"  src="../../assets/icon/logo_new.png" width="35%" >
   
 </div>
 <!-- </ion-card> -->
-  <ion-item>
+<div class="screen">
+  <ion-card>
+  <ion-item class ="margin">
  <ion-label position="floating" align ="center">Username</ion-label>
 
  <ion-input align ="center" required  [(ngModel)]="username"> <span><ion-icon name="person" placeholder = "Username " required></ion-icon></span></ion-input>
 </ion-item>
-<ion-item>
+<ion-item class ="margin">
  <ion-label position="floating" align = "center">Passwords</ion-label>
 
  <ion-input align = "center" required type = "password" [(ngModel)]="password" required> <span><ion-icon name="lock"></ion-icon></span></ion-input>
@@ -43,8 +45,9 @@
 </ion-item>
 <br>
 
-<ion-button expand="block" color="success" style = " font-weight: bold; font-size: 15" (click)="login()">Sign in</ion-button>
-  
+<ion-button class ="margin"expand="block" color="success" style = " font-weight: bold; font-size: 15" (click)="login()">Sign in</ion-button>
+</ion-card>
+</div>
 <!-- <IonVuePage :title="'Loading'"> -->
     <!-- <ion-button (click)="presentLoading()">Show Loading</ion-button>
     <br />
@@ -60,3 +63,5 @@
   </ion-item> -->
 
 </ion-content>
+
+<img  class="images"  src="../../assets/soldier.jpg" height="30%" >

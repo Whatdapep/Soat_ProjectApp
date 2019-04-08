@@ -24,6 +24,8 @@ import { BrowserTab } from '@ionic-native/browser-tab/ngx';
 import { Device } from '@ionic-native/device/ngx';
 import { Platform } from '@ionic/angular';
 import { PinDialog } from '@ionic-native/pin-dialog/ngx';
+import { Network } from '@ionic-native/network/ngx';
+import { FingerprintAIO } from '@ionic-native/fingerprint-aio/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -47,7 +49,9 @@ import { PinDialog } from '@ionic-native/pin-dialog/ngx';
     BrowserTab,
     Device,
     Platform,
-    PinDialog
+    PinDialog,
+    Network,
+    FingerprintAIO
    
   ],
   bootstrap: [AppComponent]

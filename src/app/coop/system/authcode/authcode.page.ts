@@ -4,6 +4,7 @@ import { ToastController } from '@ionic/angular';
 import { Router,RouterModule } from '@angular/router';
 import { Storage } from '@ionic/storage';
 import {ServicesService} from '../services.service';
+import { FingerprintAIO } from '@ionic-native/fingerprint-aio/ngx';
 
 
 
@@ -26,6 +27,7 @@ export class AuthcodePage implements OnInit {
     public toastController: ToastController,
     public router:Router,
     private service:ServicesService,
+    private fingeraio:FingerprintAIO,
 
     private storage: Storage,
   )
@@ -156,6 +158,18 @@ export class AuthcodePage implements OnInit {
     console.log(find);
     console.log(this.passcode[len-1]);
 
+
+  }
+  finger(){
+    this.fingeraio.show({
+      clientId: 'Fingerprint-Demo',
+      clientSecret: 'password', //Only necessary for Android
+      // disableBackup:true,  //Only for Android(optional)
+      // localizedFallbackTitle: 'Use Pin', //Only for iOS
+      // localizedReason: 'Please authenticate' //Only for iOS
+  })
+  .then((result: any) => console.log(result))
+  .catch((error: any) => console.log(error));
 
   }
 

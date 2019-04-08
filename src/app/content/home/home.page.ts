@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, from } from 'rxjs';
 import { LoadingController } from '@ionic/angular';
 import {ServicesService} from '../../coop/system/services.service'
+import { Network } from '@ionic-native/network/ngx';
 
 @Component({
   selector: 'app-home',
@@ -34,8 +35,30 @@ export class HomePage implements OnInit {
     private storage: Storage,
     private Http:HttpClient,
     public loadingController: LoadingController,
-    private service:ServicesService
+    private service:ServicesService,
+    private Network:Network
   ) {
+
+
+    
+  //  let connectSubscription = Network.onConnect().subscribe(() => {
+  //   console.log('network connected!');
+  //   // We just got a connection but we need to wait briefly
+  //    // before we determine the connection type. Might need to wait.
+  //   // prior to doing any api requests as well.
+  //   setTimeout(() => {
+  //     if (Network.type === 'wifi') {
+  //       alert('we got a wifi connection, woohoo!');
+  //       // console.log('we got a wifi connection, woohoo!');
+  //     }
+  //   }, 1000);
+  // });
+  
+  // // stop connect watch
+  // connectSubscription.unsubscribe();
+
+
+
     this.storage.get('membership_no').then((val) => {
       this.membership_no = val.toString();
     console.log("this is get Storage"+this.membership_no);
@@ -61,6 +84,7 @@ console.log(this.items);
 
 
    }
+
 
   ngOnInit() {
   }
