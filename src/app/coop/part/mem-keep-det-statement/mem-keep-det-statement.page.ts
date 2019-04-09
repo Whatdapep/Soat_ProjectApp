@@ -29,6 +29,7 @@ export class MemKeepDetStatementPage implements OnInit {
   part2:any;
   // ---------
  keep:any='';
+ print:any='';
  
 
 
@@ -88,7 +89,7 @@ export class MemKeepDetStatementPage implements OnInit {
     this.mainshow = true;
     this.loadshow = false;
     console.log(this.keep);
-
+    this.print = this.service.print_pdf(this.membership_no,this.receive_month,this.receive_year);
 
   });
     });
