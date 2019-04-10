@@ -34,32 +34,27 @@ export class MemGainPage implements OnInit {
     private service:ServicesService
   ) {
 
+    this.Maintain()
+   }
+
+  ngOnInit() {
+  }
+
+  Maintain(){
     this.storage.get('membership_no').then((val) => {
       this.membership_no = val.toString();
     console.log("this is get Storage"+this.membership_no);
-      
   // *----------------------HTTP ------------------------------------------------
-    this.part = service.ws_mem_recrieve_gain
-    this.data = service.gethttp(this.part,this.membership_no,this.service.apikey);
+    this.part = this.service.ws_mem_recrieve_gain
+    this.data = this.service.gethttp(this.part,this.membership_no,this.service.apikey);
     this.data.subscribe(results =>{
     this.items = results;
     this.mainshow = true;
     this.loadshow = false;
-
-
     console.log(this.items);
-   
-
-
-
-
-
     });
   });
    
-   }
-
-  ngOnInit() {
   }
 
 }

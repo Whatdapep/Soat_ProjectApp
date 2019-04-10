@@ -1,5 +1,7 @@
 <ion-header>
-    <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    
     <ion-toolbar>
       <ion-title>
         <div align="center"> 
@@ -10,6 +12,16 @@
   </ion-header>
   
   <ion-content padding color="secondary">
+      <!-- <ion-refresher slot="fixed" (ionRefresh)="Refresh($event)">
+          <ion-refresher-content
+            pullingIcon="arrow-dropdown"
+            pullingText="Pull to refresh"
+            refreshingSpinner="dots"
+           
+            refreshingText="กำลังโหลดข้อมูล..">
+          </ion-refresher-content>
+        </ion-refresher> -->
+
       <!-- <div class ="margin"></div> -->
   <ion-card color="light">
             <!-- <div align = "center" style="padding-bottom:35px; ">-->
@@ -102,7 +114,8 @@
           <!-- <ion-item color="secondary">
             </ion-item> -->
           </div>
-  
+
+      
             <div *ngIf="!items">
                 <ion-avatar slot="start">
                     <ion-skeleton-text animated></ion-skeleton-text>

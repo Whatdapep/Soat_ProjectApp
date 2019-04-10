@@ -36,47 +36,35 @@ export class MemShareStatementPage implements OnInit {
     public loadingController: LoadingController,
     private service:ServicesService
   ) {
-
-    this.storage.get('membership_no').then((val) => {
-      this.membership_no = val.toString();
-    console.log("this is get Storage"+this.membership_no);
-      
-  // *----------------------HTTP ------------------------------------------------
-    this.part = service.ws_mem_share_statement_head
-    this.data = service.gethttp(this.part,this.membership_no,this.service.apikey);
-    this.data.subscribe(results =>{
-    this.items_head = results;
-    this.mainshow = true;
-    this.loadshow = false;
-
-    console.log(this.items_head);
-
-
-    this.part2 = service.ws_mem_share_statement
-    this.data2 = service.gethttp(this.part2,this.membership_no,this.service.apikey);
-    this.data2.subscribe(results =>{
-    this.items = results;
-    this.share_statement = results;
-    this.mainshow = true;
-    this.loadshow = false;
-
-    console.log(this.items);
-   
-
-
-
-
-
-
-
-    });
-  });
-});
+this.Maintain()
+    
    }
 
    
-
   ngOnInit() {
   }
-
+Maintain(){
+  this.storage.get('membership_no').then((val) => {
+    this.membership_no = val.toString();
+  console.log("this is get Storage"+this.membership_no);
+// *----------------------HTTP ------------------------------------------------
+  this.part = this.service.ws_mem_share_statement_head
+  this.data = this.service.gethttp(this.part,this.membership_no,this.service.apikey);
+  this.data.subscribe(results =>{
+  this.items_head = results;
+  this.mainshow = true;
+  this.loadshow = false;
+  console.log(this.items_head);
+  this.part2 = this.service.ws_mem_share_statement
+  this.data2 = this.service.gethttp(this.part2,this.membership_no,this.service.apikey);
+  this.data2.subscribe(results =>{
+  this.items = results;
+  this.share_statement = results;
+  this.mainshow = true;
+  this.loadshow = false;
+  console.log(this.items);
+  });
+});
+});
+}
 }

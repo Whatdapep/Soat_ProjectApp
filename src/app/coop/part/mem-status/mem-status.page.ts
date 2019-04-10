@@ -55,15 +55,23 @@ export class MemStatusPage implements OnInit {
 
   ) { 
 
-  // ---------------------------------Storage ---------------------------------------
-    this.storage.get('membership_no').then((val) => {
-      this.membership_no = val.toString();
-    console.log("this is get Storage"+this.membership_no);
+ 
+this.Maintain()
 
-  // *----------------------HTTP ------------------------------------------------
-this.part = service.ws_mem_status
+
+  }
+
+
+Maintain(){
+   // ---------------------------------Storage ---------------------------------------
+   this.storage.get('membership_no').then((val) => {
+    this.membership_no = val.toString();
+  console.log("this is get Storage"+this.membership_no);
+
+// *----------------------HTTP ------------------------------------------------
+this.part = this.service.ws_mem_status
 // this.part = 'sc_confirm_register/0000091/c52c90744ab65d13cd6732390a72c0bb';
-this.data = service.gethttp(this.part,this.membership_no,this.service.apikey);
+this.data = this.service.gethttp(this.part,this.membership_no,this.service.apikey);
 // this.data = service.https(this.part);
 this.data.subscribe(results =>{
 this.items = results.toString(this.service.callfunction.getnametoken);
@@ -77,9 +85,9 @@ console.log(this.items);
 // let t = JWT(this.items.toString());
 // console.log(t);
 // ------------------------------------- MAp Space------------------------------------------------
-this.token = results.map(this.service.callfunction.gettoken)
-this.token = this.token.toString();
-console.log(this.token)
+// this.token = results.map(this.service.callfunction.gettoken)
+// this.token = this.token.toString();
+// console.log(this.token)
 
 this.member_name = results.map(this.service.callfunction.getname)
 this.member_name = this.member_name.toString();
@@ -90,7 +98,7 @@ this.member_surname = this.member_surname.toString();
 
 this.date_of_birth = results.map(this.service.callfunction.getdateborn)
 this.date_of_birth = this.date_of_birth.toString();
-console.log(this.date_of_birth);
+// console.log(this.date_of_birth);
 
 this.approve_date = results.map(this.service.callfunction.getapprove)
 this.approve_date = this.approve_date.toString();
@@ -110,11 +118,18 @@ this.address_present = this.address_present.toString();
 
 });
 });
- 
+
+}
+  Refresh(event) {
 
 
+    setTimeout(() => {
+      this.Maintain();
+      event.target.complete();
 
+    }, 1000);
   }
+
   gain(){
     this.router.navigate(['/mem-gain']);
   }

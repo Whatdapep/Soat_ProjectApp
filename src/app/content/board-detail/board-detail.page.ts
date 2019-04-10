@@ -44,6 +44,19 @@ export class BoardDetailPage implements OnInit {
     public alertController : AlertController,
   ) {
 
+   this.Maintain();
+   }
+   Refresh(event) {
+
+
+    setTimeout(() => {
+      this.Maintain();
+      event.target.complete();
+
+    }, 1000);
+  }
+
+  Maintain(){
     this.storage.get('membership_no').then((val) => {
       this.membership_no = val.toString();
     console.log("this is get Storage"+this.membership_no);
@@ -56,8 +69,8 @@ export class BoardDetailPage implements OnInit {
       console.log("this is get member_name"+this.member_name);
       
   // *----------------------HTTP ------------------------------------------------
-  this.part = service.www_board
-  this.data = service.gethttp(this.part,this.No,this.service.apikey);
+  this.part = this.service.www_board
+  this.data = this.service.gethttp(this.part,this.No,this.service.apikey);
   this.data.subscribe(result =>{
   this.items = result;
   // this.board = result;
@@ -65,8 +78,8 @@ export class BoardDetailPage implements OnInit {
   
   console.log(this.items);
 
-this.part2 = service.www_board_ans
-this.data2 = service.gethttp(this.part2,this.No,this.service.apikey);
+this.part2 = this.service.www_board_ans
+this.data2 = this.service.gethttp(this.part2,this.No,this.service.apikey);
 this.data2.subscribe(result =>{
 this.items2 = result;
 // this.board = result;
@@ -83,8 +96,8 @@ console.log(this.items2);
 });
 });
     });
-   }
-
+  }
+  
    async Confirm_board_ans() {
     const alert = await this.alertController.create({
       header: 'กรุณาตรวจสอบความถูกต้องให้เรียบร้อย!',
@@ -97,25 +110,27 @@ console.log(this.items2);
           handler: (blah) => {
             console.log('Confirm Cancel: blah');
             this.ans = '';
+            this.ans.focus();
           }
         }, {
           text: 'ตกลง',
           handler: () => {
             console.log('Confirm Okay');
             var body = {
-              Category:"this"
+              Category:this.service.board_Category_ans
              ,QuestionNo:this.No
              ,Msg:this.ans
              ,Name:this.member_name
              ,IP:''
-             ,Date:''
+             ,Date:new Date()
             };
-            this.part3= this.service.www_board_ans
-            this.data3 = this.service.posthttps(this.part3,this.service.apikey,body);
+            this.part3= this.service.post_board_ans
+            this.data3 = this.service.posthttps(this.part3,body,this.service.apikey);
             this.data3.subscribe(result =>{
             console.log(result)
-
+            this.ans='';
             });
+            this.Refresh(event);
 
 
 
@@ -134,6 +149,7 @@ console.log(this.items2);
   }
   confirm_ans(){
     this.Confirm_board_ans();
+    
   }
 
 }

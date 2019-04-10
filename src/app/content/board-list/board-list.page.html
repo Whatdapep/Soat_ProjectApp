@@ -24,42 +24,80 @@
 </ion-header>
 
 <ion-content>
-
-    <div *ngIf="items">
-        <ion-card  *ngFor="let item of items">
-            <div class ="maintext">
-                <i class="fas fa-question-circle"></i>
-                <label class="headertext">
-                {{item.Question}}
-              </label>
-                <div>
-                  <ion-label> <i class="fas fa-user"></i> {{item.Name}} </ion-label> 
-                </div>
-                <div align="right">
-                  <a (click)="board_detail(item.No)">รายละเอียด ></a>
-
-                </div>
-                  <div align="right">
-                      <i class="fas fa-clock"></i>
-                  <ion-label>
-                  
-                  <ion-datetime  readonly value={{item.Date}}><span></span></ion-datetime>
-               </ion-label>
-              </div>
-             
+  <ion-refresher slot="fixed" (ionRefresh)="Refresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Pull to refresh"
+      refreshingSpinner="dots"
+     
+      refreshingText="กำลังโหลดข้อมูล..">
+      
+      
   
+    </ion-refresher-content>
+  </ion-refresher>
+  
+  <div *ngIf="items">
+    <ion-card  *ngFor="let item of items">
+        <div class ="maintext">
+            <i class="fas fa-question-circle"></i>
+            <label class="headertext">
+            {{item.Question}}
+          </label>
+            <div>
+              <ion-label> <i class="fas fa-user"></i> {{item.Name}} </ion-label> 
             </div>
-  
-          </ion-card>
+            <div align="right">
+              <a (click)="board_detail(item.No)">รายละเอียด ></a>
 
-          
-       
-          
+            </div>
+              <div align="right">
+                  <i class="fas fa-clock"></i>
+              <ion-label>
+              
+              <ion-datetime  readonly value={{item.Date}}><span></span></ion-datetime>
+           </ion-label>
+          </div>
+         
 
-    </div>
+        </div>
 
-    <div *ngIf="!items">
-        <ion-avatar slot="start">
+      </ion-card>
+
+      
+   
+      
+
+</div>
+
+<div *ngIf="!items">
+    <ion-avatar slot="start">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-avatar>
+      <ion-label>
+        <h3>
+          <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+        </h3>
+        <p>
+          <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+        </p>
+        <p>
+          <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+        </p>
+      </ion-label> <ion-avatar slot="start">
+          <ion-skeleton-text animated></ion-skeleton-text>
+        </ion-avatar>
+        <ion-label>
+          <h3>
+            <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+          </h3>
+          <p>
+            <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+          </p>
+          <p>
+            <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+          </p>
+        </ion-label> <ion-avatar slot="start">
             <ion-skeleton-text animated></ion-skeleton-text>
           </ion-avatar>
           <ion-label>
@@ -85,10 +123,8 @@
               <p>
                 <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
               </p>
-            </ion-label> <ion-avatar slot="start">
-                <ion-skeleton-text animated></ion-skeleton-text>
-              </ion-avatar>
-              <ion-label>
+            </ion-label>
+            <ion-label>
                 <h3>
                   <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
                 </h3>
@@ -98,10 +134,8 @@
                 <p>
                   <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
                 </p>
-              </ion-label> <ion-avatar slot="start">
-                  <ion-skeleton-text animated></ion-skeleton-text>
-                </ion-avatar>
-                <ion-label>
+              </ion-label>
+              <ion-label>
                   <h3>
                     <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
                   </h3>
@@ -134,28 +168,6 @@
                         <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
                       </p>
                     </ion-label>
-                    <ion-label>
-                        <h3>
-                          <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
-                        </h3>
-                        <p>
-                          <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
-                        </p>
-                        <p>
-                          <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
-                        </p>
-                      </ion-label>
-                      <ion-label>
-                          <h3>
-                            <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
-                          </h3>
-                          <p>
-                            <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
-                          </p>
-                          <p>
-                            <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
-                          </p>
-                        </ion-label>
 
-      </div>
+  </div>
 </ion-content>

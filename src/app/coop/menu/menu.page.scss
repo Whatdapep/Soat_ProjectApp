@@ -36,7 +36,13 @@ ion-title{
     margin: auto;
     font-size: 120%;
     margin-bottom: 10%;
+    margin-top:2%;
 }
+ion-refresher-content{
+    font-family:'Kanit', sans-serif;
+    font-size: 0.5vmax;
+    color:#555555;
+  }
 .bg-circle {
     // -moz-border-radius:50%;
     // -webkit-border-radius:50%;

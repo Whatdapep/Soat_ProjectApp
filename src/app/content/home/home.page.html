@@ -19,6 +19,18 @@
 </ion-header>
 
 <ion-content>
+    <ion-refresher slot="fixed" (ionRefresh)="Refresh($event)">
+        <ion-refresher-content
+          pullingIcon="arrow-dropdown"
+          pullingText="Pull to refresh"
+          refreshingSpinner="dots"
+         
+          refreshingText="กำลังโหลดข้อมูล..">
+          
+          
+      
+        </ion-refresher-content>
+      </ion-refresher>
   
 
   <ion-slides pager="false" ionSlideDrag [options]="slideOpts">

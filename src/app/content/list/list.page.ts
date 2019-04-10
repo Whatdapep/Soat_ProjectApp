@@ -34,26 +34,7 @@ export class ListPage implements OnInit {
     private service:ServicesService
 
   ) {
-    this.storage.get('membership_no').then((val) => {
-      this.membership_no = val.toString();
-    console.log("this is get Storage"+this.membership_no);
-      
-  // *----------------------HTTP ------------------------------------------------
-this.part = service.www_data
 
-this.data = service.gethttpall(this.part,this.service.apikey);
-this.data.subscribe(result =>{
-this.items = result;
-// this.board = result;
-
-
-console.log(this.items);
-
-// ------------------------------------- MAp Space
-
-
-});
-});
 
 
    }
@@ -66,5 +47,21 @@ console.log(this.items);
     console.log('set No is '+item);
 
     this.router.navigate(['/show']);
+  }
+  Maintain(){
+    this.storage.get('membership_no').then((val) => {
+      this.membership_no = val.toString();
+    console.log("this is get Storage"+this.membership_no);
+  // *----------------------HTTP ------------------------------------------------
+this.part = this.service.www_data
+
+this.data = this.service.gethttpall(this.part,this.service.apikey);
+this.data.subscribe(result =>{
+this.items = result;
+console.log(this.items);
+// ------------------------------------- MAp Space
+});
+});
+
   }
 }

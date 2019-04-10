@@ -16,7 +16,14 @@
   font-family: 'Kanit', sans-serif;
   margin:2%;
   // margin-left: 0%;
-
+}
+ion-refresher-content{
+  font-family:'Kanit', sans-serif;
+  font-size: 0.5vmax;
+  color:#555555;
+}
+.textarea{
+  padding: 3%;
 }
 .custom-skeleton ion-skeleton-text {
     line-height: 13px;

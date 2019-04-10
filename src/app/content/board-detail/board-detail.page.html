@@ -20,6 +20,19 @@
 
 <ion-content>
 
+    <ion-refresher slot="fixed" (ionRefresh)="Refresh($event)">
+        <ion-refresher-content
+          pullingIcon="arrow-dropdown"
+          pullingText="Pull to refresh"
+          refreshingSpinner="dots"
+         
+          refreshingText="กำลังโหลดข้อมูล..">
+          
+          
+      
+        </ion-refresher-content>
+      </ion-refresher>
+
     <div *ngIf="items">
         <ion-card  *ngFor="let item of items">
           <!-- <ion-card-header class = "headertext">     -->
@@ -194,7 +207,7 @@
 
 <div *ngIf="items">
 <ion-card>
-    <ion-textarea placeholder="แสดงความคิดเห็น... .." [(ngModel)]="ans"></ion-textarea>
+    <ion-textarea placeholder="แสดงความคิดเห็น... .." [(ngModel)]="ans" class="textarea"></ion-textarea>
     <div align="right">
     <ion-button color="tertiary" (click)="confirm_ans()">
       ตกลง

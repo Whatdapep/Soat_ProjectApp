@@ -37,16 +37,6 @@ export class LogonPage implements OnInit {
    ip:any='';
    membership_no:any='';
    plat:boolean;
-
-
-
-  //  test Area
-
-part2:any;
-data2:any;
-
-
-  // 
     constructor(
     public navCtrl: NavController ,  
     public alertController : AlertController,
@@ -79,6 +69,24 @@ data2:any;
     });
 
 
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
     if(this.platform.is('android') || this.platform.is('ios') || this.platform.is('desktop'))
     {
       this.plat = true;
@@ -89,7 +97,7 @@ data2:any;
     }
 
     // is(desktop:platforms) => this.plat = true
-    
+    console.log('Device UUID is: ' + this.Device.uuid);
     this.NetworkInterface.getWiFiIPAddress()
     .then(address => console.info(`IP: ${address.ip.toString()}, Subnet: ${address.subnet.toString()}`))
     .catch(error => console.error(`Unable to get IP: ${error}`));
@@ -152,18 +160,7 @@ async presentLoadingWithOptions() {
   return await loading.present();
 }
 // -*--------------------------------------------------------------------------
-uid(){
-  this.platform.ready().then(() => {
-  console.log('Device UUID is: ' + this.Device.uuid);
-  this.NetworkInterface.getWiFiIPAddress()
-    .then(address => console.info(`IP: ${address.ip}, Subnet: ${address.subnet}`))
-    .catch(error => console.error(`Unable to get IP: ${error}`));
 
-  });
-
-  
-           
-}
 login(){
   // this.presentLoadingWithOptions();
   this.service.callfunction.presentLoadingWithOptions();
@@ -190,7 +187,7 @@ login(){
     this.member_name = result.map(this.service.callfunction.getname)
     this.member_surname = result.map(this.service.callfunction.getsurname)
 
-    this.member_name = this.member_name+this.member_surname
+    this.member_name = this.member_name+ '  '+ this.member_surname
     if(this.membership_no_new != ''){
       // this.presentLoadingWithOptions() = false;
       

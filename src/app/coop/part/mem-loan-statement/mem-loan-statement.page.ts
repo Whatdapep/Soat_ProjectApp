@@ -55,70 +55,55 @@ export class MemLoanStatementPage implements OnInit {
 
   ) {
 
-    this.storage.get('membership_no').then((val) => {
-      this.membership_no = val.toString();
-    console.log("this is get Storage"+this.membership_no);
-
-    storage.get('loan_contract_no').then((val) => {
-      this.loan_no = val.toString();
-      console.log( "this is loan_statement inside "+this.loan_no);
-      
-  // *----------------------HTTP ------------------------------------------------
-  this.part_loan = service.ws_mem_loan
-  this.data_loan = service.gethttp(this.part_loan,this.membership_no,this.service.apikey);
-  this.data_loan.subscribe(results =>{
-  this.loan_main = results
-  console.log(this.loan_main);
-
- 
-
-  this.part_head = service.ws_mem_loan_item
-  this.data_head = service.gethttp(this.part_head,this.loan_no,this.service.apikey);
-  this.data_head.subscribe(results =>{
-  this.loan_head = results;
-  this.mainshow = true;
-  this.loadshow = false;
-  this.loan_item_description = results.map(this.service.callfunction.getloan_type_description)
-  this.loan_item_description = this.loan_item_description.toString(); 
-  console.log(this.loan_head);
-
-
-    this.part = service.ws_mem_loan_statement
-    this.data = service.gethttp(this.part,this.loan_no,this.service.apikey);
-    this.data.subscribe(results =>{
-    this.items = results;
-    this.loan_statement=results;
-  
-
-    console.log(this.items);
-    this.part2 = service.ws_mem_loan_coll
-    console.log(this.part2);
-    this.data2 = service.gethttp(this.part2,this.loan_no,this.service.apikey);
-    this.data2.subscribe(results =>{
-      this.itemm = results;
-      // this.loan_statement=results;
-      // this.mainshow = true;
-      // this.loadshow = false;
-      console.log(this.itemm);
-    });
-    // this.balance = this.loan_main.map(this.service.callfunction.getprincipal_balance);
-    // this.balance = this.balance.toString();
-    this.balance = this.loan_main.map(this.service.callfunction.getprincipal_balance)
-    this.balance = this.balance.toString(); 
-
-
-
-    });
-    
-  });
-});
-    });
-  });
-    
-
+   
    }
 
   ngOnInit() {
   }
+Maintain(){
+            this.storage.get('membership_no').then((val) => {
+                  this.membership_no = val.toString();
+                console.log("this is get Storage"+this.membership_no);
 
+                this.storage.get('loan_contract_no').then((val) => {
+                  this.loan_no = val.toString();
+                  console.log( "this is loan_statement inside "+this.loan_no);
+                  
+              // *----------------------HTTP ------------------------------------------------
+              this.part_loan = this.service.ws_mem_loan
+              this.data_loan = this.service.gethttp(this.part_loan,this.membership_no,this.service.apikey);
+              this.data_loan.subscribe(results =>{
+              this.loan_main = results
+              console.log(this.loan_main);
+              this.part_head = this.service.ws_mem_loan_item
+              this.data_head = this.service.gethttp(this.part_head,this.loan_no,this.service.apikey);
+              this.data_head.subscribe(results =>{
+              this.loan_head = results;
+              this.mainshow = true;
+              this.loadshow = false;
+              this.loan_item_description = results.map(this.service.callfunction.getloan_type_description)
+              this.loan_item_description = this.loan_item_description.toString(); 
+              console.log(this.loan_head);
+                this.part = this.service.ws_mem_loan_statement
+                this.data = this.service.gethttp(this.part,this.loan_no,this.service.apikey);
+                this.data.subscribe(results =>{
+                this.items = results;
+                this.loan_statement=results;
+                console.log(this.items);
+                this.part2 = this.service.ws_mem_loan_coll
+                console.log(this.part2);
+                this.data2 = this.service.gethttp(this.part2,this.loan_no,this.service.apikey);
+                this.data2.subscribe(results =>{
+                  this.itemm = results;
+                  console.log(this.itemm);
+                });
+                this.balance = this.loan_main.map(this.service.callfunction.getprincipal_balance)
+                this.balance = this.balance.toString(); 
+                });
+              });
+            });
+                });
+              });
+
+}
 }

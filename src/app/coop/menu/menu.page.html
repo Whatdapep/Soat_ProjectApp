@@ -2,14 +2,27 @@
     <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
     <link href="../../../theme/style.scss">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-
+<ion-toolbar>
   <ion-title>
     <div align="center"> 
     หน้าหลัก
   </div>
   </ion-title>
+</ion-toolbar>
 </ion-header>
-<ion-content padding *ngIf="mainshow">
+<ion-content *ngIf="mainshow">
+    <!-- <ion-refresher slot="fixed" (ionRefresh)="Refresh($event)">
+        <ion-refresher-content
+          pullingIcon="arrow-dropdown"
+          pullingText="Pull to refresh"
+          refreshingSpinner="dots"
+         
+          refreshingText="กำลังโหลดข้อมูล..">
+          
+          
+      
+        </ion-refresher-content>
+      </ion-refresher> -->
 
 <div align="center" class="center">
   ทุนเรือนหุ้นของฉัน

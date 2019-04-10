@@ -41,17 +41,24 @@ export class MemDispositStatementPage implements OnInit {
   ) {
 
     
-    this.storage.get('membership_no').then((val) => {
+    this.Maintain();
+
+
+   }
+
+  ngOnInit() {
+  }
+Maintain(){
+this.storage.get('membership_no').then((val) => {
       this.membership_no = val.toString();
     console.log("this is get Storage"+this.membership_no);
 
-    storage.get('deposit_account_no').then((val) => {
+    this.storage.get('deposit_account_no').then((val) => {
       this.disposit_no = val.toString();
       console.log( "this is loan_statement inside "+this.disposit_no);
-      
   // *----------------------HTTP ------------------------------------------------
-    this.part = service.ws_mem_disposit_statement_head
-    this.data = service.gethttp(this.part,this.disposit_no,this.service.apikey);
+    this.part = this.service.ws_mem_disposit_statement_head
+    this.data = this.service.gethttp(this.part,this.disposit_no,this.service.apikey);
     this.data.subscribe(results =>{
     this.items = results;
     this.disposit_statement_head=results;
@@ -59,9 +66,9 @@ export class MemDispositStatementPage implements OnInit {
     this.loadshow = false;
 
     console.log(this.items);
-    this.part2 = service.ws_mem_disposit_statement
+    this.part2 = this.service.ws_mem_disposit_statement
     console.log(this.part2);
-    this.data2 = service.gethttp(this.part2,this.disposit_no,this.service.apikey);
+    this.data2 = this.service.gethttp(this.part2,this.disposit_no,this.service.apikey);
     this.data2.subscribe(results =>{
       this.disposit_statement = results;
       // this.loan_statement=results;
@@ -69,19 +76,10 @@ export class MemDispositStatementPage implements OnInit {
       // this.loadshow = false;
       console.log(this.disposit_statement);
     });
-
-
-
-
     });
   });
 });
 
 
-
-   }
-
-  ngOnInit() {
-  }
-
+}
 }

@@ -39,46 +39,13 @@ export class HomePage implements OnInit {
     private Network:Network
   ) {
 
-
+    this.Maintain()
     
-  //  let connectSubscription = Network.onConnect().subscribe(() => {
-  //   console.log('network connected!');
-  //   // We just got a connection but we need to wait briefly
-  //    // before we determine the connection type. Might need to wait.
-  //   // prior to doing any api requests as well.
-  //   setTimeout(() => {
-  //     if (Network.type === 'wifi') {
-  //       alert('we got a wifi connection, woohoo!');
-  //       // console.log('we got a wifi connection, woohoo!');
-  //     }
-  //   }, 1000);
-  // });
+ 
+
+
+
   
-  // // stop connect watch
-  // connectSubscription.unsubscribe();
-
-
-
-    this.storage.get('membership_no').then((val) => {
-      this.membership_no = val.toString();
-    console.log("this is get Storage"+this.membership_no);
-      
-  // *----------------------HTTP ------------------------------------------------
-this.part = service.www_data_limit
-
-this.data = service.gethttp(this.part,this.Category,this.service.apikey);
-this.data.subscribe(result =>{
-this.items = result;
-// this.board = result;
-
-
-console.log(this.items);
-
-// ------------------------------------- MAp Space
-
-
-});
-});
 
 
 
@@ -88,7 +55,31 @@ console.log(this.items);
 
   ngOnInit() {
   }
+Maintain(){
+  this.storage.get('membership_no').then((val) => {
+    this.membership_no = val.toString();
+  console.log("this is get Storage"+this.membership_no);
+// *----------------------HTTP ------------------------------------------------
+this.part = this.service.www_data_limit
 
+this.data = this.service.gethttp(this.part,this.Category,this.service.apikey);
+this.data.subscribe(result =>{
+this.items = result;
+// this.board = result;
+console.log(this.items);
+// ------------------------------------- MAp Space
+});
+});
+}
+Refresh(event) {
+
+
+  setTimeout(() => {
+    this.Maintain();
+    event.target.complete();
+
+  }, 1000);
+}
   board(){
     this.router.navigate(['/board-list']);
   }

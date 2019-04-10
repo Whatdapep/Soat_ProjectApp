@@ -45,7 +45,13 @@ export class ShowPage implements OnInit {
     private themeableBrowser: ThemeableBrowser
     // private Option:InAppBrowserOptions
   ) {
-    this.storage.get('membership_no').then((val) => {
+   
+   }
+
+  ngOnInit() {
+  }
+Maintain(){
+ this.storage.get('membership_no').then((val) => {
       this.membership_no = val.toString();
     console.log("this is get Storage"+this.membership_no);
 
@@ -54,40 +60,25 @@ export class ShowPage implements OnInit {
     console.log("this is get No"+this.No);
       
   // *----------------------HTTP ------------------------------------------------
-this.part = service.www_data_detail
+this.part = this.service.www_data_detail
 
-this.data = service.gethttp(this.part,this.No,this.service.apikey);
+this.data = this.service.gethttp(this.part,this.No,this.service.apikey);
 this.data.subscribe(result =>{
 this.items = result;
-// this.board = result;
-
-
-console.log(this.items);
-
+console.log(this.items)
 // ------------------------------------- MAp Spacet
 this.Note = this.items.map(this.service.callfunction.getNote);
-// this.Note = this.Note.toString();
 
 });
 });
     });
 
 
-   }
-
-  ngOnInit() {
-  }
-
+}
   webclick(){
-    // const Options:InAppBrowserOptions ={
-    //   Zoom:'no'
-    // }
 
 
     const browser = this.InAppBrowser.create('https://www.google.com/','_self',{location:'no'});
-    // browser.executeScript(...);
-
-    // browser.insertCSS(...);
     browser.on('loadstop').subscribe(event => {
       browser.insertCSS({ code: "body{color: red;" });
     });
@@ -97,33 +88,6 @@ this.Note = this.items.map(this.service.callfunction.getNote);
 
   webnew(){
 
-    // https://ionicframework.com/docs/native/themeable-browser/
-    // const options: ThemeableBrowserOptions = {
-    //   toolbar: {
-    //     height: 44,
-    //     color: '#3573bbff'
-    //   },
-    //   title: {
-    //     color: '#ffffffff',
-    //     showPageTitle: true,
-    //     staticText: 'Academy Browser'
-    //   },
-    //   backButton: {
-    //     wwwImage: 'assets/img/back.png',
-    //     align: 'left',
-    //     event: 'backPressed'
-    //   },
-    //   forwardButton: {
-    //     wwwImage: 'assets/img/forward.png',
-    //     align: 'left',
-    //     event: 'forwardPressed'
-    //   },
-    //   closeButton: {
-    //     wwwImage: 'assets/img/close.png',
-    //     align: 'left',
-    //     event: 'closePressed'
-    //   },
-    // };
     const options: ThemeableBrowserOptions = {
     statusbar: {
       color: '#ffffffff'

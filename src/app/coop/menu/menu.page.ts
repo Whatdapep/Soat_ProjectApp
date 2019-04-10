@@ -40,31 +40,38 @@ export class MenuPage implements OnInit {
     public loadingController: LoadingController,
     private service:ServicesService
     
-    ) { 
-      this.storage.get('passcode').then((val) => {
-        this.passcode = val;
-        if(this.passcode != null){
-        }else{
-          this.router.navigate(['/authcode']);
-        }
-        console.log("the passcode is"+this.passcode);
+    ) 
+    { 
+      this.Maintain()
+    }
 
-    
-
-
-
-      function getsharestock(item,index) {
-        var fullname = [item.index];
-        return fullname;
+  ngOnInit() {
+  }
+  Maintain(){
+    this.storage.get('passcode').then((val) => {
+      this.passcode = val;
+      if(this.passcode != null){
+      }else{
+        this.router.navigate(['/authcode']);
       }
+      console.log("the passcode is"+this.passcode);
+
+  
+
+
+
+    function getsharestock(item,index) {
+      var fullname = [item.index];
+      return fullname;
+    }
+    
+    this.storage.get('membership_no').then((val) => {
+      this.membership_no = val.toString();
+    console.log("this is get Storage"+this.membership_no);
       
-      this.storage.get('membership_no').then((val) => {
-        this.membership_no = val.toString();
-      console.log("this is get Storage"+this.membership_no);
-        
-    // *----------------------HTTP ------------------------------------------------
-this.part = service.ws_mem_share_statement_head
-this.data = service.gethttp(this.part,this.membership_no,this.service.apikey);
+  // *----------------------HTTP ------------------------------------------------
+this.part = this.service.ws_mem_share_statement_head
+this.data = this.service.gethttp(this.part,this.membership_no,this.service.apikey);
 this.data.subscribe(result =>{
 this.items = result;
 this.sharestatement = result;
@@ -75,8 +82,8 @@ this.loadshow = false;
 console.log(this.sharestatement);
 this.sharestock = result.share_stock;
 
-this.part2 = service.sc_confirm_register
-this.data2 = service.gethttp(this.part2,this.membership_no,this.service.apikey);
+this.part2 = this.service.sc_confirm_register
+this.data2 = this.service.gethttp(this.part2,this.membership_no,this.service.apikey);
 this.data2.subscribe(result =>{
 this.memberdetail = result;
 console.log(this.memberdetail)
@@ -95,10 +102,17 @@ console.log("this is sharestock"+this.sharestock)
 });
 });
 });
-    }
-
-  ngOnInit() {
   }
+  Refresh(event) {
+
+
+    setTimeout(() => {
+      this.Maintain();
+      event.target.complete();
+
+    }, 1000);
+  }
+
   backmain(){
 
     // this.mainshow= true;

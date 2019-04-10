@@ -36,21 +36,31 @@ member_name:any;
     private modal:ModalController
   ) {
 
-    
+    this.Maintain();
      
-    this.storage.get('membership_no').then((val) => {
-      this.membership_no = val.toString();
-    console.log("this is get Storage"+this.membership_no);
-    this.storage.get('member_name').then((val) => {
-      this.member_name = val;
-
-
-
    
-      
-  // *----------------------HTTP ------------------------------------------------
-this.part = service.www_board
-this.data = service.gethttpall(this.part,this.service.apikey);
+   }
+
+  ngOnInit() {
+  }
+//   async presentModal() {
+//     const modal = await this.modal.create({
+//       component: ModalPage,
+//       componentProps: { value: 123 }
+//     });
+//     return await modal.present();
+//   }
+// }
+
+Maintain(){
+  this.storage.get('membership_no').then((val) => {
+    this.membership_no = val.toString();
+  console.log("this is get Storage"+this.membership_no);
+  this.storage.get('member_name').then((val) => {
+    this.member_name = val;
+// *----------------------HTTP ------------------------------------------------
+this.part = this.service.www_board
+this.data = this.service.gethttpall(this.part,this.service.apikey);
 this.data.subscribe(result =>{
 this.items = result;
 // this.board = result;
@@ -64,18 +74,7 @@ console.log(this.items);
 });
 });
 });
-   }
-
-  ngOnInit() {
-  }
-//   async presentModal() {
-//     const modal = await this.modal.create({
-//       component: ModalPage,
-//       componentProps: { value: 123 }
-//     });
-//     return await modal.present();
-//   }
-// }
+}
   async board_post_alert() {
     const alert = await this.alertController.create({
       header: 'กระดานสนทนาใหม่',
@@ -125,7 +124,7 @@ console.log(this.items);
             this.data2 = this.service.posthttps(this.part2,body,this.service.apikey);
             this.data2.subscribe(result =>{
             console.log(result)
-
+              this.Refresh(event);
             });
 
             // Category:req.body.Category,
@@ -148,6 +147,16 @@ console.log(this.items);
     });
 
     await alert.present();
+  }
+  Refresh(event) {
+    // console.log('Begin async operation');
+
+    setTimeout(() => {
+     this.Maintain();
+      // console.log('Async operation has ended');
+      event.target.complete();
+
+    }, 1000);
   }
   board_detail(item:string){
     this.storage.set('No',item);
