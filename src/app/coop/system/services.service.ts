@@ -21,6 +21,8 @@ url:string = `http://192.168.100.110:4500/`;
 
 
  apikey:any='c52c90744ab65d13cd6732390a72c0bb';
+board_Category:any='BOARD_TOPIC';
+board_Category_ans:any='BOARD_ANS';
 
 // ------------------------ all link ------------------------------
 ws_mem_status:any='ws_mem_status';
@@ -51,6 +53,7 @@ ws_mem_keep_det_statement='ws_mem_keep_det_statement';
 post_board_ans='post_board_ans';
 post_board='post_board';
 print_pdf_det='http://test.cooparmy3.com/coop/print_pdf_kep_mobile.php?'
+
   constructor(
     
     private storage:Storage,
@@ -93,7 +96,8 @@ return this.membership_no;
   }
   print_pdf(membership_no,month,year){
     return `${this.print_pdf_det}membership_no=${membership_no}&month=${month}&year=${year}`
-  }
+
+
 // tests ='0000091';
 //  let body = {
 //     // membership_no:'0000091'
@@ -116,5 +120,5 @@ return this.membership_no;
 // console.log(this.sharestatement);
 // this.sharestock = result.share_stock;
 // });
-
+  }
 }

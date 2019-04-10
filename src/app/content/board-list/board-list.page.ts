@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController, AlertController } from '@ionic/angular';
+import { NavController, AlertController, ModalController } from '@ionic/angular';
 import { Router,RouterModule } from '@angular/router';
 import { Storage } from '@ionic/storage';
 import { HttpClient } from '@angular/common/http';
@@ -24,7 +24,7 @@ export class BoardListPage implements OnInit {
   part2:any;
   data2:any;
   memberdetail:any;
-
+member_name:any;
   constructor(
     private router:Router,
     private navigate:NavController,
@@ -33,6 +33,7 @@ export class BoardListPage implements OnInit {
     public loadingController: LoadingController,
     private service:ServicesService,
     public alertController : AlertController,
+    private modal:ModalController
   ) {
 
     
@@ -40,6 +41,12 @@ export class BoardListPage implements OnInit {
     this.storage.get('membership_no').then((val) => {
       this.membership_no = val.toString();
     console.log("this is get Storage"+this.membership_no);
+    this.storage.get('member_name').then((val) => {
+      this.member_name = val;
+
+
+
+   
       
   // *----------------------HTTP ------------------------------------------------
 this.part = service.www_board
@@ -56,12 +63,19 @@ console.log(this.items);
 
 });
 });
-
+});
    }
 
   ngOnInit() {
   }
-
+//   async presentModal() {
+//     const modal = await this.modal.create({
+//       component: ModalPage,
+//       componentProps: { value: 123 }
+//     });
+//     return await modal.present();
+//   }
+// }
   async board_post_alert() {
     const alert = await this.alertController.create({
       header: 'กระดานสนทนาใหม่',
@@ -69,13 +83,13 @@ console.log(this.items);
         {
           name: 'Question',
           type: 'text',
-          id:'Question',
+          id:'Questions',
           placeholder: 'หัวข้อ.. .'
         },
         {
           name: 'Note',
           type: 'text',
-          id: 'Note',
+          id: 'Notes',
           placeholder: 'รายละเอียด'
         }
       ],
@@ -95,24 +109,32 @@ console.log(this.items);
           }
         }, {
           text: 'ตกลง',
-          handler: () => {
+          handler: data => {
             console.log('Confirm Ok');
-            // var body = {
-            //   Category:"this"
-            //  ,Question:this.No
-            //  ,Msg:this.ans
-            //  ,Name:this.member_name
-            //  ,IP:''
-            //  ,Date:''
-            // };
-            // this.part3= this.service.www_board_ans
-            // this.data3 = this.service.posthttps(this.part3,this.service.apikey,body);
-            // this.data3.subscribe(result =>{
-            // console.log(result)
+            var test= "ทดสอบ"
+            var test2="ทดสอบ123"
+            var body = {
+              Category:this.service.board_Category
+             ,Question:data.Question
+             ,QNote:data.Note
+             ,QName:this.member_name
+             ,IP:""
+             ,Date:new Date()
+            };
+            this.part2= this.service.post_board
+            this.data2 = this.service.posthttps(this.part2,body,this.service.apikey);
+            this.data2.subscribe(result =>{
+            console.log(result)
 
-            // });
+            });
 
-
+            // Category:req.body.Category,
+            // Question:req.body.Question,
+            // QNote:req.body.QNote,
+            // QName:req.body.QName,
+            // IP:req.body.IP,
+            // Date:req.body.Date,
+            
 
           //   Category:req.body.Category,
 					// Question:req.body.Question,
@@ -135,7 +157,7 @@ console.log(this.items);
 
   }
   board_post(){
-  this.board_post();
+  this.board_post_alert();
     // this.router.navigate(['/board-post']);
   }
 }
