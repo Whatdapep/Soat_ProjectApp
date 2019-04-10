@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, from } from 'rxjs';
 import { LoadingController } from '@ionic/angular';
 import {ServicesService} from '../../system/services.service';
+import { ThemeableBrowser,ThemeableBrowserObject,ThemeableBrowserOptions } from '@ionic-native/themeable-browser/ngx';
 
 
 @Component({
@@ -29,6 +30,8 @@ export class MemKeepDetStatementPage implements OnInit {
   part2:any;
   // ---------
  keep:any='';
+ print:any='';
+ print_result:any='';
  
 
 
@@ -41,7 +44,8 @@ export class MemKeepDetStatementPage implements OnInit {
     private storage: Storage,
     private Http:HttpClient,
     public loadingController: LoadingController,
-    private service:ServicesService
+    private service:ServicesService,
+    private themeableBrowser:ThemeableBrowser
   ) { 
     this.storage.get('membership_no').then((val) => {
       this.membership_no = val.toString();
@@ -88,7 +92,9 @@ export class MemKeepDetStatementPage implements OnInit {
     this.mainshow = true;
     this.loadshow = false;
     console.log(this.keep);
-
+    
+    this.print = this.service.print_pdf(this.membership_no,this.receive_month,this.receive_year);
+      
 
   });
     });
@@ -104,6 +110,74 @@ export class MemKeepDetStatementPage implements OnInit {
   }
 
   print_keep_det(){
-    console.log("click Print");
-  }
+   this.print = this.service.print_pdf(this.membership_no,this.receive_month,this.receive_year);
+
+   const options: ThemeableBrowserOptions = {
+    statusbar: {
+      color: '#ffffffff'
+  },
+  toolbar: {
+      height: 44,
+      color: '#f0f0f0ff'
+  },
+  title: {
+      color: '#003264ff',
+      showPageTitle: true
+  },
+  backButton: {
+      image: 'back',
+      imagePressed: 'back_pressed',
+      align: 'left',
+      event: 'backPressed'
+  },
+  forwardButton: {
+      image: 'forward',
+      imagePressed: 'forward_pressed',
+      align: 'left',
+      event: 'forwardPressed'
+  },
+  closeButton: {
+      image: 'close',
+      imagePressed: 'close_pressed',
+      align: 'left',
+      event: 'closePressed'
+  },
+  customButtons: [
+      {
+          image: 'share',
+          imagePressed: 'share_pressed',
+          align: 'right',
+          event: 'sharePressed'
+      }
+  ],
+  menu: {
+      image: 'menu',
+      imagePressed: 'menu_pressed',
+      title: 'Test',
+      cancel: 'Cancel',
+      align: 'right',
+      items: [
+          {
+              event: 'helloPressed',
+              label: 'Hello World!'
+          },
+          {
+              event: 'testPressed',
+              label: 'Test!'
+          }
+      ]
+  },
+  backButtonCanClose: true
+}
+console.log(this.print);
+  //  const browser: ThemeableBrowserObject = this.themeableBrowser.create(this.print, '_blank', options);
+  //  const browser: ThemeableBrowserObject = this.themeableBrowser.create(`http://test.cooparmy3.com/coop/print_pdf_kep_mobile.php?membership_no=0000091&month=3&year=2019&type=`, '_blank', options);
+   
+
+  //   browser.on('closePressed').subscribe(data => {
+  //     browser.close();
+  //   console.log("click Print");
+  // });
+}
+
 }

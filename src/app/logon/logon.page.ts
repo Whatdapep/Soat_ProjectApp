@@ -201,8 +201,8 @@ login(){
       this.service.callfunction.Loginfalse();
   }
     
-  //  var members = this.membership_no_new;
-   var members = '0000123';
+   var members = this.membership_no_new;
+  //  var members = '0000123';
   // this.storage.set('membership_no',this.membership_no_new.toString());
 
   this.service.Set_Storage_membership_no(members);
