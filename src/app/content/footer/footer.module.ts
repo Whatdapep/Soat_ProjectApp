@@ -24,6 +24,7 @@ const routes: Routes = [
     loadChildren:  '../home/home.module#HomePageModule'
 
   },
+  { path: 'stopped', loadChildren: './content/stopped/stopped.module#StoppedPageModule' },
   {
     // path:'menu',
     // loadChildren: '../part/menu/menu.module#MenuPageModule'
@@ -31,6 +32,7 @@ const routes: Routes = [
     path:'menu',
     loadChildren: '../../coop/menu/menu.module#MenuPageModule'
   },
+  // { path: 'authcode/:id', loadChildren: './coop/system/authcode/authcode.module#AuthcodePageModule' },
   {
     path:'profile',
     loadChildren: '../../coop/part/mem-status/mem-status.module#MemStatusPageModule'

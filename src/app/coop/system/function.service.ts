@@ -2,19 +2,21 @@ import { Injectable } from '@angular/core';
 import { NavController,LoadingController } from '@ionic/angular';
 import { Router,RouterModule } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import { Storage } from '@ionic/storage';
 // import {ServicesService} from './services.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FunctionService {
-
+id:any='';
   constructor(
 
     public navCtrl: NavController , 
     public router:Router, 
     public alertController : AlertController,
     public loadingController: LoadingController,
+    private storage:Storage
     // private services:ServicesService
   ) { }
 
@@ -64,12 +66,28 @@ export class FunctionService {
     console.log('Loading dismissed!');
   }
 
-  async passcodeComplete() {
+  async passcodeComplete(id:string) {
     const alert = await this.alertController.create({
       header: 'สำเร็จ!',
       // subHeader: 'Subtitle',
       message: 'รหัสผ่านถูกต้อง',
-      buttons: ['OK']
+      buttons: [{
+        text:'ตกลง',
+        handler: data => {
+          if(id == 'checked'){
+            this.router.navigate(['/footer/footer/home']);
+          }else{
+            var passcode = "menuchecked";
+            this.router.navigate(['/footer/footer/menu']);
+            this.storage.set('authmenu',passcode);
+            console.log(passcode)
+            
+
+
+          }
+          
+        }
+      }]
     });
     setTimeout(()=>{  
       this.router.navigate(['/footer/footer/menu']);

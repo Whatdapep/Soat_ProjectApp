@@ -52,7 +52,7 @@ export class MenuPage implements OnInit {
       this.passcode = val;
       if(this.passcode != null){
       }else{
-        this.router.navigate(['/authcode']);
+        this.router.navigate(['/authcode/checked']);
       }
       console.log("the passcode is"+this.passcode);
 

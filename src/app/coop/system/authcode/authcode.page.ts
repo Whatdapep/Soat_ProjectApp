@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { ToastController } from '@ionic/angular';
-import { Router,RouterModule } from '@angular/router';
+import { Router,RouterModule, ActivatedRoute } from '@angular/router';
 import { Storage } from '@ionic/storage';
 import {ServicesService} from '../services.service';
 import { FingerprintAIO } from '@ionic-native/fingerprint-aio/ngx';
@@ -20,7 +20,7 @@ export class AuthcodePage implements OnInit {
   shake:boolean=false;
   main:boolean=true;
   falsecount:number=0;  
-
+check:any='';
   constructor(
 
     public alertController : AlertController,
@@ -28,10 +28,22 @@ export class AuthcodePage implements OnInit {
     public router:Router,
     private service:ServicesService,
     private fingeraio:FingerprintAIO,
-
+private activatedRoute:ActivatedRoute,
     private storage: Storage,
   )
   {
+
+    // this.storage.get('authmenu').then((val) => {
+    //   this.passcode = val;
+    //   if(this.passcode == 'menuchecked'){
+    //   this.router.navigate(['/footer/footer/menu']);
+
+    //   }else{
+        
+    //   }
+    //   console.log("the passcode is"+this.passcode);
+
+    // });
 
  
    
@@ -51,7 +63,8 @@ export class AuthcodePage implements OnInit {
           this.storage.set('passcode',result);
           console.log('set passcode is '+result)
 
-          this.service.callfunction.passcodeComplete();
+          this.service.callfunction.passcodeComplete(this.check);
+          this.passcode = '';
           // this.router.navigate(['/footer/footer/menu']);
 
 
@@ -103,6 +116,9 @@ export class AuthcodePage implements OnInit {
 
 //02-8888888
   ngOnInit() {
+
+    this.check = this.activatedRoute.snapshot.paramMap.get('id');
+    console.log("the check id is "+this.check);
   }
   one(){
     this.passcode = this.passcode +1;

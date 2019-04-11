@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-footer',
@@ -7,11 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterPage implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router) { }
   Cprofile(){
     console.log("Hello this is Profiel ");
 }
 Cmenu(){
+  // this.router.navigate(['/authcode/check'])
   console.log("Hello this is menu ");
 }
 Cindex(){
