@@ -60,7 +60,10 @@ Maintain(){
     this.member_name = val;
 // *----------------------HTTP ------------------------------------------------
 this.part = this.service.www_board
-this.data = this.service.gethttpall(this.part,this.service.apikey);
+var body={
+  type:this.part,
+}
+this.data = this.service.postphp(body);
 this.data.subscribe(result =>{
 this.items = result;
 // this.board = result;

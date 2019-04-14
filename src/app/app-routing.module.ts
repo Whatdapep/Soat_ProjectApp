@@ -27,7 +27,7 @@ const routes: Routes = [
   { path: 'board-post', loadChildren: './coop/board-post/board-post.module#BoardPostPageModule' },
   { path: 'authcode/:id', loadChildren: './coop/system/authcode/authcode.module#AuthcodePageModule' },
   { path: 'checklogin', loadChildren: './coop/system/checklogin/checklogin.module#CheckloginPageModule' },
-  // { path: 'stopped', loadChildren: './content/stopped/stopped.module#StoppedPageModule' },
+  { path: 'stopped', loadChildren: './content/stopped/stopped.module#StoppedPageModule' },
 
 
   

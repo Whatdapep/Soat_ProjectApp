@@ -58,7 +58,11 @@ this.storage.get('membership_no').then((val) => {
       console.log( "this is loan_statement inside "+this.disposit_no);
   // *----------------------HTTP ------------------------------------------------
     this.part = this.service.ws_mem_disposit_statement_head
-    this.data = this.service.gethttp(this.part,this.disposit_no,this.service.apikey);
+    var body ={
+      type:this.part,
+      membership_no:this.disposit_no
+    }
+    this.data = this.service.postphp(body);
     this.data.subscribe(results =>{
     this.items = results;
     this.disposit_statement_head=results;
@@ -67,8 +71,12 @@ this.storage.get('membership_no').then((val) => {
 
     console.log(this.items);
     this.part2 = this.service.ws_mem_disposit_statement
+    var body ={
+      type:this.part2,
+      membership_no:this.disposit_no
+    }
     console.log(this.part2);
-    this.data2 = this.service.gethttp(this.part2,this.disposit_no,this.service.apikey);
+    this.data2 = this.service.postphp(body);
     this.data2.subscribe(results =>{
       this.disposit_statement = results;
       // this.loan_statement=results;

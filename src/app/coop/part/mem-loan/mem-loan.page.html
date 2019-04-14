@@ -21,15 +21,15 @@
 <ion-label class = "maintext"> รายการเงินกู้ของฉัน </ion-label>
 
 <div>
-       
-        <ion-card *ngFor="let item of loan" (click)="chkloan_statement(item.loan_contract_no)">
+        <!--  -->
+        <ion-card (click)="chkloan_statement(item.LOAN_CONTRACT_NO)" *ngFor="let item of loan">
                 <!-- <ion-ripple-effect type="bounded" role="presentation" class="hydrated"> -->
             <ion-card-header>
               <!-- <ion-card-title> -->
                   <div class = "maintext" style="font-size:3vmax;">
                     <!-- {{loan_account_no}} -->
                         <div align ="right">  
-                            {{item.loan_type_description}}
+                            {{item.LOAN_TYPE_DESCRIPTION}}
                                 <ion-icon name="checkmark-circle-outline"></ion-icon>
                         </div>
             
@@ -40,9 +40,11 @@
             <ion-card-content>
                 <div class ="margin"></div>
                 <div align ="right">
-                <ion-label class = "maintext" style="font-size: 5vm;">{{item.loan_contract_no}} </ion-label>
+                <ion-label class = "maintext" style="font-size: 5vm;">{{item.LOAN_CONTRACT_NO}} </ion-label>
                 </div>
-                <div class ="margin"></div>
+                <div class ="submaintext" align ="right">
+                    เริ่มสัญญา {{item.BEGINING_OF_CONTRACT}}
+                </div>
             </ion-card-content>
 
         <!-- </ion-ripple-effect> -->

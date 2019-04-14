@@ -35,7 +35,7 @@ export class ListPage implements OnInit {
 
   ) {
 
-
+this.Maintain();
 
    }
 
@@ -54,8 +54,11 @@ export class ListPage implements OnInit {
     console.log("this is get Storage"+this.membership_no);
   // *----------------------HTTP ------------------------------------------------
 this.part = this.service.www_data
-
-this.data = this.service.gethttpall(this.part,this.service.apikey);
+var body={
+  type:this.part,
+  membership_no:this.Category
+}
+this.data = this.service.postphp(body);
 this.data.subscribe(result =>{
 this.items = result;
 console.log(this.items);

@@ -28,7 +28,7 @@ export class MenuPage implements OnInit {
   data2:any;
   memberdetail:any;
   passcode:any='';
-
+  member_name:any='';
   mainshow:boolean = false;
   loadshow:boolean = true;
   
@@ -68,10 +68,17 @@ export class MenuPage implements OnInit {
     this.storage.get('membership_no').then((val) => {
       this.membership_no = val.toString();
     console.log("this is get Storage"+this.membership_no);
+    this.storage.get('member_name').then((val) => {
+      this.member_name = val.toString();
+    console.log("this is get Storage"+this.membership_no);
       
   // *----------------------HTTP ------------------------------------------------
 this.part = this.service.ws_mem_share_statement_head
-this.data = this.service.gethttp(this.part,this.membership_no,this.service.apikey);
+var body ={
+  type:this.part,
+  membership_no:this.membership_no
+}
+this.data = this.service.postphp(body);
 this.data.subscribe(result =>{
 this.items = result;
 this.sharestatement = result;
@@ -80,28 +87,29 @@ this.mainshow = true;
 this.loadshow = false;
 
 console.log(this.sharestatement);
-this.sharestock = result.share_stock;
+// this.sharestock = result.share_stock;
 
-this.part2 = this.service.sc_confirm_register
-this.data2 = this.service.gethttp(this.part2,this.membership_no,this.service.apikey);
-this.data2.subscribe(result =>{
-this.memberdetail = result;
-console.log(this.memberdetail)
-});
+// this.part2 = this.service.sc_confirm_register
+// this.data2 = this.service.gethttp(this.part2,this.membership_no,this.service.apikey);
+// this.data2.subscribe(result =>{
+// this.memberdetail = result;
+// console.log(this.memberdetail)
+// });
 
 // ------------------------------------- MAp Space
-var share_stock = share_stock;
-var item2 = item2;
-this.sharestock = result.map(this.service.callfunction.getsharestock);
-// this.sharestock = result.map(getsharestock('',share_stock));
-this.sharestock = this.sharestock.toString();
-console.log("this is sharestock"+this.sharestock)
+// var share_stock = share_stock;
+// var item2 = item2;
+// this.sharestock = result.map(this.service.callfunction.getsharestock);
+// // this.sharestock = result.map(getsharestock('',share_stock));
+// this.sharestock = this.sharestock.toString();
+// console.log("this is sharestock"+this.sharestock)
 
 
 
 });
 });
 });
+    });
   }
   Refresh(event) {
 

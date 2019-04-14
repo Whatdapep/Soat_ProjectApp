@@ -61,8 +61,11 @@ Maintain(){
   console.log("this is get Storage"+this.membership_no);
 // *----------------------HTTP ------------------------------------------------
 this.part = this.service.www_data_limit
-
-this.data = this.service.gethttp(this.part,this.Category,this.service.apikey);
+var body={
+  type:this.part,
+  membership_no:this.Category
+}
+this.data = this.service.postphp(body);
 this.data.subscribe(result =>{
 this.items = result;
 // this.board = result;

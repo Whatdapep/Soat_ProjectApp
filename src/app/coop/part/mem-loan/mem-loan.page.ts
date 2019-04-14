@@ -59,12 +59,17 @@ this.storage.get('membership_no').then((val) => {
       
   // *----------------------HTTP ------------------------------------------------
     this.part = this.service.ws_mem_loan
-    this.data = this.service.gethttp(this.part,this.membership_no,this.service.apikey);
+    var body= {
+      type:this.part,
+      membership_no:this.membership_no
+    }
+    this.data = this.service.postphp(body);
     this.data.subscribe(results =>{
+      this.items= results;
     this.loan = results;
     this.mainshow = true;
     this.loadshow = false;
-    this.items = this.loan.loan_contract_no;
+    // this.items = this.loan.loan_contract_no;
 
     console.log(this.loan);
     });

@@ -69,8 +69,12 @@ export class BoardDetailPage implements OnInit {
       console.log("this is get member_name"+this.member_name);
       
   // *----------------------HTTP ------------------------------------------------
-  this.part = this.service.www_board
-  this.data = this.service.gethttp(this.part,this.No,this.service.apikey);
+  this.part = this.service.www_board_distrinct
+  var body={
+    type:this.part,
+    membership_no:this.No
+  }
+  this.data = this.service.postphp(body);
   this.data.subscribe(result =>{
   this.items = result;
   // this.board = result;
@@ -79,8 +83,13 @@ export class BoardDetailPage implements OnInit {
   console.log(this.items);
 
 this.part2 = this.service.www_board_ans
-this.data2 = this.service.gethttp(this.part2,this.No,this.service.apikey);
+var body ={
+  type:this.part2,
+  membership_no:this.No
+}
+this.data2 = this.service.postphp(body);
 this.data2.subscribe(result =>{
+
 this.items2 = result;
 // this.board = result;
 
@@ -116,7 +125,9 @@ console.log(this.items2);
           text: 'ตกลง',
           handler: () => {
             console.log('Confirm Okay');
+            this.part3= this.service.post_board_ans
             var body = {
+              type:this.part3,
               Category:this.service.board_Category_ans
              ,QuestionNo:this.No
              ,Msg:this.ans
@@ -124,8 +135,9 @@ console.log(this.items2);
              ,IP:''
              ,Date:new Date()
             };
-            this.part3= this.service.post_board_ans
-            this.data3 = this.service.posthttps(this.part3,body,this.service.apikey);
+            
+           
+            this.data3 = this.service.postphp(body);
             this.data3.subscribe(result =>{
             console.log(result)
             this.ans='';

@@ -45,7 +45,7 @@ export class ShowPage implements OnInit {
     private themeableBrowser: ThemeableBrowser
     // private Option:InAppBrowserOptions
   ) {
-   
+   this.Maintain();
    }
 
   ngOnInit() {
@@ -61,8 +61,12 @@ Maintain(){
       
   // *----------------------HTTP ------------------------------------------------
 this.part = this.service.www_data_detail
+var body ={
+  type:this.part,
+  membership_no:this.No
+}
 
-this.data = this.service.gethttp(this.part,this.No,this.service.apikey);
+this.data = this.service.postphp(body);
 this.data.subscribe(result =>{
 this.items = result;
 console.log(this.items)

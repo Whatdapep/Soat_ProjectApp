@@ -18,19 +18,20 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-<ion-card *ngFor = "let item of items_head" class="maintext">
+  <!-- *ngFor = "let item of items_head" -->
+<ion-card  class="maintext">
     <ion-card-header color="secondary">
       <!-- <ion-card-subtitle>Card Subtitle</ion-card-subtitle> -->
       <!-- <ion-card-title>{{item.loan_card_id}}</ion-card-title> -->
       <ion-card-title  align = "center" class="maintext_price" style="font-size:5vmax;"> 
-          <i class="fa fa-pie-chart fa-stack-1x" ></i> {{item.share_stock | number:0}}
+          <i class="fa fa-pie-chart fa-stack-1x" ></i> {{items_head.share_stock | number:0}}
       </ion-card-title>
     
     </ion-card-header>
     <ion-card-content class="maintext_price">
-      งวดล่าสุด {{item.period_recrieve}}
+      งวดล่าสุด {{items_head.period_recrieve}}
       <ion-item>
-          <h5 align = "right" class="maintext">ชำระเดือนละ  - {{item.share_amount_fp }}$</h5>
+          <h5 align = "right" class="maintext">ชำระเดือนละ  - {{items_head.share_amount_fp }}$</h5>
           
         </ion-item>
         <!-- <h6 align = "right">เปิด ณ วันที่ 16 มีนาคม 2562</h6> -->
@@ -47,26 +48,27 @@
   </ion-card >
   <h4 class="maintext_price">รายการ</h4>
   <div *ngIf="share_statement" class="maintext">
-    <ion-card class="card_content" *ngFor="let item of share_statement">
+      <!--  -->
+    <ion-card class="card_content" *ngFor="let items of share_statement">
       
       
         <ion-item-divider color="success">
             <ion-label>
-                <h5 align = "left" class="maintext">งวด   {{item.period}}</h5>
-                 <h5 align = "right" class="maintext_price">+ {{item.share_value | number:0}}$</h5>
+                <h5 align = "left" class="maintext">งวด   {{items.period}}</h5>
+                 <h5 align = "right" class="maintext_price">+ {{items.share_value | number:0}}$</h5>
                 </ion-label>
         </ion-item-divider>
         <ion-item-divider>
             <ion-label class="maintext">
                 <!-- ชำระประจำเดือน(ยอด ณ วันสิ้นเดือน) -->
-                {{item.item_type_description}}
+                {{items.item_type_description}}
           
              </ion-label > 
              <!-- <div align="right"> -->
              <ion-label class="maintext">
                 <!-- 16มี.ค.2562 -->
-               
-                <ion-datetime  readonly value={{item.operate_date}}></ion-datetime>
+               {{items.operate_date}}
+                <!-- <ion-datetime  readonly value={{item.operate_date}}></ion-datetime> -->
              
              </ion-label>
             <!-- </div> -->

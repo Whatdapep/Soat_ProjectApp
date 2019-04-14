@@ -24,7 +24,7 @@ const routes: Routes = [
     loadChildren:  '../home/home.module#HomePageModule'
 
   },
-  { path: 'stopped', loadChildren: './content/stopped/stopped.module#StoppedPageModule' },
+  
   {
     // path:'menu',
     // loadChildren: '../part/menu/menu.module#MenuPageModule'

@@ -114,6 +114,14 @@ id:any='';
     var fullname = [item.membership_no];
     return fullname;
   }
+  getname_login(item,index) {
+    var fullname = [item.name];
+    return fullname;
+  }
+  getmem_id(item,index) {
+    var fullname = [item.mem_id];
+    return fullname;
+  }
   getmem_password(item,index) {
     var fullname = [item.mem_password];
     return fullname;

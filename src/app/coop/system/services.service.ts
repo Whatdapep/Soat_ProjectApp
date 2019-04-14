@@ -10,25 +10,31 @@ export class ServicesService {
   // md5 = require('md5');
   membership_no_str:any='0000091'
   membership_no:any;
+  membership_no_post:any='membership_no';
 tests:any;
 // url:string=``;
 // url:string = `http://192.168.1.107:4000/`;
 // url:string = `http://192.168.100.103:4000/`;
 // url:string=`https://whatdadev.herokuapp.com/`;
+// url:string = `http://192.168.43.50:4000/`;
+url:string = `http://test.cooparmy3.com/coop/api_mobile/app.php`;
+// url:string = `http://192.168.43.50/coop/api_mobile/app.php`;
+// url:string = `http://test.coopmoj.org/coop/api_mobile/app.php`;
 
-url:string = `http://192.168.100.110:4500/`;
+// url:string = `http://192.168.100.110:4500/`;
 // url:string = `http://192.168.100.144:4000/`;
 
 
  apikey:any='c52c90744ab65d13cd6732390a72c0bb';
 board_Category:any='BOARD_TOPIC';
 board_Category_ans:any='BOARD_ANS';
+// membership_no:any=''
 
 // ------------------------ all link ------------------------------
 ws_mem_status:any='ws_mem_status';
 ws_mem_share_statement:any='ws_mem_share_statement';
 ws_mem_share_statement_head:any='ws_mem_share_statement_head';
-sc_confirm_register:any='sc_confirm_register';
+// sc_confirm_register:any='sc_confirm_register';
 ws_mem_coll:any='ws_mem_coll';
 ws_mem_recrieve_gain:any='ws_mem_recrieve_gain';
 ws_mem_loan:any='ws_mem_loan';
@@ -39,12 +45,11 @@ ws_mem_disposit:any='ws_mem_disposit';
 ws_mem_disposit_statement_head:any='ws_mem_disposit_statement_head';
 ws_mem_disposit_statement:any='ws_mem_disposit_statement';
 ws_mem_dividend:any='ws_mem_dividend';
-login_post:any='login_post';
+login:any='login';
 ws_mem_loan_item='ws_mem_loan_item';
 ws_mem_change_password='ws_mem_change_password';
 www_board='www_board';
 www_board_ans='www_board_ans';
-
 www_data_limit='www_data_limit';
 www_data='www_data';
 www_data_detail='www_data_detail';
@@ -53,6 +58,7 @@ ws_mem_keep_det_statement='ws_mem_keep_det_statement';
 post_board_ans='post_board_ans';
 post_board='post_board';
 print_pdf_det='http://test.cooparmy3.com/coop/print_pdf_kep_mobile.php?'
+www_board_distrinct='www_board_distrinct';
 
   constructor(
     
@@ -78,6 +84,10 @@ print_pdf_det='http://test.cooparmy3.com/coop/print_pdf_kep_mobile.php?'
     this.membership_no = val.toString();
 });
 return this.membership_no;
+  }
+
+  postphp(body){
+    return this.http.post(`${this.url}`,body);
   }
 
   gethttp(part,parametor,apikey) {

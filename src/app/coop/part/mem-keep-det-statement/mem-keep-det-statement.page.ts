@@ -138,13 +138,15 @@ this.storage.get('membership_no').then((val) => {
       this.seq_no = val.toString();
     console.log("this is get seq_no"+this.seq_no);
   // *----------------------HTTP ------------------------------------------------
-  var body = {
-    membership_no:this.membership_no
-   ,receive_year:this.receive_year
-   ,receive_month:this.receive_month
-};
+
     this.part = this.service.ws_mem_keep_det_distinct
-    this.data = this.service.posthttps(this.part,body,this.service.apikey);
+    var body = {
+      type:this.part,
+      membership_no:this.membership_no
+     ,receive_year:this.receive_year
+     ,receive_month:this.receive_month
+  };
+    this.data = this.service.postphp(body);
     this.data.subscribe(results =>{
     this.items = results;
     this.mainshow = true;
@@ -155,15 +157,16 @@ this.storage.get('membership_no').then((val) => {
 
     this.receive_month_fp = this.items.map(this.service.callfunction.getreceive_month_fp);
     this.receive_month_fp =this.receive_month_fp.toString();
-
+    this.part2 = this.service.ws_mem_keep_det_statement
     var body2 = {
+      type:this.part2,
       membership_no:this.membership_no
      ,receive_year:this.receive_year
      ,receive_month:this.receive_month
      ,seq_no:this.seq_no
   };
-    this.part2 = this.service.ws_mem_keep_det_statement
-    this.data2 = this.service.posthttps(this.part2,body2,this.service.apikey);
+   
+    this.data2 = this.service.postphp(body2);
     this.data2.subscribe(results2 =>{
     this.keep = results2;
     this.mainshow = true;

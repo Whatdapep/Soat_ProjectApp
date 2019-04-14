@@ -46,7 +46,11 @@ export class MemGainPage implements OnInit {
     console.log("this is get Storage"+this.membership_no);
   // *----------------------HTTP ------------------------------------------------
     this.part = this.service.ws_mem_recrieve_gain
-    this.data = this.service.gethttp(this.part,this.membership_no,this.service.apikey);
+    var body = {
+      type:this.part,
+      membership_no:this.membership_no
+    }
+    this.data = this.service.postphp(body);
     this.data.subscribe(results =>{
     this.items = results;
     this.mainshow = true;

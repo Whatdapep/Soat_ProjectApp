@@ -42,16 +42,17 @@
     </ion-card-header>
   
     <div class ="maintext_coop" align="right">
-        {{sharestock | number:0}}
+        {{items.share_stock | number:0}}
     <hr>
     </div>  
     
     <ion-item>
   </ion-item>
   </ion-card>
-<ion-card *ngFor = "let item of memberdetail"> 
+  <!-- *ngFor = "let item of memberdetail" -->
+<ion-card > 
 <ion-card-header style="font-size:150%; color:black;">
-    สวัสดีคุณ {{item.member_name}} {{item.member_surname}}
+    สวัสดีคุณ {{member_name}}
 </ion-card-header>
 <ion-card-content>
 

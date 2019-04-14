@@ -12,7 +12,7 @@
           </ion-buttons>
           <ion-title>
               <div align="center"> 
-              เงินฝากของฉัน
+              ข่าวและกิจกรรม 
             </div>
             </ion-title>
     </ion-toolbar>
@@ -35,7 +35,7 @@
                         <div>
                           <ion-label> <i class="fas fa-user"></i> {{item.Name}} </ion-label> 
                         </div>
-                        <br>
+                        <!-- <br> -->
                         <label class="maintext_main" >
                           <div>
                             <!-- {{browser}} -->
@@ -52,8 +52,8 @@
                           <div align="right">
                               <i class="fas fa-clock"></i>
                           <ion-label>
-                          
-                          <ion-datetime  readonly value={{item.Date}}><span></span></ion-datetime>
+                            {{item.Date}}
+                          <!-- <ion-datetime  readonly value={{item.Date}}><span></span></ion-datetime> -->
                        </ion-label>
                       </div>
                      

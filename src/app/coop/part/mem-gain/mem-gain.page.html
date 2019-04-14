@@ -16,13 +16,13 @@
       
     </ion-toolbar>
   </ion-header>
-  
+  <!-- *ngFor = "let item of items" -->
   <ion-content padding *ngIf="mainshow"> 
-    <ion-card *ngFor = "let item of items" class="maintext">
+    <ion-card  class="maintext">
           
   <i class="fas fa-child fa-2x"></i>
-  {{item.gain_name}} 
-  {{item.related_na}}
+  {{items.gain_name}} 
+  {{items.related_na}}
   <br>
     </ion-card>
   

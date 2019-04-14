@@ -49,14 +49,22 @@ Maintain(){
   console.log("this is get Storage"+this.membership_no);
 // *----------------------HTTP ------------------------------------------------
   this.part = this.service.ws_mem_share_statement_head
-  this.data = this.service.gethttp(this.part,this.membership_no,this.service.apikey);
+  var body ={
+    type:this.part,
+    membership_no:this.membership_no
+  }
+  this.data = this.service.postphp(body);
   this.data.subscribe(results =>{
   this.items_head = results;
   this.mainshow = true;
   this.loadshow = false;
   console.log(this.items_head);
   this.part2 = this.service.ws_mem_share_statement
-  this.data2 = this.service.gethttp(this.part2,this.membership_no,this.service.apikey);
+  var body ={
+    type:this.part2,
+    membership_no:this.membership_no
+  }
+  this.data2 = this.service.postphp(body);
   this.data2.subscribe(results =>{
   this.items = results;
   this.share_statement = results;
