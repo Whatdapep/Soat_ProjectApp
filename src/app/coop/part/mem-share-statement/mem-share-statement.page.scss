@@ -1,46 +1,4 @@
-.maintext{
-    color: #222222;
-    // font-weight:bold;
-    font-size: 1.5vmax;
-    // border-bottom: #555555 solid 1px;
-    font-family: 'Kanit', sans-serif;
-    margin:2%;
-
-}
-.maintext_mid{
-  color: #222222;
-  // font-weight:bold;
-  font-size: 2.2vmax;
-  // border-bottom: #555555 solid 1px;
-  font-family: 'Kanit', sans-serif;
-  margin:2%;
-
-}
-.maintext_price{
-  color: #222222;
-  // font-weight:bold;
-  font-size: 3vmax;
-  // border-bottom: #555555 solid 1px;
-  font-family: 'Kanit', sans-serif;
-  margin:2%;
-
-}
-ion-spinner{
-    margin: auto;
-    margin-top: 50%;
-    width:100% !important;
-    height: 40px !important;
-    align-items: center;
-    // width:50/%;
-    
-}
-.custom-skeleton ion-skeleton-text {
-    line-height: 13px;
-  }
-  
-  .custom-skeleton ion-skeleton-text:last-child {
-    margin-bottom: 5px;
-  }
+@import "../../../../theme/style.scss";
   .card_content{
     margin-left:5%;
     background-color:rgb(255, 197, 216);

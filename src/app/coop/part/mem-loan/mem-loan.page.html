@@ -18,7 +18,7 @@
 
 
 <ion-content padding *ngIf="mainshow">
-<ion-label class = "maintext"> รายการเงินกู้ของฉัน </ion-label>
+<ion-label class = "maintext_price"> รายการเงินกู้ของฉัน </ion-label>
 
 <div>
         <!--  -->
@@ -26,7 +26,7 @@
                 <!-- <ion-ripple-effect type="bounded" role="presentation" class="hydrated"> -->
             <ion-card-header>
               <!-- <ion-card-title> -->
-                  <div class = "maintext" style="font-size:3vmax;">
+                  <div class = "maintext_price" style="font-size:3vmax;">
                     <!-- {{loan_account_no}} -->
                         <div align ="right">  
                             {{item.LOAN_TYPE_DESCRIPTION}}
@@ -40,9 +40,9 @@
             <ion-card-content>
                 <div class ="margin"></div>
                 <div align ="right">
-                <ion-label class = "maintext" style="font-size: 5vm;">{{item.LOAN_CONTRACT_NO}} </ion-label>
+                <ion-label class = "maintext_price" style="font-size: 5vm;">{{item.LOAN_CONTRACT_NO}} </ion-label>
                 </div>
-                <div class ="submaintext" align ="right">
+                <div class ="maintext_cen" align ="right">
                     เริ่มสัญญา {{item.BEGINING_OF_CONTRACT}}
                 </div>
             </ion-card-content>

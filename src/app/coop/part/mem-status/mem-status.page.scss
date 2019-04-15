@@ -1,6 +1,5 @@
-.margin{
-    margin-top: 45px;
-}
+@import "../../../../theme/style.scss";
+// @import ""
 img{
     height: 80px;
     width: 80px;
@@ -10,57 +9,7 @@ img{
 ion-content{
     background-color: #555555;
 }
-.headtext{
-    color: #555555;
-    font-weight: bold;
-    font-size: 3vmax;
-    font-family: 'Kanit', sans-serif;
 
-}
-ion-refresher-content{
-    font-family:'Kanit', sans-serif;
-    font-size: 0.5vmax;
-    color:#555555;
-  }
-i{
-    margin:5%;
-    margin-right: 5%;
-}
-.maintext{
-    color: #1d1c1c;
-    // font-weight:bold;
-    font-size: 2vmax;
-    // border-bottom: #555555 solid 1px;
-    font-family: 'Kanit', sans-serif;
-    margin:4%;
-
-}
-ion-title{
-    color: #222222;
-    // font-weight:bold;
-    font-size: 3vmax;
-    // border-bottom: #555555 solid 1px;
-    font-family: 'Kanit', sans-serif;
-}
-.toptext{
-    color: black;
-    font-weight: bold;
-    font-size: 3vm;
-    font-family: 'Kanit', sans-serif;
-
-}
-.Font-red{
-    font-family: 'Kanit', sans-serif;
-    font-size: 3vmax;
-    color:red;
-
-}
-.Font-darkgray{
-    font-family: 'Kanit', sans-serif;
-    font-size: 3vmax;
-    color:rgb(53, 51, 51);
-
-}
 .button{
     margin:2%;
     // padding: 4%;
@@ -70,21 +19,4 @@ ion-title{
 ion-button{
     border-radius: 50%;
     margin:2px;
-}
-/* Custom Skeleton Line Height and Margin */
-.custom-skeleton ion-skeleton-text {
-    line-height: 13px;
-  }
-  
-  .custom-skeleton ion-skeleton-text:last-child {
-    margin-bottom: 5px;
-  }
-  ion-spinner{
-    margin: auto;
-    margin-top: 50%;
-    width:100% !important;
-    height: 40px !important;
-    align-items: center;
-    // width:50/%;
-    
 }

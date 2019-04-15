@@ -11,32 +11,12 @@
 </ion-toolbar>
 </ion-header>
 <ion-content *ngIf="mainshow">
-    <!-- <ion-refresher slot="fixed" (ionRefresh)="Refresh($event)">
-        <ion-refresher-content
-          pullingIcon="arrow-dropdown"
-          pullingText="Pull to refresh"
-          refreshingSpinner="dots"
-         
-          refreshingText="กำลังโหลดข้อมูล..">
-          
-          
-      
-        </ion-refresher-content>
-      </ion-refresher> -->
-
 <div align="center" class="center">
   ทุนเรือนหุ้นของฉัน
 </div>
-
-  <!-- <div class="bg-circle" (click)="share()">
-   
-<p align = "center" style="font-size: 125%;font-weight: bold; margin-top: 50%;" >
-   {{sharestock | number:0}}
-</p>
-  </div> -->
   <ion-card (click)="share()">
     <ion-card-header  color ="warning">
-      <div class="maintext">
+      <div class="maintext_cen">
       หุ้นทั้งหมด
     </div>
     </ion-card-header>
@@ -51,7 +31,7 @@
   </ion-card>
   <!-- *ngFor = "let item of memberdetail" -->
 <ion-card > 
-<ion-card-header style="font-size:150%; color:black;">
+<ion-card-header style="font-size:150%; color:black;" color="none">
     สวัสดีคุณ {{member_name}}
 </ion-card-header>
 <ion-card-content>
@@ -153,7 +133,7 @@
     <ion-button expand="block" (click)="dep()" color = "secondary">
         <div>
             <div align="center">
-                <i class="fas fa-database  fa-lg"></i>
+                <i class="fas fa-database  fa-lg  i"></i>
             </div>
             <p align ="center">
               เงินฝาก
@@ -173,7 +153,7 @@
           <ion-button expand="block" (click)="loan()" color = "secondary">
               <div>
                   <div align="center">
-                      <i class="fas fa-database  fa-lg"></i>
+                      <i class="fas fa-database  fa-lg i"></i>
                   </div>
                   <p align ="center">
                     เงินกู้
@@ -185,7 +165,7 @@
               <ion-button expand="block" (click)="kep()" color="secondary">
                   <div>
                       <div align="center">
-                          <i class="fas fa-database  fa-lg"></i>
+                          <i class="fas fa-database  fa-lg i"></i>
                       </div>
                       <p align ="center">
                         เรียกเก็บรายเดือน
@@ -198,7 +178,7 @@
               <ion-button expand="block" (click)="dividend()" color = "secondary">
                 <div>
                 <div align="center">
-                    <i class="fas fa-database  fa-lg"></i>
+                    <i class="fas fa-database  fa-lg i"></i>
                 </div>
                 <p align ="center">
                   ปันผลเฉลี่ยคือ

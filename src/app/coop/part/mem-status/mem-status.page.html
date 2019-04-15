@@ -29,8 +29,8 @@
                 <div class = "toptext" style=" font-size:5vmax; margin:5%;">
                 <strong>{{member_name}}</strong>
                 <img align = "right" src="http://test.cooparmy3.com/coop/images/mem_new.jpg" >
-                <div class ="headtext" style=" font-size:2vmax; margin-top: 2%;"> เป็นสมาชิกตั้งแต่  
-                <div class="maintext">
+                <div class ="maintext_price" style=" font-size:2vmax; margin-top: 2%;"> เป็นสมาชิกตั้งแต่  
+                <div class="maintext_cen">
                   {{approve_date}}
                   
                 </div>
@@ -67,20 +67,20 @@
               <!-- <ion-item>
                 </ion-item> -->
 <ion-card color="light">
-          <div class = "headtext">
+          <div class = "maintext_price">
         <p style="margin:5%;"> เกี่ยวกับ
         </p>
         </div> 
-        <div class = "maintext">
+        <div class = "maintext_cen">
         <i class="fas fa-id-badge fa-lg"></i> {{membership_no}}
         
         </div>
-        <div class = "maintext">
+        <div class = "maintext_cen">
         <i class="fas fa-id-card fa-lg"></i>  {{items.id_card}}
      
         </div> 
         <!-- <ion-item-divider> -->
-        <div class = "maintext">
+        <div class = "maintext_cen">
         
           <i class="fas  fa-birthday-cake fa-lg"></i> 
 {{items.date_of_birth}}
@@ -90,7 +90,7 @@
          
         <!-- </ion-label>  -->
       <!-- </ion-item-divider> -->
-        <div class = "maintext">
+        <div class = "maintext_cen">
             <i class="fas  fa-map-marker-alt fa-lg"></i> 
             {{items.address_present}}
           
@@ -99,16 +99,16 @@
         <!-- <ion-item color="secondary">
       </ion-item> -->
       <ion-card color="light">
-        <div class = "headtext">
+        <div class = "maintext_price">
         <p style="margin:5%;"> การทำงาน
         </p>
         </div> 
-        <div class = "maintext">
+        <div class = "maintext_cen">
      <i class="fas  fa-building fa-lg"></i> 
          {{items.member_group_name}}
         
         </div>      
-          <div class = "maintext">
+          <div class = "maintext_cen">
           <i class="fas  fa-code-branch fa-lg"></i> 
            
            {{items.position_name}}
