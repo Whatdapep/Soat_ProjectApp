@@ -63,25 +63,26 @@ export class LogonPage implements OnInit {
     {
       this.plat = true;
       console.log("this is Platform test" + this.plat);
+      console.log('Device UUID is: ' + this.Device.uuid);
     }
     else{
       console.log("this is Platform test False");
     }
 
-    // is(desktop:platforms) => this.plat = true
-  //   console.log('Device UUID is: ' + this.Device.uuid);
-  //   this.NetworkInterface.getWiFiIPAddress()
-  //   .then(address => console.info(`IP: ${address.ip.toString()}, Subnet: ${address.subnet.toString()}`))
-  //   .catch(error => console.error(`Unable to get IP: ${error}`));
+    // is(platform) => this.plat = true
+    // console.log('Device UUID is: ' + this.Device.uuid);
+    // this.NetworkInterface.getWiFiIPAddress()
+    // .then(address => console.info(`IP: ${address.ip.toString()}, Subnet: ${address.subnet.toString()}`))
+    // .catch(error => console.error(`Unable to get IP: ${error}`));
 
-  //   this.NetworkInterface.getCarrierIPAddress()
-  //   .then(address => console.info(`IP: ${address.ip}, Subnet: ${address.subnet}`))
-  //   .catch(error => console.error(`Unable to get IP: ${error}`));
+    this.NetworkInterface.getCarrierIPAddress()
+    .then(address => console.info(`IP: ${address.ip}, Subnet: ${address.subnet}`))
+    .catch(error => console.error(`Unable to get IP: ${error}`));
 
-  // const url = 'www.github.com';
-  // this.NetworkInterface.getHttpProxyInformation(url)
-  //   .then(proxy => console.info(`Type: ${proxy.type}, Host: ${proxy.host}, Port: ${proxy.port}`))
-  //   .catch(error => console.error(`Unable to get proxy info: ${error}`));
+  const url = 'www.github.com';
+  this.NetworkInterface.getHttpProxyInformation(url)
+    .then(proxy => console.info(`Type: ${proxy.type}, Host: ${proxy.host}, Port: ${proxy.port}`))
+    .catch(error => console.error(`Unable to get proxy info: ${error}`));
 
 
 

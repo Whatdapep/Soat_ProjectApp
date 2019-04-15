@@ -4,7 +4,7 @@ import { ToastController } from '@ionic/angular';
 import { Router,RouterModule, ActivatedRoute } from '@angular/router';
 import { Storage } from '@ionic/storage';
 import {ServicesService} from '../services.service';
-import { FingerprintAIO } from '@ionic-native/fingerprint-aio/ngx';
+import { FingerprintAIO ,FingerprintOptions} from '@ionic-native/fingerprint-aio/ngx';
 
 
 
@@ -21,6 +21,7 @@ export class AuthcodePage implements OnInit {
   main:boolean=true;
   falsecount:number=0;  
 check:any='';
+fingerprintOptions : FingerprintOptions;
   constructor(
 
     public alertController : AlertController,
@@ -32,6 +33,7 @@ private activatedRoute:ActivatedRoute,
     private storage: Storage,
   )
   {
+    this.finger();
 
     // this.storage.get('authmenu').then((val) => {
     //   this.passcode = val;
@@ -177,15 +179,18 @@ private activatedRoute:ActivatedRoute,
 
   }
   finger(){
-    this.fingeraio.show({
-      clientId: 'Fingerprint-Demo',
-      clientSecret: 'password', //Only necessary for Android
-      // disableBackup:true,  //Only for Android(optional)
-      // localizedFallbackTitle: 'Use Pin', //Only for iOS
-      // localizedReason: 'Please authenticate' //Only for iOS
-  })
-  .then((result: any) => console.log(result))
-  .catch((error: any) => console.log(error));
+
+
+this.fingeraio.show({
+  clientId: 'Fingerprint-Demo',
+  clientSecret: 'password', //Only necessary for Android
+  disableBackup:true,  //Only for Android(optional)
+  localizedFallbackTitle: 'Use Pin', //Only for iOS
+  localizedReason: 'Please authenticate' //Only for iOS
+})
+.then((result: any) => this.service.callfunction.passcodeComplete(this.check)
+)
+.catch((error: any) => alert(error));
 
   }
 
