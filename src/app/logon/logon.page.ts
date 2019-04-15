@@ -150,6 +150,8 @@ login(){
   this.data.subscribe(result =>{
     this.items = result;
     this.members = result;
+    this.ip= result.ip;
+    console.log(this.ip);
     console.log(this.members);
     console.log(this.members.name);
 
@@ -171,9 +173,13 @@ login(){
    var members = this.membership_no_new;
   //  var members = '0000123';
   // this.storage.set('membership_no',this.membership_no_new.toString());
-
+  var info ={
+    membership_no:this.membership_no_new,
+    member_name:this.member_name,
+    ip_address:this.ip,
+  }
   this.service.Set_Storage_membership_no(members);
-
+  this.storage.set('info',info);
   this.storage.set('member_name',this.member_name);
   console.log('set member_name is '+this.member_name)
   this.storage.set('membership_no',this.membership_no_new);

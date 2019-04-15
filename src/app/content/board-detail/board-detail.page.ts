@@ -28,7 +28,8 @@ export class BoardDetailPage implements OnInit {
   No:any='';
   member_name:any='';
   ans:any='';
-
+  info:any='';
+  ip:any='';
   part3:any='';
   data3:any='';
   
@@ -60,10 +61,13 @@ export class BoardDetailPage implements OnInit {
     this.storage.get('membership_no').then((val) => {
       this.membership_no = val.toString();
     console.log("this is get Storage"+this.membership_no);
+    this.storage.get('info').then((val) => {
+      this.info = val;
+    console.log(this.info);
+    console.log(this.info.ip_address);
     this.storage.get('No').then((val) => {
       this.No = val.toString();
     console.log("this is get No"+this.No);
-
     this.storage.get('member_name').then((val) => {
       this.member_name = val.toString();
       console.log("this is get member_name"+this.member_name);
@@ -82,12 +86,12 @@ export class BoardDetailPage implements OnInit {
   
   console.log(this.items);
 
-this.part2 = this.service.www_board_ans
-var body ={
+this.part2 = this.service.www_board_ans_direct
+var body2 ={
   type:this.part2,
   membership_no:this.No
 }
-this.data2 = this.service.postphp(body);
+this.data2 = this.service.postphp(body2);
 this.data2.subscribe(result =>{
 
 this.items2 = result;
@@ -105,6 +109,7 @@ console.log(this.items2);
 });
 });
     });
+  });
   }
   
    async Confirm_board_ans() {
@@ -132,11 +137,9 @@ console.log(this.items2);
              ,QuestionNo:this.No
              ,Msg:this.ans
              ,Name:this.member_name
-             ,IP:''
+             ,IP:this.info.ip_address
              ,Date:new Date()
             };
-            
-           
             this.data3 = this.service.postphp(body);
             this.data3.subscribe(result =>{
             console.log(result)

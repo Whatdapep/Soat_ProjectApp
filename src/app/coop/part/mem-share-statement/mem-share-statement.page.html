@@ -31,7 +31,7 @@
     <ion-card-content class="maintext_price">
       งวดล่าสุด {{items_head.period_recrieve}}
       <ion-item>
-          <h5 align = "right" class="maintext">ชำระเดือนละ  - {{items_head.share_amount_fp }}$</h5>
+          <h5 align = "right" class="maintext_mid">ชำระเดือนละ  - {{items_head.share_amount_fp }}$</h5>
           
         </ion-item>
         <!-- <h6 align = "right">เปิด ณ วันที่ 16 มีนาคม 2562</h6> -->
@@ -54,7 +54,7 @@
       
         <ion-item-divider color="success">
             <ion-label>
-                <h5 align = "left" class="maintext">งวด   {{items.period}}</h5>
+                <h5 align = "left" class="maintext_mid">งวด   {{items.period}}</h5>
                  <h5 align = "right" class="maintext_price">+ {{items.share_value | number:0}}$</h5>
                 </ion-label>
         </ion-item-divider>
@@ -65,7 +65,7 @@
           
              </ion-label > 
              <!-- <div align="right"> -->
-             <ion-label class="maintext">
+             <ion-label class="maintext_mid">
                 <!-- 16มี.ค.2562 -->
                {{items.operate_date}}
                 <!-- <ion-datetime  readonly value={{item.operate_date}}></ion-datetime> -->

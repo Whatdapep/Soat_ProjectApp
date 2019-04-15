@@ -24,6 +24,7 @@ export class BoardListPage implements OnInit {
   part2:any;
   data2:any;
   memberdetail:any;
+  info:any=''
 member_name:any;
   constructor(
     private router:Router,
@@ -55,6 +56,8 @@ member_name:any;
 Maintain(){
   this.storage.get('membership_no').then((val) => {
     this.membership_no = val.toString();
+    this.storage.get('info').then((val) => {
+      this.info = val;
   console.log("this is get Storage"+this.membership_no);
   this.storage.get('member_name').then((val) => {
     this.member_name = val;
@@ -77,6 +80,7 @@ console.log(this.items);
 });
 });
 });
+  });
 }
   async board_post_alert() {
     const alert = await this.alertController.create({
@@ -115,16 +119,21 @@ console.log(this.items);
             console.log('Confirm Ok');
             var test= "ทดสอบ"
             var test2="ทดสอบ123"
+            this.part2= this.service.post_board
+
+            // INSERT INTO www_board (Category,Question,Note,Name,IP,Date) 
+
             var body = {
+              type:this.part2,
               Category:this.service.board_Category
              ,Question:data.Question
-             ,QNote:data.Note
-             ,QName:this.member_name
-             ,IP:""
+             ,Note:data.Note
+             ,Name:this.member_name
+             ,IP:this.info.ip_address
              ,Date:new Date()
             };
-            this.part2= this.service.post_board
-            this.data2 = this.service.posthttps(this.part2,body,this.service.apikey);
+            
+            this.data2 = this.service.postphp(body);
             this.data2.subscribe(result =>{
             console.log(result)
               this.Refresh(event);

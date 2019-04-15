@@ -50,6 +50,7 @@ ws_mem_loan_item='ws_mem_loan_item';
 ws_mem_change_password='ws_mem_change_password';
 www_board='www_board';
 www_board_ans='www_board_ans';
+www_board_ans_direct='www_board_ans_direct';
 www_data_limit='www_data_limit';
 www_data='www_data';
 www_data_detail='www_data_detail';

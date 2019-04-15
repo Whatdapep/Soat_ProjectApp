@@ -57,8 +57,8 @@
                   <div align="right">
                       <i class="fas fa-clock"></i>
                   <!-- <ion-label> -->
-                  
-                  <ion-datetime  readonly value={{item.Date}}><span></span></ion-datetime>
+                  {{item.Date}}
+             
                <!-- </ion-label> -->
               </div>
              
@@ -70,7 +70,7 @@
 
           <div>
             
-            <ion-card class="comment" *ngFor="let item_2 of items2">
+            <ion-card class="comment" *ngFor="let item_2 of items2" style="padding-bottom:2%;">
                 <div class="maintext">
                     <ion-label> {{item_2.Msg}} </ion-label> 
                   </div>
@@ -78,10 +78,11 @@
                       <ion-label> <i class="fas fa-user"></i> {{item_2.Name}} </ion-label> 
                     </div>
                     <div align="right">
-                        <i class="fas fa-clock"></i>
-                    <ion-label>
-                    
-                    <ion-datetime  readonly value={{item_2.Date}}><span></span></ion-datetime>
+                        
+                    <ion-label  class="maintext">
+                      <i class="fas fa-clock"></i>
+                    {{item_2.Date}}
+                    <!-- <ion-datetime  readonly value=><span></span></ion-datetime> -->
                  </ion-label>
                 </div>
 

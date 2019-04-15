@@ -26,7 +26,7 @@
         
         </ion-card-header>
         <ion-card-content>
-          <div class="maintext">
+          <div class="maintext_cen">
           {{item.depaccno_fp}}
         </div>
           <!-- <ion-item> -->
@@ -49,9 +49,9 @@
                 <!-- {{item.item_type_description}} -->
                 <i class="fas fa-calendar-alt"></i>
              </ion-label>
-             <ion-label class="maintext">
-                
-                <ion-datetime  readonly value={{item.OPERATE_DATE}}></ion-datetime>
+             <ion-label class="maintext_cen">
+                {{item.OPERATE_DATE}}
+                <!-- <ion-datetime  readonly value={{item.OPERATE_DATE}}></ion-datetime> -->
                 
              </ion-label>
             

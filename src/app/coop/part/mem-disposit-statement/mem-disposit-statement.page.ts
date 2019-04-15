@@ -20,6 +20,7 @@ export class MemDispositStatementPage implements OnInit {
   part:any;
   data2:Observable<any>;
   part2:any;
+  color:any='';
 
 
   // ---------
@@ -68,6 +69,7 @@ this.storage.get('membership_no').then((val) => {
     this.disposit_statement_head=results;
     this.mainshow = true;
     this.loadshow = false;
+    this.color = this.items.color_bg;
 
     console.log(this.items);
     this.part2 = this.service.ws_mem_disposit_statement

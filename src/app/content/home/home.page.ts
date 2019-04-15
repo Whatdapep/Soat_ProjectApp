@@ -29,6 +29,7 @@ export class HomePage implements OnInit {
   data2:any;
   memberdetail:any;
   Category:any='photo';
+  info:any='';
   constructor(
     private router:Router,
     private navigate:NavController,
@@ -56,6 +57,9 @@ export class HomePage implements OnInit {
   ngOnInit() {
   }
 Maintain(){
+  this.storage.get('info').then((val) => {
+    this.info = val;
+    console.log(this.info);
   this.storage.get('membership_no').then((val) => {
     this.membership_no = val.toString();
   console.log("this is get Storage"+this.membership_no);
@@ -73,6 +77,7 @@ console.log(this.items);
 // ------------------------------------- MAp Space
 });
 });
+  });
 }
 Refresh(event) {
 

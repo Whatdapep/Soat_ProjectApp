@@ -22,10 +22,10 @@
       <ion-label class="maintext_cen">{{loan_item_description}}</ion-label>
       <ion-label align="right" class="maintext_cen">{{loan_no}}</ion-label>
     </ion-item>
-    <ion-item class="maintext">
+    <ion-item class="maintext_cen">
       <ion-label> คงเหลือ</ion-label>
 
-      <ion-label class="maintext_price" align="right">{{balance | number:0}}</ion-label>
+      <ion-label class="maintext_price" align="right">{{balance}}</ion-label>
     </ion-item>
     <ion-card-content class="maintext"> 
       หลักค้ำประกันเงินกู้ของฉัน
@@ -45,7 +45,7 @@
               <ion-label class="maintext"> งวด {{item.period}}
                   </ion-label>
                   <ion-label align = "right" class="maintext_price">
-                    {{item.payment_amount | number:0}}$
+                    {{item.payment_amount}}$
                     </ion-label>
           </ion-item>
           <ion-item-divider>

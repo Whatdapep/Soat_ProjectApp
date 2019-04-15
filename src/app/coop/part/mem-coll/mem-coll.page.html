@@ -19,18 +19,20 @@
   <!-- ----------------------------test  -->
   <!-- *ngFor="let item of items" -->
   <ion-card >
-      <ion-card-header>
+      <ion-card-header color="primary">
         <!-- <ion-card-subtitle>Card Subtitle</ion-card-subtitle> -->
         <!-- <ion-card-title>{{item.loan_card_id}}</ion-card-title> -->
-        <ion-card-title class="maintext">   {{items.loan_name}}</ion-card-title>
+        <ion-card-title class="maintext_head"> เลขที่เงินกู้  {{items.loan_contract_no}}</ion-card-title>
       
       </ion-card-header>
       <ion-card-content class="maintext">
          <!-- {{item.loan_name}} -->
-         {{items.loan_contract_no}}
+         ชื่อ 
+         {{items.loan_name}}
       </ion-card-content>
       <ion-card-content align = "right" class="maintext">
         <!-- {{item.princical_balance}} -->
+        รหัสสมาชิก 
         {{items.membership_no}}
        </ion-card-content>
       

@@ -115,8 +115,8 @@ Maintain(){
                   this.itemm = results;
                   console.log(this.itemm);
                 });
-                // this.balance = this.loan_main.map(this.service.callfunction.getprincipal_balance)
-                // this.balance = this.balance.toString(); 
+                this.balance = this.loan_main.map(this.service.callfunction.getprincipal_balance)
+                this.balance = this.balance.toString(); 
                 });
               });
             });
