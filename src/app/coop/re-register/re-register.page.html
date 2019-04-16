@@ -1,9 +1,105 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>re-register</ion-title>
-  </ion-toolbar>
-</ion-header>
+  <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
+<ion-toolbar>
+  <ion-title>
+      <div align="center">
+          ตรวจสอบสมาชิก
+      </div>
+    </ion-title>
+</ion-toolbar>
+</ion-header>
 <ion-content>
+<div class="margin">
+</div>
+<br>
+<br>
+<div class="screen">
+<div class="box">
+<div class="inside" align="center">
+  ยืนยันการสมัคร
+
+</div>
+<form [formGroup]="registerForm">
+
+<ion-label position="floating">เลขทะเบียน</ion-label>
+<ion-input formControlName="membership_no" class="membership_no" size="15" maxlength="7"  class="maintext_cen form" placeholder="เลขทะเบียน"></ion-input>
+
+  <div class="error_message">
+    <ng-container *ngFor="let error of error_message.membership_no">
+      <div class="error_message" *ngIf="registerForm.get('membership_no').hasError(error.type) && (registerForm.get('membership_no').dirty || registerForm.get('membership_no').touched)">
+      {{error.Message}}
+      </div>
+    </ng-container>
+  </div>
+
+<ion-label position="floating">เลขบัตรประชาชน</ion-label>
+<ion-input formControlName="member_id" size="15" maxlength="13"  class="maintext_cen form" placeholder="เลขบัตรประชาชน"></ion-input>
+
+<div class="error_message">
+  <ng-container *ngFor="let error of error_message.member_id">
+    <div class="error_message" *ngIf="registerForm.get('member_id').hasError(error.type) && (registerForm.get('member_id').dirty || registerForm.get('member_id').touched)">
+    {{error.Message}}
+    </div>
+  </ng-container>
+</div>
+
+<ion-label position="floating">ชื่อจริง</ion-label>
+<ion-input formControlName="name"  size="15" maxlength="7"  class="maintext_cen form" placeholder="ชื่อจริง"></ion-input>
+
+  <div class="error_message">
+    <ng-container *ngFor="let error of error_message.name">
+      <div class="error_message" *ngIf="registerForm.get('name').hasError(error.type) && (registerForm.get('name').dirty || registerForm.get('name').touched)">
+      {{error.Message}}
+      </div>
+    </ng-container>
+  </div>
+
+<ion-label position="floating">นามสกุล</ion-label>
+<ion-input formControlName="surname" size="15" maxlength="13"  class="maintext_cen form" placeholder="นามสกุล"></ion-input>
+
+<div class="error_message">
+  <ng-container *ngFor="let error of error_message.surname">
+    <div class="error_message" *ngIf="registerForm.get('surname').hasError(error.type) && (registerForm.get('surname').dirty || registerForm.get('surname').touched)">
+    {{error.Message}}
+    </div>
+  </ng-container>
+</div>
+
+<ion-label position="floating">รหัสผ่าน</ion-label>
+<ion-input formControlName="password"  type="password" size="15" maxlength="7"  class="maintext_cen form" placeholder="รหัสผ่าน"></ion-input>
+
+  <div class="error_message">
+    <ng-container *ngFor="let error of error_message.password">
+      <div class="error_message" *ngIf="registerForm.get('password').hasError(error.type) && (registerForm.get('password').dirty || registerForm.get('password').touched)">
+      {{error.Message}}
+      </div>
+    </ng-container>
+  </div>
+
+
+
+<ion-label position="floating">ยืนยันรหัสผ่าน</ion-label>
+<ion-input formControlName="confirm_password" size="15" type="password" maxlength="13"  class="maintext_cen form" placeholder="ยืนยันรหัสผ่าน"></ion-input>
+
+<div class="error_message">
+  <ng-container *ngFor="let error of error_message.confirm_password">
+    <div class="error_message" *ngIf="registerForm.get('confirm_password').hasError(error.type) && (registerForm.get('confirm_password').dirty || registerForm.get('confirm_password').touched)">
+    {{error.Message}}
+    </div>
+  </ng-container>
+</div>
+
+<ion-button [disabled]="!registerForm.valid" class ="margin"expand="block" color="secondary" style = " font-weight: bold; font-size: 15" (click)="register()">ตกลง</ion-button>
+
+
+
+</form>
+<!-- ------ -->
+</div>
+</div>
+
+
 
 </ion-content>

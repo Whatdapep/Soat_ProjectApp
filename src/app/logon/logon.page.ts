@@ -191,5 +191,13 @@ login(){
 }
   ngOnInit() {
   }
+  register(){
+    this.router.navigate(['/register']);
+
+  }
+ 
+  Forgetpwd(){
+    this.router.navigate(['/re-register']);
+  }
 
 }
