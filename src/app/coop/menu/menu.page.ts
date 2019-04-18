@@ -50,9 +50,9 @@ export class MenuPage implements OnInit {
   Maintain(){
     this.storage.get('passcode').then((val) => {
       this.passcode = val;
-      if(this.passcode != null){
+      if(this.passcode == 'check'){
       }else{
-        this.router.navigate(['/authcode/checked']);
+        this.router.navigate(['/authcode/check']);
       }
       console.log("the passcode is"+this.passcode);
 

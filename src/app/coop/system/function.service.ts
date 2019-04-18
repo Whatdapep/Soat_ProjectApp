@@ -65,7 +65,10 @@ id:any='';
   
     console.log('Loading dismissed!');
   }
-
+  passcodecheck(id:string){
+    this.storage.set('passcode',id);
+  console.log('set passcode is '+id)
+  }
   async passcodeComplete(id:string) {
     const alert = await this.alertController.create({
       header: 'สำเร็จ!',
@@ -77,10 +80,10 @@ id:any='';
           if(id == 'checked'){
             this.router.navigate(['/footer/footer/home']);
           }else{
-            var passcode = "menuchecked";
+            // var passcode = "menuchecked";
             this.router.navigate(['/footer/footer/menu']);
-            this.storage.set('authmenu',passcode);
-            console.log(passcode)
+            // this.storage.set('authmenu',passcode);
+            // console.log(passcode)
             
 
 
@@ -90,7 +93,7 @@ id:any='';
       }]
     });
     setTimeout(()=>{  
-      this.router.navigate(['/footer/footer/menu']);
+      // this.router.navigate(['/footer/footer/menu']);
    },700);
     await alert.present();
   }

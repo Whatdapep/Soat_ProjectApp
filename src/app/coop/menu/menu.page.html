@@ -5,7 +5,7 @@
 <ion-toolbar>
   <ion-title>
     <div align="center"> 
-    หน้าหลัก
+      สวัสดีคุณ {{member_name}}
   </div>
   </ion-title>
 </ion-toolbar>
@@ -16,28 +16,27 @@
 </div>
   <ion-card (click)="share()">
     <ion-card-header  color ="warning">
-      <div class="maintext_cen">
-      หุ้นทั้งหมด
+      <div class="maintext_cen" align="right">
+      ทุนเรือนหุ้นทั้งหมด
     </div>
     </ion-card-header>
   
     <div class ="maintext_coop" align="right">
         {{items.share_stock | number:0}}
-    <hr>
+
     </div>  
     
-    <ion-item>
-  </ion-item>
+   
   </ion-card>
   <!-- *ngFor = "let item of memberdetail" -->
-<ion-card > 
+<!-- <ion-card > 
 <ion-card-header style="font-size:150%; color:black;" color="none">
     สวัสดีคุณ {{member_name}}
 </ion-card-header>
 <ion-card-content>
 
 </ion-card-content>
-</ion-card>
+</ion-card> -->
 
 
 </ion-content>

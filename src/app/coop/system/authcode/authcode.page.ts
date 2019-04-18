@@ -62,8 +62,9 @@ private activatedRoute:ActivatedRoute,
 
         if(result == this.passcodestorage){
            
-          this.storage.set('passcode',result);
-          console.log('set passcode is '+result)
+          // this.storage.set('passcode',result);
+          // console.log('set passcode is '+result)
+          this.service.callfunction.passcodecheck(this.check);
 
           this.service.callfunction.passcodeComplete(this.check);
           this.passcode = '';
@@ -188,8 +189,14 @@ this.fingeraio.show({
   localizedFallbackTitle: 'Use Pin', //Only for iOS
   localizedReason: 'Please authenticate' //Only for iOS
 })
-.then((result: any) => this.service.callfunction.passcodeComplete(this.check)
-)
+.then((result: any) => { 
+
+  // this.storage.set('passcode',result);
+  // console.log('set passcode is '+result)
+  this.service.callfunction.passcodecheck(this.check);
+
+  this.service.callfunction.passcodeComplete(this.check)
+})
 .catch((error: any) => alert(error));
 
   }

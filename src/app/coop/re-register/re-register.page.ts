@@ -45,57 +45,65 @@ export class ReRegisterPage implements OnInit {
 
 ]
 }
+
+
   constructor(
     private formBuilder:FormBuilder,
     public navCtrl: NavController , 
     public router:Router, 
     public alertController : AlertController,
     private service:ServicesService
-  ) {
-    this.registerForm = this.formBuilder.group({
+    
+    
+    ) {
+
+ this.registerForm = this.formBuilder.group({
   
-      membership_no: new FormControl('', Validators.compose([
-        Validators.required,
-        Validators.minLength(7),
-        // Validators.pattern('^[0-9]')
-      ])),
-      member_id: new FormControl('', Validators.compose([
-        Validators.required,
-        Validators.minLength(13),
-        // Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
-      ])),
-      name: new FormControl('', Validators.compose([
-        Validators.required,
-        Validators.minLength(4),
-        Validators.maxLength(100)
-        // Validators.pattern('^[0-9]')
-      ])),
-      surname: new FormControl('', Validators.compose([
-        Validators.required,
-        Validators.minLength(2),
-        Validators.maxLength(100)
-        // Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
-      ])),
-      password: new FormControl('', Validators.compose([
-        Validators.required,
-        Validators.minLength(3),
-        Validators.maxLength(50),
-        // Validators.pattern('^[0-9]')
-      ])),
-      confirm_password: new FormControl('', Validators.compose([
-        Validators.required,
-        Validators.minLength(3),
-        Validators.maxLength(50),
-        // Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
-      ])),
+  membership_no: new FormControl('', Validators.compose([
+    Validators.required,
+    Validators.minLength(7),
+    // Validators.pattern('^[0-9]')
+  ])),
+  member_id: new FormControl('', Validators.compose([
+    Validators.required,
+    Validators.minLength(13),
+    // Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
+  ])),
+  name: new FormControl('', Validators.compose([
+    Validators.required,
+    Validators.minLength(4),
+    Validators.maxLength(100)
+    // Validators.pattern('^[0-9]')
+  ])),
+  surname: new FormControl('', Validators.compose([
+    Validators.required,
+    Validators.minLength(2),
+    Validators.maxLength(100)
+    // Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
+  ])),
+  password: new FormControl('', Validators.compose([
+    Validators.required,
+    Validators.minLength(3),
+    Validators.maxLength(50),
+    // Validators.pattern('^[0-9]')
+  ])),
+  confirm_password: new FormControl('', Validators.compose([
+    Validators.required,
+    Validators.minLength(3),
+    Validators.maxLength(50),
+    // Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
+  ])),
+
+  // [a-zA-Z_ก-ฮะ-์]\w*
     
-      // [a-zA-Z_ก-ฮะ-์]\w*
-        
-    
-    
-    
-     });
+
+
+
+ });
+
+ 
    }
+
    async LoginComplete() {
     const alert = await this.alertController.create({
       header: 'สำเร็จ!',
