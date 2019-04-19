@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, from } from 'rxjs';
 import { LoadingController } from '@ionic/angular';
 import {ServicesService} from '../../coop/system/services.service'
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 
 @Component({
   selector: 'app-list',
@@ -31,7 +32,8 @@ export class ListPage implements OnInit {
     private storage: Storage,
     private Http:HttpClient,
     public loadingController: LoadingController,
-    private service:ServicesService
+    private service:ServicesService,
+    private iab: InAppBrowser
 
   ) {
 
@@ -45,8 +47,9 @@ this.Maintain();
   show(item:string){
  this.storage.set('www_data_No',item);
     console.log('set No is '+item);
-
-    this.router.navigate(['/show']);
+    this.iab.create(`http://www.cooparmy3.com/show.php?No=${item}`,`_system`);
+  
+    // this.router.navigate(['/show']);
   }
   Maintain(){
     this.storage.get('membership_no').then((val) => {

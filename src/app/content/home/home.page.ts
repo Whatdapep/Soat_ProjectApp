@@ -7,6 +7,7 @@ import { Observable, from } from 'rxjs';
 import { LoadingController } from '@ionic/angular';
 import {ServicesService} from '../../coop/system/services.service'
 import { Network } from '@ionic-native/network/ngx';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 
 @Component({
   selector: 'app-home',
@@ -37,7 +38,8 @@ export class HomePage implements OnInit {
     private Http:HttpClient,
     public loadingController: LoadingController,
     private service:ServicesService,
-    private Network:Network
+    private Network:Network,
+    private iab: InAppBrowser
   ) {
 
     this.Maintain()
@@ -96,10 +98,11 @@ Refresh(event) {
     this.router.navigate(['/list']);
   }
   show(item:string){
+    this.iab.create(`http://www.cooparmy3.com/show.php?No=${item}`,`_system`);
     this.storage.set('www_data_No',item);
     console.log('set No is '+item);
 
-    this.router.navigate(['/show']);
+    // this.router.navigate(['/show']);
   }
 
 }
