@@ -9,12 +9,16 @@ import { Storage } from '@ionic/storage';
 })
 export class CheckloginPage implements OnInit {
   membership_no:any='';
+  url:any='';
   constructor(
     public router:Router, 
     private storage: Storage,) {
 
       // this.storage.clear();
-
+      this.storage.get('url').then((val) => {
+        this.url = val;
+        console.log(this.url);
+      });
    this.storage.get('membership_no').then((val) => {
     this.membership_no = val;
     if(this.membership_no == null){

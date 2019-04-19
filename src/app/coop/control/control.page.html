@@ -1,0 +1,35 @@
+<ion-header>
+    <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+  <ion-toolbar>
+    <ion-title>ควบคุม</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-card >
+        <ion-card-header color="primary">
+          <!-- <ion-card-subtitle>Card Subtitle</ion-card-subtitle> -->
+          <!-- <ion-card-title>{{item.loan_card_id}}</ion-card-title> -->
+          <ion-card-title class="maintext_head"> เปลี่ยน IP ใหม่</ion-card-title>
+        
+        </ion-card-header>
+      </ion-card>
+  <ion-item>
+
+      <ion-input class="maintext_cen form" placeholder="ตั้งค่า IP" [(ngModel)]="url"></ion-input>
+    </ion-item>
+    <div align ="center">
+    <ion-label>
+      Hot Key
+    </ion-label>
+  </div>
+    <ion-list>
+        <ion-item *ngFor="let entry of form">
+          <ion-label>{{entry.val}}</ion-label>
+          <ion-checkbox slot="end" [(ngModel)]="entry.isChecked"></ion-checkbox>
+        </ion-item>
+      </ion-list>
+    <ion-button class ="margin"expand="block" color="secondary" style = " font-weight: bold; font-size: 15" (click)="ok()">Submit</ion-button>
+</ion-content>

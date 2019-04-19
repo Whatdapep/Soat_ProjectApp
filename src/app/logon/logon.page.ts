@@ -21,8 +21,8 @@ import { Platform } from '@ionic/angular';
 export class LogonPage implements OnInit {
   items:any;
     data:Observable<any>;
-    username:string;
-    password:string;
+    username:string='';
+    password:string='';
     strlogin:string;
    member:any='';
    members:any;
@@ -35,6 +35,8 @@ export class LogonPage implements OnInit {
    ip:any='';
    membership_no:any='';
    plat:boolean;
+
+   statuscode:boolean=false;
     constructor(
     public navCtrl: NavController ,  
     public alertController : AlertController,
@@ -48,6 +50,9 @@ export class LogonPage implements OnInit {
     private platform:Platform
 
   ) {
+    this.username='';
+    this.password='';
+    console.log(this.statuscode);
 
 //     this.storage.get('membership_no').then((val) => {
 //       this.membership_no = val;
@@ -110,6 +115,20 @@ async LoginComplete() {
  },2000);
   await alert.present();
 }
+
+async adminComplete() {
+  const alert = await this.alertController.create({
+    header: 'Alert',
+    // subHeader: 'Subtitle',
+    message: 'Hello Wellcome Admin',
+    buttons: ['OK']
+  });
+  setTimeout(()=>{  
+    this.statuscode == true;
+    this.router.navigate(['/control']);
+ },2000);
+  await alert.present();
+}
 // 
 async presentLoading() {
   const loading = await this.loadingController.create({
@@ -137,7 +156,15 @@ async presentLoadingWithOptions() {
 login(){
   // this.presentLoadingWithOptions();
   this.service.callfunction.presentLoadingWithOptions();
-   if ((this.username != null) || (this.password != null)){
+  if ((this.username == 'soat') && (this.password == 'sscadmin')){
+   
+    this.adminComplete();
+    
+  }
+   else if ((this.username != null) || (this.password != null)){
+
+  
+
     console.log(" Username is "+this.username);
     console.log(" Password is "+this.password);
  
@@ -162,32 +189,44 @@ login(){
       // this.presentLoadingWithOptions() = false;
       this.service.Set_Storage_member_key(this.password);
      this.time =  1;
+
+     var members = this.membership_no_new;
+     //  var members = '0000123';
+     // this.storage.set('membership_no',this.membership_no_new.toString());
+     var info ={
+       membership_no:this.membership_no_new,
+       member_name:this.member_name,
+       ip_address:this.ip,
+     }
+     var memlenght = this.membership_no_new.length;
+     if(memlenght = 7){
+      this.service.Set_Storage_membership_no(members);
+      this.storage.set('info',info);
+      this.storage.set('member_name',this.member_name);
+      console.log('set member_name is '+this.member_name)
+      var check = this.storage.set('membership_no',this.membership_no_new);
+      if(check){
+        console.log("membership set Success "+this.membership_no_new)
+      }
+    }
     //  this.LoginComplete();
      this.service.callfunction.LoginComplete(this.member_name);
     //  console.log(this.time);
     
   }
+ 
     else {
       this.service.callfunction.Loginfalse();
   }
     
-   var members = this.membership_no_new;
-  //  var members = '0000123';
-  // this.storage.set('membership_no',this.membership_no_new.toString());
-  var info ={
-    membership_no:this.membership_no_new,
-    member_name:this.member_name,
-    ip_address:this.ip,
-  }
-  this.service.Set_Storage_membership_no(members);
-  this.storage.set('info',info);
-  this.storage.set('member_name',this.member_name);
-  console.log('set member_name is '+this.member_name)
-  this.storage.set('membership_no',this.membership_no_new);
+   
 
+  
 
   });
 }
+
+
 }
   ngOnInit() {
   }

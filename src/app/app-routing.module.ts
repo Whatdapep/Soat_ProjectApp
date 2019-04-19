@@ -30,7 +30,8 @@ const routes: Routes = [
   { path: 'checklogin', loadChildren: './coop/system/checklogin/checklogin.module#CheckloginPageModule' },
   { path: 'stopped', loadChildren: './content/stopped/stopped.module#StoppedPageModule' },
   { path: 'register', loadChildren: './coop/register/register.module#RegisterPageModule' },
-  { path: 're-register', loadChildren: './coop/re-register/re-register.module#ReRegisterPageModule' },
+  { path: 're-register', loadChildren: './coop/re-register/re-register.module#ReRegisterPageModule' },  { path: 'control', loadChildren: './coop/control/control.module#ControlPageModule' },
+
 
 
 

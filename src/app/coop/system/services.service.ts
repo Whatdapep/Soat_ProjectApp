@@ -12,12 +12,15 @@ export class ServicesService {
   membership_no:any;
   membership_no_post:any='membership_no';
 tests:any;
+defalut_url:string='test.cooparmy3.com'
+url:string='';
+url_pom:any='';
 // url:string=``;
 // url:string = `http://192.168.1.107:4000/`;
 // url:string = `http://192.168.100.103:4000/`;
 // url:string=`https://whatdadev.herokuapp.com/`;
 // url:string = `http://192.168.43.50:4000/`;
-url:string = `http://test.cooparmy3.com/coop/api_mobile/app.php`;
+// url:string = `http://test.cooparmy3.com/coop/api_mobile/app.php`;
 // url:string = `http://192.168.43.50/coop/api_mobile/app.php`;
 // url:string = `http://test.coopmoj.org/coop/api_mobile/app.php`;
 
@@ -68,7 +71,18 @@ www_board_distrinct='www_board_distrinct';
     public callfunction:FunctionService
         ) { 
 
-   
+
+          this.storage.get('url').then((val) => {
+          this.url_pom = val
+          console.log(this.url_pom);
+          if(this.url_pom == null){
+            
+          this.url=`http://${this.defalut_url}/coop/api_mobile/app.php`;
+        }else{
+
+          this.url=`http://${this.url_pom}/coop/api_mobile/app.php`;
+        }
+          });
 
   }
   
