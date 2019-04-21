@@ -35,7 +35,10 @@ export class LogonPage implements OnInit {
    ip:any='';
    membership_no:any='';
    plat:boolean;
-
+   geturl:any='';
+   url:any='';
+   url_pom:any='';
+   defalut_url:any='test.cooparmy3.com';
    statuscode:boolean=false;
     constructor(
     public navCtrl: NavController ,  
@@ -50,9 +53,23 @@ export class LogonPage implements OnInit {
     private platform:Platform
 
   ) {
+    this.geturl = this.service.geturl()
+    console.log("url is "+this.geturl);
     this.username='';
     this.password='';
     console.log(this.statuscode);
+
+    this.storage.get('url').then((val) => {
+      this.url_pom = val
+      console.log(this.url_pom);
+      if(this.url_pom == null){
+        
+      this.url=`http://${this.defalut_url}/coop/api_mobile/app.php`;
+    }else{
+
+      this.url=`http://${this.url_pom}/coop/api_mobile/app.php`;
+    }
+      });
 
 //     this.storage.get('membership_no').then((val) => {
 //       this.membership_no = val;
@@ -64,6 +81,8 @@ export class LogonPage implements OnInit {
 //  }
 
 //     });
+
+
     if(this.platform.is('android') || this.platform.is('ios') || this.platform.is('desktop'))
     {
       this.plat = true;
@@ -156,6 +175,7 @@ async presentLoadingWithOptions() {
 login(){
   // this.presentLoadingWithOptions();
   this.service.callfunction.presentLoadingWithOptions();
+  this.service.sendurl(this.url);
   if ((this.username == 'soat') && (this.password == 'sscadmin')){
    
     this.adminComplete();

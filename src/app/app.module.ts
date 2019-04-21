@@ -26,10 +26,15 @@ import { Platform } from '@ionic/angular';
 import { PinDialog } from '@ionic-native/pin-dialog/ngx';
 import { Network } from '@ionic-native/network/ngx';
 import { FingerprintAIO } from '@ionic-native/fingerprint-aio/ngx';
-
+// import { AuthcodePage } from './coop/system/authcode/authcode.page';
+// 
+// import { ComAuthcodeComponent } from './coop/system/com-authcode/com-authcode.component';
 @NgModule({
   declarations: [AppComponent],
-  entryComponents: [],
+  entryComponents: [
+    // AuthcodePage
+    // ComAuthcodeComponent
+  ],
   imports: [
   BrowserModule, IonicModule.forRoot(), AppRoutingModule,
   HttpClientModule,

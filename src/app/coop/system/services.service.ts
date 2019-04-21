@@ -85,6 +85,13 @@ www_board_distrinct='www_board_distrinct';
           });
 
   }
+  geturl(){
+    return this.url;
+  }
+  sendurl(item:string){
+    this.url = item;
+    return console.log("send Url is Complte"+item)
+  }
   
   Set_Storage_membership_no(membership_no){
     this.storage.set('membership_no',membership_no.toString());

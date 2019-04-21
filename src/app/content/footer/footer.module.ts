@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
-
+import { ComAuthcodeComponent } from '../../coop/system/com-authcode/com-authcode.component';
 import { FooterPage } from './footer.page';
 
 
@@ -55,6 +55,10 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [FooterPage]
+  declarations: [FooterPage,ComAuthcodeComponent],
+  entryComponents: [
+    
+    ComAuthcodeComponent
+  ]
 })
 export class FooterPageModule {}

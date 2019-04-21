@@ -3,7 +3,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   { path: '', redirectTo: 'checklogin', pathMatch: 'full'},
-  // { path: '', redirectTo: 'register', pathMatch: 'full'},
+  // { path: '', redirectTo: 'control', pathMatch: 'full'},
   // { path: 'home', loadChildren: './home/home.module#HomePageModule' },
   { path: 'footer', loadChildren: './content/footer/footer.module#FooterPageModule' },
   // { path: 'mem-status', loadChildren: './coop/part/mem-status/mem-status.module#MemStatusPageModule' },
@@ -30,7 +30,8 @@ const routes: Routes = [
   { path: 'checklogin', loadChildren: './coop/system/checklogin/checklogin.module#CheckloginPageModule' },
   { path: 'stopped', loadChildren: './content/stopped/stopped.module#StoppedPageModule' },
   { path: 'register', loadChildren: './coop/register/register.module#RegisterPageModule' },
-  { path: 're-register', loadChildren: './coop/re-register/re-register.module#ReRegisterPageModule' },  { path: 'control', loadChildren: './coop/control/control.module#ControlPageModule' },
+  { path: 're-register', loadChildren: './coop/re-register/re-register.module#ReRegisterPageModule' },
+  { path: 'control', loadChildren: './coop/control/control.module#ControlPageModule' },
 
 
 

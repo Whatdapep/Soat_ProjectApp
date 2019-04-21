@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { Router } from '@angular/router';
-
+import { ModalController } from '@ionic/angular';
+// import { AuthcodePage } from '../system/authcode/authcode.page';
+import { ComAuthcodeComponent } from '../system/com-authcode/com-authcode.component';
+// import { AuthcodePage } from '../system/authcode/authcode.page';
 @Component({
   selector: 'app-control',
   templateUrl: './control.page.html',
@@ -19,7 +22,8 @@ export class ControlPage implements OnInit {
   
   constructor(
     private storage:Storage,
-    private router:Router
+    private router:Router,
+    public modalController: ModalController
 
 
   ) {
@@ -31,7 +35,13 @@ export class ControlPage implements OnInit {
 
   ngOnInit() {
   }
-
+  async presentModal() {
+    const modal = await this.modalController.create({
+      component: ComAuthcodeComponent,
+      componentProps: { value: 123 }
+    });
+    return await modal.present();
+  }
   ok(){
 
     this.storage.remove('url');
@@ -42,5 +52,8 @@ export class ControlPage implements OnInit {
   }
     this.router.navigate(['/checklogin']);
 
+  }
+  auth(){
+    this.presentModal()
   }
 }
