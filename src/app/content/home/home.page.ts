@@ -93,6 +93,9 @@ Refresh(event) {
   board(){
     this.router.navigate(['/board-list']);
   }
+  status(){
+    this.router.navigate(['/footer/footer/profile']);
+  }
 
   list(){
     this.router.navigate(['/list']);

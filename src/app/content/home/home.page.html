@@ -5,16 +5,39 @@
 
 <ion-toolbar>
   <ion-title> 
-    <div align = "right">
+    <!-- <div class="gotoboard"> -->
       <!-- <ion-button> -->
 
      
-          <i class="far fa-comments fa-2x" (click)="board()"></i>
+          <!-- <i class="far fa-comments fa-2x" (click)="board()"></i> -->
       <!-- </ion-button> -->
-  </div>
-
+  <!-- </div> -->
+ 
 
   </ion-title>
+  <ion-row>
+<ion-col>
+<i class="far fa-comments fa-2x" (click)="board()"></i>
+</ion-col>
+<ion-col>
+  <div align="center" style="margin-right:2%;">
+   <i class="far fa-user-circle fa-2x" (click)="status()"></i>
+  </div>
+  </ion-col>
+  <ion-col> 
+      <div align="right" style="margin-right:2%;">
+  <i class="far fa-comments fa-2x" (click)="board()"></i>
+</div>
+    </ion-col>
+
+  </ion-row>
+  
+ 
+ 
+
+  
+
+
 </ion-toolbar>
 <!-- </ion-header> -->
 
