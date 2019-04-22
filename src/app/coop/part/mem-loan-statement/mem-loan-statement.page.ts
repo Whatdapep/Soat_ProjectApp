@@ -41,7 +41,7 @@ export class MemLoanStatementPage implements OnInit {
  mainshow:boolean = false;
  loadshow:boolean = true;
  balance:any='';
-  
+ loan_approve_amount:any='';
 
  
   constructor(
@@ -117,6 +117,9 @@ Maintain(){
                 });
                 this.balance = this.loan_main.map(this.service.callfunction.getprincipal_balance)
                 this.balance = this.balance.toString(); 
+
+                this.loan_approve_amount = this.loan_main.map(this.service.callfunction.getloan_approve_amount)
+                this.loan_approve_amount = this.loan_approve_amount.toString();
                 });
               });
             });

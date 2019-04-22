@@ -1,126 +1,165 @@
-<ion-header>
-     <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    
-    <ion-toolbar>
-      <ion-title>
-        <div align="center"> 
-        ข้อมูลส่วนตัวของฉัน
-      </div>
-      </ion-title>
-    </ion-toolbar>
-  </ion-header>
-  
-  <ion-content padding color="secondary">
-      <!-- <ion-refresher slot="fixed" (ionRefresh)="Refresh($event)">
-          <ion-refresher-content
-            pullingIcon="arrow-dropdown"
-            pullingText="Pull to refresh"
-            refreshingSpinner="dots"
-           
-            refreshingText="กำลังโหลดข้อมูล..">
-          </ion-refresher-content>
-        </ion-refresher> -->
+<!-- <ion-header> -->
+  <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
-      <!-- <div class ="margin"></div> -->
-  <ion-card color="light">
-            <!-- <div align = "center" style="padding-bottom:35px; ">-->
-              <!-- <div>   -->
-                <div class = "toptext" style=" font-size:5vmax; margin:5%;">
-                <strong>{{member_name}}</strong>
-                <img align = "right" src="http://test.cooparmy3.com/coop/images/mem_new.jpg" >
-                <div class ="maintext_price" style=" font-size:2vmax; margin-top: 2%;"> เป็นสมาชิกตั้งแต่  
-                <div class="maintext_cen">
-                  {{approve_date}}
-                  
-                </div>
-              
-                </div>
-            </div>
+<ion-toolbar>
+<ion-title>
+  <div align="center"> 
+  ข้อมูลส่วนตัวของฉัน
+</div>
+</ion-title>
+</ion-toolbar>
+<!-- </ion-header> -->
 
-              <!-- <div align = "right"> 
-              
-          
-          </div>  -->
-         
-  </ion-card>
-          <!-- ------------------------------------------------------------------ -->
-          <!-- <div style = "margin: 5%;">
-               
-              <ion-button (click)="coll()" color = "success">
-                
-                  <i class="fas fa-university fa-lg fa-fw"></i>
-                  <label style="font-size: 0.5em;">การค้ำประกัน</label>
-              </ion-button>
-            
-        
-    
-            <ion-button (click)="gain()" color = "success">
-                
-                <i class="fas fa-university fa-lg fa-fw"></i>
-                <label style="font-size: 0.5em;">ผู้รับผลประโยชน์</label>
-            </ion-button>
-            
-          </div> -->
-          <!-- ---------------------------------------------------------- -->
-          <div *ngIf="items">
-              <!-- <ion-item>
-                </ion-item> -->
-<ion-card color="light">
-          <div class = "maintext_price">
-        <p style="margin:5%;"> เกี่ยวกับ
-        </p>
-        </div> 
-        <div class = "maintext_cen">
-        <i class="fas fa-id-badge fa-lg"></i> {{membership_no}}
-        
-        </div>
-        <div class = "maintext_cen">
-        <i class="fas fa-id-card fa-lg"></i>  {{items.id_card}}
+<ion-content padding color="medium">
+<!-- <ion-refresher slot="fixed" (ionRefresh)="Refresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Pull to refresh"
+      refreshingSpinner="dots"
      
-        </div> 
-        <!-- <ion-item-divider> -->
-        <div class = "maintext_cen">
-        
-          <i class="fas  fa-birthday-cake fa-lg"></i> 
-{{items.date_of_birth}}
-        </div>
-         <!-- <ion-label class = "maintext"> -->
-         <!-- <ion-datetime  readonly value={{date_of_birth}}></ion-datetime> -->
-         
-        <!-- </ion-label>  -->
-      <!-- </ion-item-divider> -->
-        <div class = "maintext_cen">
-            <i class="fas  fa-map-marker-alt fa-lg"></i> 
-            {{items.address_present}}
-          
-           </div> 
-          </ion-card>
-        <!-- <ion-item color="secondary">
-      </ion-item> -->
-      <ion-card color="light">
-        <div class = "maintext_price">
-        <p style="margin:5%;"> การทำงาน
-        </p>
-        </div> 
-        <div class = "maintext_cen">
-     <i class="fas  fa-building fa-lg"></i> 
-         {{items.member_group_name}}
-        
-        </div>      
-          <div class = "maintext_cen">
-          <i class="fas  fa-code-branch fa-lg"></i> 
-           
-           {{items.position_name}}
-          </div>  
-        </ion-card> 
-          <!-- <ion-item color="secondary">
-            </ion-item> -->
-          </div>
+      refreshingText="กำลังโหลดข้อมูล..">
+    </ion-refresher-content>
+  </ion-refresher> -->
 
+<!-- <div class ="margin"></div> -->
+<ion-card color="light">
+      <!-- <div align = "center" style="padding-bottom:35px; ">-->
+        <!-- <div>   -->
+          <div class = "toptext" style=" font-size:5vmax; margin:5%;">
+          <strong>{{member_name}}</strong>
+          <img align = "right" src="http://test.cooparmy3.com/coop/images/mem_new.jpg" >
+          <div class ="maintext_price" style=" font-size:2vmax; margin-top: 2%;"> เป็นสมาชิกตั้งแต่  
+          <div class="maintext_cen">
+            {{approve_date}}
+            
+          </div>
+        
+          </div>
+      </div>
+
+        <!-- <div align = "right"> 
+        
+    
+    </div>  -->
+   
+</ion-card>
+    <!-- ------------------------------------------------------------------ -->
+    <!-- <div style = "margin: 5%;">
+         
+        <ion-button (click)="coll()" color = "success">
+          
+            <i class="fas fa-university fa-lg fa-fw"></i>
+            <label style="font-size: 0.5em;">การค้ำประกัน</label>
+        </ion-button>
       
-            <div *ngIf="!items">
-                <ion-avatar slot="start">
+  
+
+      <ion-button (click)="gain()" color = "success">
+          
+          <i class="fas fa-university fa-lg fa-fw"></i>
+          <label style="font-size: 0.5em;">ผู้รับผลประโยชน์</label>
+      </ion-button>
+      
+    </div> -->
+    <!-- ---------------------------------------------------------- -->
+    <div *ngIf="items">
+        <!-- <ion-item>
+          </ion-item> -->
+<ion-card color="light">
+    <div class = "maintext_price">
+  <p style="margin:5%;"> เกี่ยวกับ
+  </p>
+  </div> 
+  <div class = "maintext_cen">
+  <i class="fas fa-id-badge fa-lg"></i> {{membership_no}}
+  
+  </div>
+  <div class = "maintext_cen">
+  <i class="fas fa-id-card fa-lg"></i>  {{items.id_card}}
+
+  </div> 
+  <!-- <ion-item-divider> -->
+  <div class = "maintext_cen">
+  
+    <i class="fas  fa-birthday-cake fa-lg"></i> 
+{{items.date_of_birth}}
+  </div>
+   <!-- <ion-label class = "maintext"> -->
+   <!-- <ion-datetime  readonly value={{date_of_birth}}></ion-datetime> -->
+   
+  <!-- </ion-label>  -->
+<!-- </ion-item-divider> -->
+  <div class = "maintext_cen">
+      <i class="fas  fa-map-marker-alt fa-lg"></i> 
+      {{items.address_present}}
+    
+     </div> 
+    </ion-card>
+  <!-- <ion-item color="secondary">
+</ion-item> -->
+<ion-card color="light">
+  <div class = "maintext_price">
+  <p style="margin:5%;"> การทำงาน
+  </p>
+  </div> 
+  <div class = "maintext_cen">
+<i class="fas  fa-building fa-lg"></i> 
+   {{items.member_group_name}}
+  
+  </div>      
+    <div class = "maintext_cen">
+    <i class="fas  fa-code-branch fa-lg"></i> 
+     
+     {{items.position_name}}
+    </div>  
+  </ion-card> 
+    <!-- <ion-item color="secondary">
+      </ion-item> -->
+    </div>
+
+
+      <div *ngIf="!items">
+          <ion-avatar slot="start">
+              <ion-skeleton-text animated></ion-skeleton-text>
+            </ion-avatar>
+            <ion-label>
+              <h3>
+                <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+              </h3>
+              <p>
+                <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+              </p>
+              <p>
+                <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+              </p>
+            </ion-label> <ion-avatar slot="start">
+                <ion-skeleton-text animated></ion-skeleton-text>
+              </ion-avatar>
+              <ion-label>
+                <h3>
+                  <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+                </h3>
+                <p>
+                  <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+                </p>
+                <p>
+                  <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+                </p>
+              </ion-label> <ion-avatar slot="start">
+                  <ion-skeleton-text animated></ion-skeleton-text>
+                </ion-avatar>
+                <ion-label>
+                  <h3>
+                    <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+                  </h3>
+                  <p>
+                    <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+                  </p>
+                  <p>
+                    <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+                  </p>
+                </ion-label> <ion-avatar slot="start">
                     <ion-skeleton-text animated></ion-skeleton-text>
                   </ion-avatar>
                   <ion-label>
@@ -133,10 +172,8 @@
                     <p>
                       <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
                     </p>
-                  </ion-label> <ion-avatar slot="start">
-                      <ion-skeleton-text animated></ion-skeleton-text>
-                    </ion-avatar>
-                    <ion-label>
+                  </ion-label>
+                  <ion-label>
                       <h3>
                         <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
                       </h3>
@@ -146,10 +183,8 @@
                       <p>
                         <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
                       </p>
-                    </ion-label> <ion-avatar slot="start">
-                        <ion-skeleton-text animated></ion-skeleton-text>
-                      </ion-avatar>
-                      <ion-label>
+                    </ion-label>
+                    <ion-label>
                         <h3>
                           <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
                         </h3>
@@ -159,10 +194,8 @@
                         <p>
                           <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
                         </p>
-                      </ion-label> <ion-avatar slot="start">
-                          <ion-skeleton-text animated></ion-skeleton-text>
-                        </ion-avatar>
-                        <ion-label>
+                      </ion-label>
+                      <ion-label>
                           <h3>
                             <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
                           </h3>
@@ -184,59 +217,25 @@
                               <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
                             </p>
                           </ion-label>
-                          <ion-label>
-                              <h3>
-                                <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
-                              </h3>
-                              <p>
-                                <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
-                              </p>
-                              <p>
-                                <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
-                              </p>
-                            </ion-label>
-                            <ion-label>
-                                <h3>
-                                  <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
-                                </h3>
-                                <p>
-                                  <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
-                                </p>
-                                <p>
-                                  <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
-                                </p>
-                              </ion-label>
-                              <ion-label>
-                                  <h3>
-                                    <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
-                                  </h3>
-                                  <p>
-                                    <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
-                                  </p>
-                                  <p>
-                                    <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
-                                  </p>
-                                </ion-label>
-  
-              </div>
-              <ion-button expand="full" fill="clear" color="dark" class="button"  (click)="gain()">
-                <label class="Font-darkgray">ผู้รับผลประโยชน์ของฉัน</label>
-            
-            </ion-button>
-            <ion-button expand="full" fill="clear" color="dark" class="button"  (click)="coll()">
-              <label class="Font-darkgray">การค้ำประกันเงินกู้ของฉัน</label>
-          
-          </ion-button>
-              <ion-button expand="full" fill="clear" color="dark" class="button"  (click)="mem_change()">
-                  <label class="Font-darkgray">เปลี่ยนรหัสผ่าน</label>
-              
-              </ion-button>
-            
-              <ion-button expand="full" fill="clear" color="dark" class="button"  (click)="logout()">
-                  <label class="Font-red">ออกจากระบบ</label>
-              
-              </ion-button>
-            
-          
-  </ion-content>
-  
+
+        </div>
+        <ion-button expand="full" fill="clear" color="dark" class="button"  (click)="gain()">
+          <label class="Font-darkgray">ผู้รับผลประโยชน์ของฉัน</label>
+      
+      </ion-button>
+      <ion-button expand="full" fill="clear" color="dark" class="button"  (click)="coll()">
+        <label class="Font-darkgray">การค้ำประกันเงินกู้ของฉัน</label>
+    
+    </ion-button>
+        <ion-button expand="full" fill="clear" color="dark" class="button"  (click)="mem_change()">
+            <label class="Font-darkgray">เปลี่ยนรหัสผ่าน</label>
+        
+        </ion-button>
+      
+        <ion-button expand="full" fill="clear" color="dark" class="button"  (click)="logout()">
+            <label class="Font-red">ออกจากระบบ</label>
+        
+        </ion-button>
+      
+    
+</ion-content>

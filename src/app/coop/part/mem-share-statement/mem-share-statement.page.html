@@ -1,91 +1,101 @@
-<ion-header>
-    <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    <ion-toolbar color="secondary" >
-        <ion-buttons slot="start">
-            <ion-back-button
-                [text]="buttonText"
-                [icon]="buttonIcon"
-                style="color:black">
-            </ion-back-button>
-          </ion-buttons>
-          <!-- <ion-header>
-            <ion-toolbar>
-              <ion-buttons slot="start">
-                <ion-back-button text="" icon="add"></ion-back-button>
-              </ion-buttons>
-            </ion-toolbar>
-          </ion-header> -->
-    <ion-title>
-      <div align="center" class="maintext_price">
-      
-      รายการเดินหุ้นของฉัน
-    </div>
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-<ion-content>
-  <!-- *ngFor = "let item of items_head" -->
-<ion-card  class="maintext">
-    <ion-card-header color="secondary">
-      <!-- <ion-card-subtitle>Card Subtitle</ion-card-subtitle> -->
-      <!-- <ion-card-title>{{item.loan_card_id}}</ion-card-title> -->
-      <ion-card-title  align = "center" class="maintext_price" style="font-size:5vmax;"> 
-          <i class="fa fa-pie-chart fa-stack-1x" ></i> {{items_head.share_stock | number:0}}
-      </ion-card-title>
-    
-    </ion-card-header>
-    <ion-card-content class="maintext_price">
-      งวดล่าสุด {{items_head.period_recrieve}}
-      <ion-item>
-          <h5 align = "right" class="maintext_cen">ชำระเดือนละ  - {{items_head.share_amount_fp }}$</h5>
-          
-        </ion-item>
-        <!-- <h6 align = "right">เปิด ณ วันที่ 16 มีนาคม 2562</h6> -->
-        
-    </ion-card-content>
-    <!-- <ion-card-content align = "right"> -->
-  
-  <!-- </ion-card-content> -->
-    <!-- <ion-card-content > -->
-      <!-- {{item.princical_balance}} -->
-      
-     <!-- </ion-card-content> -->
-    
-  </ion-card >
-  <h4 class="maintext_price">รายการ</h4>
-  <div *ngIf="share_statement" class="maintext">
-      <!--  -->
-    <ion-card class="card_content" *ngFor="let items of share_statement">
-      
-      
-        <ion-item-divider color="success">
-            <ion-label>
-                <h5 align = "left" class="maintext_cen">งวด   {{items.period}}</h5>
-                 <h5 align = "right" class="maintext_price">+ {{items.share_value | number:0}}$</h5>
-                </ion-label>
-        </ion-item-divider>
-        <ion-item-divider>
-            <ion-label class="maintext">
-                <!-- ชำระประจำเดือน(ยอด ณ วันสิ้นเดือน) -->
-                {{items.item_type_description}}
-          
-             </ion-label > 
-             <!-- <div align="right"> -->
-             <ion-label class="maintext_cen">
-                <!-- 16มี.ค.2562 -->
-               {{items.operate_date}}
-                <!-- <ion-datetime  readonly value={{item.operate_date}}></ion-datetime> -->
-             
-             </ion-label>
-            <!-- </div> -->
-        </ion-item-divider>
-      </ion-card>
+<!-- <ion-header> -->
+  <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <ion-toolbar >
 
-      <!--  -->
-    </div>
-      <div *ngIf="!share_statement">
-          <ion-avatar slot="start">
+      <ion-buttons slot="start">
+          <ion-back-button defaultHref="footer/footer/menu"></ion-back-button>
+        </ion-buttons>
+      <!-- <ion-buttons slot="start">
+          <ion-back-button
+              [text]="buttonText"
+              [icon]="buttonIcon"
+              style="color:black">
+          </ion-back-button>
+        </ion-buttons> -->
+  <ion-title>
+    <div align="center" class="maintext_price">
+    
+    รายการเดินหุ้นของฉัน
+  </div>
+  </ion-title>
+</ion-toolbar>
+<!-- </ion-header> -->
+<ion-content color="medium">
+<!-- *ngFor = "let item of items_head" -->
+<ion-card  class="maintext">
+  <ion-card-header color="secondary">
+    <!-- <ion-card-subtitle>Card Subtitle</ion-card-subtitle> -->
+    <!-- <ion-card-title>{{item.loan_card_id}}</ion-card-title> -->
+    <ion-card-title  align = "center" class="maintext_price" style="font-size:5vmax;"> 
+        <i class="fa fa-pie-chart fa-stack-1x" ></i> {{items_head.share_stock | number:0}}
+    </ion-card-title>
+  
+  </ion-card-header>
+  <ion-card-content class="maintext_price">
+    งวดล่าสุด {{items_head.period_recrieve}}
+    <ion-item>
+        <h5 align = "right" class="maintext_cen">ชำระเดือนละ  - {{items_head.share_amount_fp }}$</h5>
+        
+      </ion-item>
+      <!-- <h6 align = "right">เปิด ณ วันที่ 16 มีนาคม 2562</h6> -->
+      
+  </ion-card-content>
+  <!-- <ion-card-content align = "right"> -->
+
+<!-- </ion-card-content> -->
+  <!-- <ion-card-content > -->
+    <!-- {{item.princical_balance}} -->
+    
+   <!-- </ion-card-content> -->
+  
+</ion-card >
+<h4 class="maintext_price">รายการ</h4>
+<div *ngIf="share_statement" class="maintext">
+    <!--  -->
+  <ion-card class="card_content" *ngFor="let items of share_statement">
+    
+    
+      <ion-item-divider color="success">
+          <ion-label>
+              <h5 align = "left" class="maintext_cen">งวด   {{items.period}}</h5>
+               <h5 align = "right" class="maintext_price">+ {{items.share_value | number:0}}$</h5>
+              </ion-label>
+      </ion-item-divider>
+      <ion-item-divider>
+          <ion-label class="maintext">
+              <!-- ชำระประจำเดือน(ยอด ณ วันสิ้นเดือน) -->
+              {{items.item_type_description}}
+        
+           </ion-label > 
+           <!-- <div align="right"> -->
+           <ion-label class="maintext_cen">
+              <!-- 16มี.ค.2562 -->
+             {{items.operate_date}}
+              <!-- <ion-datetime  readonly value={{item.operate_date}}></ion-datetime> -->
+           
+           </ion-label>
+          <!-- </div> -->
+      </ion-item-divider>
+    </ion-card>
+
+    <!--  -->
+  </div>
+    <div *ngIf="!share_statement">
+        <ion-avatar slot="start">
+            <ion-skeleton-text animated></ion-skeleton-text>
+          </ion-avatar>
+          <ion-label>
+            <h3>
+              <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+            </h3>
+            <p>
+              <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+            </p>
+            <p>
+              <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+            </p>
+          </ion-label> <ion-avatar slot="start">
               <ion-skeleton-text animated></ion-skeleton-text>
             </ion-avatar>
             <ion-label>
@@ -124,20 +134,7 @@
                   <p>
                     <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
                   </p>
-                </ion-label> <ion-avatar slot="start">
-                    <ion-skeleton-text animated></ion-skeleton-text>
-                  </ion-avatar>
-                  <ion-label>
-                    <h3>
-                      <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
-                    </h3>
-                    <p>
-                      <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
-                    </p>
-                    <p>
-                      <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
-                    </p>
-                  </ion-label>
-        </div>
-     
+                </ion-label>
+      </div>
+   
 </ion-content>

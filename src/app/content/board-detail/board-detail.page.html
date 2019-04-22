@@ -1,14 +1,11 @@
-<ion-header>
-    <ion-toolbar color="secondary">
+<!-- <ion-header> -->
+    <ion-toolbar color="light">
         <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
   
   
         <ion-buttons slot="start">
-            <ion-back-button
-                [text]="buttonText"
-                [icon]="buttonIcon">
-            </ion-back-button>
+            <ion-back-button defaultHref="board-list"></ion-back-button>
           </ion-buttons>
           <ion-title>
               <div align="center"> 
@@ -16,9 +13,9 @@
             </div>
             </ion-title>
     </ion-toolbar>
-</ion-header>
+<!-- </ion-header> -->
 
-<ion-content>
+<ion-content color="medium">
 
     <ion-refresher slot="fixed" (ionRefresh)="Refresh($event)">
         <ion-refresher-content
@@ -34,7 +31,7 @@
       </ion-refresher>
 
     <div *ngIf="items">
-        <ion-card  *ngFor="let item of items">
+        <ion-card  *ngFor="let item of items" color="light">
           <!-- <ion-card-header class = "headertext">     -->
             <div class = "headertext">
               <i class="fas fa-question-circle"></i>
@@ -45,7 +42,7 @@
       
             <div class ="maintext">
                 
-                <label class="maintext">
+                <label class="maintext_cen">
                 {{item.Note}}
               </label>
               <br>
@@ -71,7 +68,7 @@
           <div>
             
             <ion-card class="comment" *ngFor="let item_2 of items2" style="padding-bottom:2%;">
-                <div class="maintext">
+                <div class="maintext_cen">
                     <ion-label> {{item_2.Msg}} </ion-label> 
                   </div>
                   <div class="maintext">
@@ -206,8 +203,8 @@
 
 </ion-content>
 
-<div *ngIf="items">
-<ion-card>
+<div *ngIf="items" style="background-color: #f1eeee;">
+<ion-card color="light">
     <ion-textarea placeholder="แสดงความคิดเห็น... .." [(ngModel)]="ans" class="textarea"></ion-textarea>
     <div align="right">
     <ion-button color="tertiary" (click)="confirm_ans()">

@@ -12,6 +12,22 @@
 p{
     font-size: 2vmax;
 }
+.screen{
+    max-width: 420px;
+    min-width: 330px;
+    margin: auto; 
+    // position:absolute;
+    bottom:6px;
+    width: calc(200%-100px);
+    background-color: #f1eeee;
+
+}
+ion-button{
+    height: 12vmax;
+    // background-color: none; 
+    // background-image: linear-gradient(to right, rgb(49, 231, 255) ,rgb(72, 132, 172)); 
+    border-radius:1.2em;
+}
 ion-button{
     height: 12vmax;
     background-color: none; 

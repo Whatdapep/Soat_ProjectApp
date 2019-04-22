@@ -201,6 +201,10 @@ id:any='';
       var fullname = [item.loan_type_description];
       return fullname;
     }
+    getloan_approve_amount(item,index) {
+      var fullname = [item.loan_approve_amount];
+      return fullname;
+    }
 
 
 // -------- www_data Map

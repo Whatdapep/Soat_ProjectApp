@@ -11,6 +11,10 @@ ion-icon{
     font-family: 'Kanit', sans-serif;
     font-size:4vmax;
     margin:5%;
+    -webkit-box-shadow: -1px 4px 11px 0px rgba(186,173,176,1);
+    -moz-box-shadow: -1px 4px 11px 0px rgba(186,173,176,1);
+    box-shadow: -1px 4px 11px 0px rgba(186,173,176,1);
+
 }
 ion-refresher-content{
     font-family:'Kanit', sans-serif;

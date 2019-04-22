@@ -1,12 +1,9 @@
-<ion-header>
+<!-- <ion-header> -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
-  <ion-toolbar color="secondary">
+  <ion-toolbar color="light">
       <ion-buttons slot="start">
-          <ion-back-button
-              [text]="buttonText"
-              [icon]="buttonIcon">
-          </ion-back-button>
+          <ion-back-button defaultHref="mem-keep-det"></ion-back-button>
         </ion-buttons>  
     <ion-title>
         <div align="center">  
@@ -14,10 +11,10 @@
     </div>
     </ion-title>
   </ion-toolbar>
-</ion-header>
+<!-- </ion-header> -->
 
-<ion-content>
-<ion-card color="warning">
+<ion-content color="medium">
+<ion-card color="light">
     <ion-card-header color ="secondary">
   <div class="maintext_cen">
 รายการชำละประจำเดือน <ion-label class="maintext_price">{{receive_month_fp}}</ion-label>
@@ -49,7 +46,7 @@
     <ion-card class="card_content"  *ngFor="let item of keep">
           
         
-        <ion-item color="warning">
+        <ion-item color="warning tint">
             <ion-label class="maintext_price"> {{item.keeping_type_name}}
 
                 </ion-label>

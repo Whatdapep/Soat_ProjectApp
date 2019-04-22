@@ -44,13 +44,14 @@ this.Maintain();
   ngOnInit() {
   }
 
+
   show(item:string){
- this.storage.set('www_data_No',item);
-    console.log('set No is '+item);
-    this.iab.create(`http://www.cooparmy3.com/show.php?No=${item}`,`_system`);
-  
-    // this.router.navigate(['/show']);
-  }
+    this.storage.set('www_data_No',item);
+       console.log('set No is '+item);
+       this.iab.create(`http://www.cooparmy3.com/show.php?No=${item}`,`_self`);
+     
+       // this.router.navigate(['/show']);
+     }
   Maintain(){
     this.storage.get('membership_no').then((val) => {
       this.membership_no = val.toString();
@@ -69,5 +70,12 @@ console.log(this.items);
 });
 });
 
+  }
+  Refresh(event) {
+    setTimeout(() => {
+      this.Maintain();
+      event.target.complete();
+  
+    }, 1000);
   }
 }

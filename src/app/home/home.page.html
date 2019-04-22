@@ -1,14 +1,98 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<!-- <ion-header color ="secondary"> -->
+  <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
-<ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
+
+<ion-toolbar>
+  <ion-title> 
+    <div align = "right">
+      <!-- <ion-button> -->
+
+     
+          <i class="far fa-comments fa-2x" (click)="board()"></i>
+      <!-- </ion-button> -->
   </div>
+
+
+  </ion-title>
+</ion-toolbar>
+<!-- </ion-header> -->
+
+<ion-content color="medium">
+
+  <ion-refresher slot="fixed" (ionRefresh)="Refresh($event)" color="medium">
+      <ion-refresher-content
+        pullingIcon="arrow-dropdown"
+        pullingText="Pull to refresh"
+        refreshingSpinner="dots"
+       
+        refreshingText="กำลังโหลดข้อมูล..">
+        
+        
+    
+      </ion-refresher-content>
+    </ion-refresher>
+
+
+<ion-slides pager="false" ionSlideDrag [options]="slideOpts" >
+    <ion-slide *ngFor="let item of items" >
+        <ion-card class="slidecard" (click)="show(item.No)"style="padding:3%;" color ="light">
+            <!-- <ion-card-header> -->
+              <!-- <img src='../../../assets/preview-82967-gZ6ArOJAiM-low_0011.jpg'> -->
+              <img src={{item.nphoto}}>
+              <!-- <ion-card-subtitle>Card Subtitle</ion-card-subtitle> -->
+              <!-- <ion-card-title> -->
+                <div class="maintext">
+                  {{item.Question}}
+                  <!-- ร่วมงานวันคล้ายวันสถาปนา ร้อย.ปจว.3 -->
+                </div>
+              <!-- </ion-card-title> -->
+            <!-- </ion-card-header> -->
+            
+
+            <!-- <ion-card-content > -->
+              <div class="maintext" align="left">
+                <ion-label> <i class="fas fa-user"></i> {{item.Name}} </ion-label> 
+              </div>
+              <div align="right" >
+                    <i class="fas fa-clock"></i>
+                <ion-label class ="maintext">
+                  {{item.Date}}
+                <!-- <ion-datetime class ="maintext"  readonly value={{item.Date}}><span></span></ion-datetime> -->
+             </ion-label>
+            </div>
+            <!-- </ion-card-content> -->
+
+          </ion-card>
+    </ion-slide>
+    <ion-slide>
+        <ion-card class ="card" >
+            <ion-card-header>
+              <div align ="center">
+              <label>
+                  ข่าวและกิจกรรม
+              </label>
+            </div>
+                  <div></div>
+            </ion-card-header>
+            <ion-card-content>
+            <div></div>
+            </ion-card-content>
+            <ion-card-subtitle>
+              <div align = "center">
+                <ion-button color="light" class =".button" (click)="list()">
+                    เพิ่มเติม >
+                  </ion-button>
+                </div>
+            </ion-card-subtitle>
+            <ion-card-title>
+            <div>
+            
+            </div>
+            </ion-card-title>
+              </ion-card>
+
+    </ion-slide>
+    </ion-slides>
+
 </ion-content>
