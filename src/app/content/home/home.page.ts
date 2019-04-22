@@ -101,7 +101,7 @@ Refresh(event) {
     this.router.navigate(['/list']);
   }
   show(item:string){
-    this.iab.create(`http://www.cooparmy3.com/show.php?No=${item}`,`_system`);
+    this.iab.create(`http://www.cooparmy3.com/show.php?No=${item}`,`_blank`);
     this.storage.set('www_data_No',item);
     console.log('set No is '+item);
 

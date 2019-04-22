@@ -17,16 +17,16 @@
   </ion-title>
   <ion-row>
 <ion-col>
-<i class="far fa-comments fa-2x" (click)="board()"></i>
+<!-- <i class="far fa-comments fa-2x" (click)="board()"></i> -->
 </ion-col>
 <ion-col>
   <div align="center" style="margin-right:2%;">
-   <i class="far fa-user-circle fa-2x" (click)="status()"></i>
+   <img src="../../../assets/icon/person.svg" width="30" height="30" (click)="status()">
   </div>
   </ion-col>
   <ion-col> 
       <div align="right" style="margin-right:2%;">
-  <i class="far fa-comments fa-2x" (click)="board()"></i>
+  <img src="../../../assets/icon/board.svg" width="34" height="34"  (click)="board()">
 </div>
     </ion-col>
 
@@ -62,7 +62,7 @@
         <ion-card class="slidecard" (click)="show(item.No)"style="padding:3%;" color ="light">
             <!-- <ion-card-header> -->
               <!-- <img src='../../../assets/preview-82967-gZ6ArOJAiM-low_0011.jpg'> -->
-              <img src={{item.nphoto}}>
+              <img class="img" src={{item.nphoto}}>
               <!-- <ion-card-subtitle>Card Subtitle</ion-card-subtitle> -->
               <!-- <ion-card-title> -->
                 <div class="maintext">
