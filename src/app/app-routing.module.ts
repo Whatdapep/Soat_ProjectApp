@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'checklogin', pathMatch: 'full'},
-  // { path: '', redirectTo: 'control', pathMatch: 'full'},
+  // { path: '', redirectTo: 'checklogin', pathMatch: 'full'},
+  { path: '', redirectTo: 'stopped', pathMatch: 'full'},
   // { path: 'home', loadChildren: './home/home.module#HomePageModule' },
   { path: 'footer', loadChildren: './content/footer/footer.module#FooterPageModule' },
   // { path: 'mem-status', loadChildren: './coop/part/mem-status/mem-status.module#MemStatusPageModule' },
