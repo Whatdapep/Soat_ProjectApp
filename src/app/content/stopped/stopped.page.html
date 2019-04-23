@@ -8,10 +8,26 @@
 
 <ion-content color="medium">
   <div class="screen">
+    <div align="center">
   <img src="../../../assets/Wireless-icon.svg.png" width="150">
-  <div class="maintext">
+</div>
+  <div class="maintext_cen" style="text-align: center;">
   กรุณาเชื่อมต่อ Internet หรือ wifi
 </div>
+<!-- <ion-button expanded="block" (click)="Refresh()"><i class="fas fa-redo-alt fa-2x"></i></ion-button> -->
+
+<ion-button expand="block" (click)="Refresh()" class="button" style="padding-top:-10%;" color="light">
+  <div>
+  <div align="center">
+    <i class="fas fa-redo-alt fa-2x"></i>
+  </div>
+  <p align ="center">
+    ลองอีกครั้ง
+  </p>
+    </div>
+  </ion-button>
+
+  
 </div>
 
 

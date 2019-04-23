@@ -53,6 +53,7 @@ export class LogonPage implements OnInit {
     private platform:Platform
 
   ) {
+    this.service.pickurl();
     this.geturl = this.service.geturl()
     console.log("url is "+this.geturl);
     this.username='';
@@ -173,6 +174,7 @@ async presentLoadingWithOptions() {
 // -*--------------------------------------------------------------------------
 
 login(){
+  this.service.pickurl();
   // this.presentLoadingWithOptions();
   this.service.callfunction.presentLoadingWithOptions();
   this.service.sendurl(this.url);
@@ -220,7 +222,8 @@ login(){
      }
      var memlenght = this.membership_no_new.length;
      if(memlenght = 7){
-      this.service.Set_Storage_membership_no(members);
+      // this.service.Set_Storage_membership_no(members);
+      this.storage.set('membership_no',members);
       this.storage.set('info',info);
       this.storage.set('member_name',this.member_name);
       console.log('set member_name is '+this.member_name)

@@ -89,40 +89,6 @@ this.loadshow = false;
 
 this.approve_date = results.approve_date;
 console.log(this.items);
-// var tokentest = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN1bHRzIjpbeyJzZXEiOjAsIm1lbWJlcnNoaXBfbm8iOiIwMDAwMDkxIiwibWVtX2lkIjoiMzY0MDQwMDIwMzg0NiIsIm1lbWJlcl9uYW1lIjoi4Lit4Li04LiX4LiY4Li04Lie4LilIiwibWVtYmVyX3N1cm5hbWUiOiLguKfguLHguJnguYDguJ7guYfguI0iLCJtZW1fZW1haWwiOm51bGwsIm1lbV9wYXNzd29yZCI6IjZiZjhkNGRkOTM2ZjUxMTgxN2ZhOTZkYjk1N2I5YjM0IiwibWVtX2NvbmZpcm0iOiIxIiwiRGF0ZSI6bnVsbCwib3BlcmF0ZV9kYXRlIjoiMjAxOS0wMS0xNlQwNjo1MDoyMS4wMDBaIn1dLCJpYXQiOjE1NTQwMjIwMzYsImV4cCI6MTU1NDAyNTYzNn0.0nSbtX-z85lNkqWEJTZdsGaXNZFCwTMhK6Fu7YesEP4'
-// let t = JWT(tokentest);
-// let t = JWT(this.items.toString());
-// console.log(t);
-// ------------------------------------- MAp Space------------------------------------------------
-// this.token = results.map(this.service.callfunction.gettoken)
-// this.token = this.token.toString();
-// console.log(this.token)
-
-// this.member_name = results.map(this.service.callfunction.getname)
-// this.member_name = this.member_name.toString();
-// // console.log("this is name"+this.member_name)
-
-// this.member_surname = results.map(this.service.callfunction.getsurname)
-// this.member_surname = this.member_surname.toString();
-
-// this.date_of_birth = results.map(this.service.callfunction.getdateborn)
-// this.date_of_birth = this.date_of_birth.toString();
-// // console.log(this.date_of_birth);
-
-// this.approve_date = results.map(this.service.callfunction.getapprove)
-// this.approve_date = this.approve_date.toString();
-
-// this.id_card = results.map(this.service.callfunction.getid_card)
-// this.id_card = this.id_card.toString();
-
-// this.member_group_name = results.map(this.service.callfunction.getgroupname)
-// this.member_group_name = this.member_group_name.toString();
-
-// this.position_name = results.map(this.service.callfunction.getposition)
-// this.position_name = this.position_name.toString();
-
-// this.address_present = results.map(this.service.callfunction.getaddress_present)
-// this.address_present = this.address_present.toString();
 
 
 });

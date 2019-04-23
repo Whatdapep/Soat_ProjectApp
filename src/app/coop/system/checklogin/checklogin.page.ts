@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
 import { Network } from '@ionic-native/network/ngx';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-checklogin',
@@ -14,27 +15,27 @@ export class CheckloginPage implements OnInit {
   constructor(
     public router:Router, 
     private storage: Storage,
-    private network: Network
+    private network: Network,
+    private toastController:ToastController
     ) {
 
-      let disconnectSubscription = this.network.onDisconnect().subscribe(() => {
-        console.log('network was disconnected :-(');
-        setTimeout(() => {
-          this.router.navigate(['/stopped']);
-        }, 3000);
+      // this.network.onDisconnect().subscribe(() => {
+      //   this.falsenetwork()
+      //   console.log('network was disconnected :-(');
+      //   setTimeout(() => {
+      //     this.router.navigate(['/stopped']);
+      //   }, 3000);
 
-      });
+      // });
       
-      disconnectSubscription.unsubscribe();
+      // disconnectSubscription.unsubscribe();
       
       
-      // watch network for a connection
-      let connectSubscription = this.network.onConnect().subscribe(() => {
+     
+      //  this.network.onConnect().subscribe(() => {
+        //  this.onconnectnetwork()
         console.log('network connected!');
-        // We just got a connection but we need to wait briefly
-         // before we determine the connection type. Might need to wait.
-        // prior to doing any api requests as well.
-     // this.storage.clear();
+       
      this.storage.get('url').then((val) => {
       this.url = val;
       console.log(this.url);
@@ -49,7 +50,7 @@ export class CheckloginPage implements OnInit {
    },3000);
   }else{
     setTimeout(()=>{  
-      // this.router.navigate(['/logon']);
+    
       this.storage.set('authmenu',"menu");
       this.router.navigate(['/authcode/checked']);
       
@@ -61,13 +62,28 @@ export class CheckloginPage implements OnInit {
 
 });
         
-      });
-      
-      // stop connect watch
-      connectSubscription.unsubscribe();
+      // });
+  
+      // connectSubscription.unsubscribe();
 
       
 
+}
+
+async falsenetwork() {
+  const toast = await this.toastController.create({
+    message: 'ไม่มีการเชื่อมต่ออินเทอร์เน็ต',
+    duration: 2000
+  });
+  toast.present();
+}
+
+async onconnectnetwork() {
+  const toast = await this.toastController.create({
+    message: 'เชื่อมต่ออินเทอร์เน็ต',
+    duration: 2000
+  });
+  toast.present();
 }
   ngOnInit() {
   }

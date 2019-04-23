@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
 import { Network } from '@ionic-native/network/ngx';
+import { LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-stopped',
@@ -15,7 +16,8 @@ check:any='';
   constructor(
     private router:Router,
     private storage:Storage,
-    private network:Network
+    private network:Network,
+    private loadingController:LoadingController
 
   ) {
     
@@ -26,9 +28,21 @@ check:any='';
 
   ngOnInit() {
   }
+  async presentLoadingWithOptions() {
+    const loading = await this.loadingController.create({
+      spinner: 'dots',
+      duration: 2800,
+      message: 'Please wait...',
+      translucent: true,
+      cssClass: 'custom-class custom-loading'
+    });
+    return await loading.present();
+  }
 
   Refresh(){
+
     this.Maintain();
+    this.presentLoadingWithOptions();
   }
   Maintain(){
     let disconnectSubscription = this.network.onDisconnect().subscribe(() => {
@@ -49,33 +63,15 @@ check:any='';
        // before we determine the connection type. Might need to wait.
       // prior to doing any api requests as well.
    // this.storage.clear();
-   this.storage.get('url').then((val) => {
-    this.url = val;
-    console.log(this.url);
-  });
-this.storage.get('membership_no').then((val) => {
-this.membership_no = val;
-if(this.membership_no == null){
+  
   setTimeout(()=>{   
-    this.storage.set('authmenu',"menu");
-    this.router.navigate(['/logon']);
+    this.router.navigate(['/checklogin']);
    
  },3000);
-}else{
-  setTimeout(()=>{  
-    // this.router.navigate(['/logon']);
-    this.storage.set('authmenu',"menu");
-    this.router.navigate(['/authcode/checked']);
-    
- },3000);
-
-
-console.log("the membership_no is"+this.membership_no);
-}
 
 });
       
-    });
+   
     
     // stop connect watch
     connectSubscription.unsubscribe();

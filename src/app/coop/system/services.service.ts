@@ -72,21 +72,24 @@ www_board_distrinct='www_board_distrinct';
         ) { 
 
 
-          this.storage.get('url').then((val) => {
-          this.url_pom = val
-          console.log(this.url_pom);
-          if(this.url_pom == null){
-            
-          this.url=`http://${this.defalut_url}/coop/api_mobile/app.php`;
-        }else{
-
-          this.url=`http://${this.url_pom}/coop/api_mobile/app.php`;
-        }
-          });
-
+          this.pickurl()
   }
   geturl(){
     return this.url;
+  }
+  pickurl(){
+    this.storage.get('url').then((val) => {
+      this.url_pom = val
+      console.log(this.url_pom);
+      if(this.url_pom == null){
+        
+      this.url=`http://${this.defalut_url}/coop/api_mobile/app.php`;
+    }else{
+
+      this.url=`http://${this.url_pom}/coop/api_mobile/app.php`;
+    }
+      });
+
   }
   sendurl(item:string){
     this.url = item;

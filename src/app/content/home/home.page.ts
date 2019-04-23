@@ -90,6 +90,9 @@ Refresh(event) {
 
   }, 1000);
 }
+contact(){
+  this.router.navigate(['/contact']);
+}
   board(){
     this.router.navigate(['/board-list']);
   }
