@@ -30,47 +30,86 @@
          สื่อสารทหาร    73893 , 73894
        </ion-card>
        <ion-card>
-       สำนักงานสาขา(1) นครสวรรค์
+          <ion-card-header color="success">
+              <div class ="maintext_price" align="left">
+                  สำนักงานสาขา(1) นครสวรรค์
+                  </div>
+                </ion-card-header>
+       
        ค่ายจิรประวัติ เลขที่ 8 ถนนพหลโยธิน หมู่ 2 ตำบลนครสวรรค์ออก อำเภอเมือง จังหวัดนครสวรรค์ 60000
          โทรศัพท์    0-5625-7050
          แฟกซ์    0-5625-5200
          สื่อสารทหาร    31099
        </ion-card>
        <ion-card>
-       สำนักงานสาขา(2) เพชรบูรณ์
+          <ion-card-header color="success">
+              <div class ="maintext_price" align="left">
+               สำนักงานสาขา(2) เพชรบูรณ์
+                  </div>
+                </ion-card-header>
+       
        ค่ายพ่อขุนผาเมือง เลขที่ 99 ถนนสระบุรี-หล่มสัก หมู่ที่ 2 ตำบลสะเดียง อำเภอเมือง จังหวัดเพชรบูรณ์ 67000
          โทรศัพท์    0-5674-3170
          แฟกซ์    0-5674-3170
        </ion-card>
        <ion-card>
-       สำนักงานสาขา(3) ตาก
+          <ion-card-header color="success">
+              <div class ="maintext_price" align="left">
+               สำนักงานสาขา(3) ตาก
+                  </div>
+                </ion-card-header>
+       
        ค่ายวชิรปราการ เลขที่ 335-6 ถนนจรดวิถีถ่อง หมู่ที่ 1 ตำบลน้ำรึม อำเภอเมือง จังหวัดตาก 63000
          โทรศัพท์    0-5551-6462 
          แฟกซ์    0-5551-6462
          สื่อสารทหาร    13755 
        </ion-card>
        <ion-card>
-       สำนักงานสาขา(4) เชียงใหม่
+          <ion-card-header color="success">
+              <div class ="maintext_price" align="left">
+                 สำนักงานสาขา(4) เชียงใหม่
+                  </div>
+                </ion-card-header>
+       
        เลขที่ 178 หมู่ 8 ถนนโชตนา ตำบลดอนแก้ว อำเภอแม่ริม จังหวัดเชียงใหม่ 50180
          โทรศัพท์    0-5311-2252
          แฟกซ์    0-5311-2252
 </ion-card>
 <ion-fab vertical="top" horizontal="end" slot="fixed">
-    <ion-fab-button>
-      <ion-icon name="add"></ion-icon>
+    <ion-fab-button color="danger">
+        <ion-icon name="share"></ion-icon>
     </ion-fab-button>
    
       <ion-fab-list side="start">
-        <ion-fab-button><i class="fab fa-facebook-square"><a href="https://facebook.com/สหกรณ์ออมทรัพย์กองทัพภาคที่-3-จำกัด-202554849848894/?__tn__=%2Cd%2CP-R&eid=ARCSMscN_RIB9WdqGC4AlaSzhoEgKfKyCZ-8amudac6a_XdA3t9Jo69Gmx1SgRQ8UgZlXg38Xd5yq97n&_rdc=1&_rdr"></a></i></ion-fab-button>
-        <ion-fab-button><ion-icon name="logo-instagram"></ion-icon></ion-fab-button>
-        <ion-fab-button><ion-icon name="logo-instagram"></ion-icon></ion-fab-button>
-        <ion-fab-button><ion-icon name="logo-instagram"></ion-icon></ion-fab-button>
+        <ion-fab-button (click)="facebook()"><i class="fab fa-facebook-square"></i></ion-fab-button>
+        <ion-fab-button><i class="fas fa-envelope"></i></ion-fab-button>
+        <!-- <ion-fab-button><ion-icon name="logo-instagram"></ion-icon></ion-fab-button>
+        <ion-fab-button><ion-icon name="logo-instagram"></ion-icon></ion-fab-button> -->
       </ion-fab-list>
   </ion-fab>
 
   <!--
    -->
    
+      <!-- fab placed in the center of the content with a list on each side -->
+      <!-- <ion-fab vertical="center" horizontal="center" slot="fixed">
+        <ion-fab-button>
+          <ion-icon name="share"></ion-icon>
+        </ion-fab-button>
+        <ion-fab-list side="top">
+          <ion-fab-button><ion-icon name="logo-vimeo"></ion-icon></ion-fab-button>
+        </ion-fab-list>
+        <ion-fab-list side="bottom">
+          <ion-fab-button><ion-icon name="logo-facebook"></ion-icon></ion-fab-button>
+        </ion-fab-list>
+        <ion-fab-list side="start">
+          <ion-fab-button><ion-icon name="logo-instagram"></ion-icon></ion-fab-button>
+        </ion-fab-list>
+        <ion-fab-list side="end">
+          <ion-fab-button><ion-icon name="logo-twitter"></ion-icon></ion-fab-button>
+        </ion-fab-list>
+      </ion-fab> -->
+  
 
   </div>
  
