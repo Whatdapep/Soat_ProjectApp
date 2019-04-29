@@ -13,7 +13,7 @@
   </ion-toolbar>
 <!-- </ion-header> -->
 
-<ion-content color="medium">
+<ion-content color="medium" *ngIf="mainshow">
 <ion-card color="light">
     <ion-card-header color ="secondary">
   <div class="maintext_cen">
@@ -70,7 +70,7 @@
 </div>
 
 
-  <div *ngIf="!items">
+  <!-- <div *ngIf="!items">
     <ion-avatar slot="start">
         <ion-skeleton-text animated></ion-skeleton-text>
       </ion-avatar>
@@ -124,7 +124,7 @@
                 <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
               </p>
             </ion-label>
-  </div>
+  </div> -->
 
 </ion-content>
 <ion-content *ngIf="loadshow">

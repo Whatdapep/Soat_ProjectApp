@@ -5,7 +5,7 @@ import { RouteReuseStrategy } from '@angular/router';
 import { IonicModule, IonicRouteStrategy, PopoverController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
-
+import { EmailComposer } from '@ionic-native/email-composer/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import {HttpClientModule}from'@angular/common/http';
@@ -18,7 +18,7 @@ import { ThemeableBrowser } from '@ionic-native/themeable-browser/ngx';
 // import { File } from '@ionic-native/file';
 // import { FileOpener } from '@ionic-native/file-opener';
 //import { Platform } from 'ionic-angular'; 
-
+import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { NetworkInterface } from '@ionic-native/network-interface/ngx';
 import { BrowserTab } from '@ionic-native/browser-tab/ngx';
 import { Device } from '@ionic-native/device/ngx';
@@ -56,7 +56,10 @@ import { FingerprintAIO } from '@ionic-native/fingerprint-aio/ngx';
     Platform,
     PinDialog,
     Network,
-    FingerprintAIO
+    FingerprintAIO,
+    EmailComposer,
+    Camera
+    
    
   ],
   bootstrap: [AppComponent]
